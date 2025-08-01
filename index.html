@@ -3,8 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio 0172</title>
+    <title>Studio 0172 - Build Better. Faster.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='60' height='60' rx='12' fill='%23000000'/%3E%3Ctext x='40' y='35' font-family='Arial Black, sans-serif' font-size='18' font-weight='900' text-anchor='middle' fill='%23ffffff'%3E01%3C/text%3E%3Ctext x='40' y='55' font-family='Arial Black, sans-serif' font-size='18' font-weight='900' text-anchor='middle' fill='%23ffffff'%3E72%3C/text%3E%3C/svg%3E">
+    
     <style>
+        :root {
+            /* Dark theme (default) */
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-hover: rgba(255,255,255,0.03);
+            --text-primary: #ffffff;
+            --text-secondary: #fafafa;
+            --text-muted: #999;
+            --text-dim: #666;
+            --text-label: #71717a;
+            --border-primary: rgba(255,255,255,0.1);
+            --border-secondary: rgba(255,255,255,0.08);
+            --header-bg: rgba(0, 0, 0, 0.8);
+            --status-active-bg: rgba(34, 197, 94, 0.1);
+            --status-active-text: #22c55e;
+            --status-active-border: rgba(34, 197, 94, 0.2);
+            --status-pending-bg: rgba(251, 191, 36, 0.1);
+            --status-pending-text: #fbbf24;
+            --status-pending-border: rgba(251, 191, 36, 0.2);
+            --btn-primary-bg: #ffffff;
+            --btn-primary-text: #000000;
+            --btn-primary-hover: #f4f4f5;
+            --btn-secondary-border: rgba(255,255,255,0.1);
+            --btn-secondary-hover-bg: rgba(255,255,255,0.05);
+            --btn-secondary-hover-border: rgba(255,255,255,0.2);
+            --card-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 2px 8px rgba(0,0,0,0.4);
+            --card-hover-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.6);
+        }
+
+        [data-theme="light"] {
+            /* Light theme */
+            --bg-primary: #ffffff;
+            --bg-secondary: #fafafa;
+            --bg-hover: rgba(0,0,0,0.02);
+            --text-primary: #000000;
+            --text-secondary: #09090b;
+            --text-muted: #666;
+            --text-dim: #999;
+            --text-label: #71717a;
+            --border-primary: rgba(0,0,0,0.1);
+            --border-secondary: rgba(0,0,0,0.05);
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --status-active-bg: rgba(34, 197, 94, 0.1);
+            --status-active-text: #16a34a;
+            --status-active-border: rgba(34, 197, 94, 0.3);
+            --status-pending-bg: rgba(251, 191, 36, 0.1);
+            --status-pending-text: #f59e0b;
+            --status-pending-border: rgba(251, 191, 36, 0.3);
+            --btn-primary-bg: #000000;
+            --btn-primary-text: #ffffff;
+            --btn-primary-hover: #18181b;
+            --btn-secondary-border: rgba(0,0,0,0.1);
+            --btn-secondary-hover-bg: rgba(0,0,0,0.05);
+            --btn-secondary-hover-border: rgba(0,0,0,0.2);
+            --card-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.08);
+            --card-hover-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 8px 24px rgba(0,0,0,0.12);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,309 +74,805 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
-            background-color: #000000;
-            color: #ffffff;
-            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .matrix-rain {
+        /* Header */
+        .header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            opacity: 0.1;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-primary);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        .rain-column {
-            position: absolute;
-            top: -100%;
-            font-size: 14px;
-            animation: rain 10s linear infinite;
-            color: #ffffff;
-            writing-mode: vertical-lr;
-            text-orientation: upright;
-        }
-
-        @keyframes rain {
-            to {
-                transform: translateY(200vh);
-            }
-        }
-
-        .container {
+        .header-content {
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 40px;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .logo {
-            font-size: 120px;
-            font-weight: 900;
-            letter-spacing: -5px;
-            margin-bottom: 0;
-            display: inline-block;
-            position: relative;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            text-shadow: 
-                0 0 10px rgba(255,255,255,0.3),
-                0 0 20px rgba(255,255,255,0.2),
-                0 0 30px rgba(255,255,255,0.1);
-            animation: glitch 3s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo svg {
+            height: 50px;
+            width: 300px;
+        }
+        
+        /* Update SVG colors based on theme */
+        .logo svg line,
+        .logo svg circle,
+        .logo svg rect {
+            stroke: var(--text-primary);
+            fill: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .logo svg text {
+            fill: var(--bg-primary);
+            transition: fill 0.3s ease;
         }
 
-        @keyframes glitch {
-            0%, 100% {
-                text-shadow: 
-                    0 0 10px rgba(255,255,255,0.3),
-                    0 0 20px rgba(255,255,255,0.2),
-                    0 0 30px rgba(255,255,255,0.1);
-            }
-            33% {
-                text-shadow: 
-                    2px 2px 0 #ff0000,
-                    -2px -2px 0 #00ff00,
-                    0 0 10px rgba(255,255,255,0.5);
-            }
-            66% {
-                text-shadow: 
-                    -2px 2px 0 #00ff00,
-                    2px -2px 0 #ff0000,
-                    0 0 10px rgba(255,255,255,0.5);
-            }
-        }
-
-        .logo-number {
-            display: inline-block;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .logo-number:nth-child(1) { animation-delay: 0s; }
-        .logo-number:nth-child(2) { animation-delay: 0.2s; }
-        .logo-number:nth-child(3) { animation-delay: 0.4s; }
-        .logo-number:nth-child(4) { animation-delay: 0.6s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .subtitle {
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin: 40px 0;
-            text-transform: uppercase;
-            border: 4px solid #ffffff;
-            padding: 20px 40px;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .subtitle::before {
-            content: '';
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-secondary);
+            border-radius: 24px;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            transition: all 0.3s ease;
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.1);
-            animation: sweep 3s linear infinite;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-primary);
+        }
+        
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover svg {
+            transform: rotate(15deg);
         }
 
-        @keyframes sweep {
-            to { left: 100%; }
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            padding-left: 40px;
+            padding-right: 40px;
         }
 
-        .content {
-            margin-top: 60px;
-            text-align: left;
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-primary);
+            position: relative;
+            width: 100vw;
+            margin-left: -40px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .hero-tagline {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
-        .content p {
-            font-size: 18px;
-            line-height: 28px;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            animation-delay: 0.5s;
-        }
-
-        .content ul {
-            list-style: none;
-            padding: 0;
+        .features-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
             margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
-        .content li {
+        .feature-item {
             font-size: 16px;
-            line-height: 32px;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-            border-left: 4px solid #ffffff;
-            background: rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--text-dim);
+            border-radius: 50%;
+        }
+
+        .cta-text {
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-top: 20px;
+        }
+
+        /* Component Showcase */
+        .showcase-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-dim);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .component-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            animation: slideIn 0.8s forwards;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: var(--card-shadow);
+        }
+
+        .component-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .client-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .client-industry {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+        
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .component-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .component-preview {
+            background: var(--bg-primary);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-secondary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            flex: 1;
+        }
+
+        /* shadcn-style components */
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .content li:nth-child(1) { animation-delay: 0.7s; }
-        .content li:nth-child(2) { animation-delay: 0.9s; }
-        .content li:nth-child(3) { animation-delay: 1.1s; }
-
-        .content li:hover {
-            background: rgba(255,255,255,0.1);
-            padding-left: 30px;
-            border-left-width: 8px;
+        .btn-primary:hover {
+            background: var(--btn-primary-hover);
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid var(--btn-secondary-border);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        .btn-secondary:hover {
+            background: var(--btn-secondary-hover-bg);
+            border-color: var(--btn-secondary-hover-border);
+        }
+
+        .data-table {
+            width: 100%;
+            font-size: 14px;
+            border-collapse: collapse;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-secondary);
+            color: var(--text-label);
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-secondary);
+            color: var(--text-secondary);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+        .status-active {
+            background: var(--status-active-bg);
+            color: var(--status-active-text);
+            border: 1px solid var(--status-active-border);
+        }
+
+        .status-pending {
+            background: var(--status-pending-bg);
+            color: var(--status-pending-text);
+            border: 1px solid var(--status-pending-border);
+        }
+
+        .alert-box {
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .alert-success {
+            background: var(--bg-secondary);
+            border: 1px solid var(--status-active-border);
+            color: var(--text-secondary);
+        }
+
+        .alert-icon {
+            color: var(--status-active-text);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--text-secondary);
+            transition: width 0.5s ease;
+        }
+
+        /* Chart styles */
+        .chart-container {
+            width: 100%;
+            height: 120px;
+            background: var(--bg-hover);
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;
+            gap: 4px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: var(--border-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            background: var(--btn-secondary-hover-border);
+        }
+
+        /* Card metric */
+        .metric-card {
+            background: var(--bg-hover);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-secondary);
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-label);
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+
+        .metric-value {
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .metric-change {
+            font-size: 12px;
+            color: var(--text-label);
+        }
+
+        .metric-change.positive {
+            color: var(--status-active-text);
+        }
+
+        .client-description {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border-primary);
+            margin-top: 100px;
         }
 
         .footer-text {
-            font-size: 16px;
-            margin: 40px 0;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            animation-delay: 1.3s;
-        }
-
-        .pulse-text {
-            font-size: 20px;
-            font-weight: bold;
-            display: inline-block;
-            padding: 15px 30px;
-            border: 2px solid #ffffff;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 1s forwards, pulse 2s ease-in-out infinite;
-            animation-delay: 1.5s;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255,255,255,0.5);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 20px 10px rgba(255,255,255,0);
-            }
-        }
-
-        /* ASCII Art Border */
-        .ascii-border {
-            position: fixed;
-            font-family: monospace;
-            font-size: 12px;
-            color: #333;
-            z-index: 5;
-            line-height: 1;
-        }
-
-        .ascii-border.top {
-            top: 10px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        .ascii-border.bottom {
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            text-align: center;
+            font-size: 14px;
+            color: var(--text-dim);
         }
 
         @media (max-width: 768px) {
-            .logo {
-                font-size: 80px;
+            .hero-title {
+                font-size: 36px;
             }
             
-            .subtitle {
-                font-size: 24px;
-                padding: 15px 30px;
+            .hero-subtitle {
+                font-size: 18px;
             }
             
-            .content {
-                padding: 0 20px;
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="matrix-rain" id="matrix-rain"></div>
-    
-    <div class="ascii-border top">═══════════════════════════════════════════════════════════════════════════════</div>
-    <div class="ascii-border bottom">═══════════════════════════════════════════════════════════════════════════════</div>
-
-    <div class="container">
-        <h1 class="logo">
-            <span class="logo-number">S</span><span class="logo-number">T</span><span class="logo-number">U</span><span class="logo-number">D</span><span class="logo-number">I</span><span class="logo-number">O</span> <span class="logo-number">0</span><span class="logo-number">1</span><span class="logo-number">7</span><span class="logo-number">2</span>
-        </h1>
-        
-        <h2 class="subtitle">Build Better. Faster.</h2>
-        
-        <div class="content">
-            <p>Explore a curated portfolio of next-gen tools—built for clarity, speed, and real-world impact.</p>
-            
-            <ul>
-                <li>Task coordination, reimagined</li>
-                <li>Outreach, automated and intelligent</li>
-                <li>Agents that think before you do</li>
-            </ul>
-            
-            <p class="footer-text">No clutter. Just products that work.</p>
-            
-            <div class="pulse-text">⚡ Stay tuned. More is coming.</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Tech lines -->
+                    <line x1="5" y1="25" x2="25" y2="25" stroke="#000000" stroke-width="3"/>
+                    <line x1="175" y1="25" x2="195" y2="25" stroke="#000000" stroke-width="3"/>
+                    <!-- End dots -->
+                    <circle cx="5" cy="25" r="4" fill="#000000"/>
+                    <circle cx="195" cy="25" r="4" fill="#000000"/>
+                    <!-- Text container -->
+                    <rect x="30" y="10" width="140" height="30" rx="15" fill="#000000"/>
+                    <text x="100" y="30" font-family="Courier New, monospace" font-size="18" text-anchor="middle" fill="#ffffff">
+                        <tspan font-weight="400">Studio</tspan>
+                        <tspan font-weight="700" dx="3">0172</tspan>
+                    </text>
+                </svg>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" style="display: none;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
-    </div>
+    </header>
 
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-tagline">Build Better. Faster.</div>
+            <h1 class="hero-title">Building Softwares That<br>Just Work</h1>
+            <p class="hero-subtitle">
+                Explore a curated portfolio of next-gen tools—built for clarity, speed, and real-world impact.
+            </p>
+            <div class="features-list">
+                <div class="feature-item">Task coordination, reimagined</div>
+                <div class="feature-item">Outreach, automated and intelligent</div>
+                <div class="feature-item">Agents that think before you do</div>
+            </div>
+            <p class="cta-text">No clutter. Just products that work.</p>
+        </section>
+
+        <!-- Component Showcase -->
+        <section class="showcase-section">
+            <div class="section-header">
+                <h2 class="section-title">Solutions We Build</h2>
+                <p class="section-subtitle">Clean, powerful solutions that deliver real value</p>
+            </div>
+            
+            <div class="component-grid">
+                <!-- Analytics Dashboard -->
+                <div class="component-card">
+                    <div class="client-name">Analytics Dashboard</div>
+                    <div class="client-industry">Metrics Platform</div>
+                    <div class="component-label">Real-time Dashboard</div>
+                    <div class="component-preview">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Current</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>API Calls</td>
+                                    <td>1.2M/day</td>
+                                    <td><span class="status-badge status-active">Healthy</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Response Time</td>
+                                    <td>89ms</td>
+                                    <td><span class="status-badge status-active">Optimal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Error Rate</td>
+                                    <td>0.02%</td>
+                                    <td><span class="status-badge status-pending">Monitor</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="client-description">
+                        Processing 50TB+ daily with sub-100ms response times
+                    </p>
+                </div>
+
+                <!-- Task Management -->
+                <div class="component-card">
+                    <div class="client-name">Project Management</div>
+                    <div class="client-industry">Task Coordination</div>
+                    <div class="component-label">Task Coordination Interface</div>
+                    <div class="component-preview">
+                        <div class="alert-box alert-success">
+                            <span class="alert-icon" style="font-size: 16px;">✓</span>
+                            <div>
+                                <div style="font-weight: 500; margin-bottom: 2px;">Sprint completed</div>
+                                <div style="font-size: 13px; color: var(--text-label);">98% velocity achieved with 24 tasks closed</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="font-size: 13px;">Team Progress</span>
+                                <span style="font-size: 13px; color: var(--text-dim);">87%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 87%;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 10px;">
+                            <button class="btn-primary">Review Tasks</button>
+                            <button class="btn-secondary">Export Report</button>
+                        </div>
+                    </div>
+                    <p class="client-description">
+                        Coordinating 500+ concurrent projects across 50 teams
+                    </p>
+                </div>
+
+                <!-- AI Operations -->
+                <div class="component-card">
+                    <div class="client-name">AI Operations</div>
+                    <div class="client-industry">AI Infrastructure</div>
+                    <div class="component-label">Model Performance Monitor</div>
+                    <div class="component-preview">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div style="background: var(--bg-hover); padding: 15px; border-radius: 4px;">
+                                <div style="font-size: 11px; color: var(--text-dim); margin-bottom: 5px;">Inference Speed</div>
+                                <div style="font-size: 24px; font-weight: 700;">42ms</div>
+                                <div style="font-size: 11px; color: #34d399;">↓ 15% faster</div>
+                            </div>
+                            <div style="background: var(--bg-hover); padding: 15px; border-radius: 4px;">
+                                <div style="font-size: 11px; color: var(--text-dim); margin-bottom: 5px;">Accuracy</div>
+                                <div style="font-size: 24px; font-weight: 700;">99.2%</div>
+                                <div style="font-size: 11px; color: #34d399;">↑ 0.3%</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px; padding: 12px; background: var(--bg-hover); border-radius: 4px; font-size: 12px;">
+                            <span style="color: var(--text-dim);">Next deployment:</span> v2.4.1 ready
+                        </div>
+                    </div>
+                    <p class="client-description">
+                        Managing 200+ ML models in production
+                    </p>
+                </div>
+
+                <!-- Financial Dashboard -->
+                <div class="component-card">
+                    <div class="client-name">Financial Analytics</div>
+                    <div class="client-industry">Trading Dashboard</div>
+                    <div class="component-label">Real-time Market Dashboard</div>
+                    <div class="component-preview">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                            <div class="metric-card">
+                                <div class="metric-label">Total Revenue</div>
+                                <div class="metric-value">$45,231</div>
+                                <div class="metric-change positive">+20.1% from last month</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Active Trades</div>
+                                <div class="metric-value">2,350</div>
+                                <div class="metric-change">+180.1% from last month</div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-bar" style="height: 40%;"></div>
+                            <div class="chart-bar" style="height: 70%;"></div>
+                            <div class="chart-bar" style="height: 55%;"></div>
+                            <div class="chart-bar" style="height: 80%;"></div>
+                            <div class="chart-bar" style="height: 65%;"></div>
+                            <div class="chart-bar" style="height: 90%;"></div>
+                            <div class="chart-bar" style="height: 75%;"></div>
+                        </div>
+                    </div>
+                    <p class="client-description">
+                        Processing $2B+ in daily transactions
+                    </p>
+                </div>
+
+                <!-- Email Automation -->
+                <div class="component-card">
+                    <div class="client-name">Email Automation</div>
+                    <div class="client-industry">Marketing Automation</div>
+                    <div class="component-label">Campaign Management Interface</div>
+                    <div class="component-preview">
+                        <div style="background: var(--bg-hover); border-radius: 6px; padding: 16px; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <span style="font-size: 14px; font-weight: 500;">Black Friday Campaign</span>
+                                <span class="status-badge status-active">Active</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 13px;">
+                                <div>
+                                    <div style="color: var(--text-label);">Sent</div>
+                                    <div style="font-weight: 600;">12,453</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--text-label);">Opens</div>
+                                    <div style="font-weight: 600;">8,230</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--text-label);">Clicks</div>
+                                    <div style="font-weight: 600;">3,129</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-primary" style="flex: 1;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                                View Details
+                            </button>
+                            <button class="btn-secondary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    <path d="M9 12h6"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="client-description">
+                        Automating outreach for 10,000+ businesses
+                    </p>
+                </div>
+
+                <!-- Developer Tools -->
+                <div class="component-card">
+                    <div class="client-name">Infrastructure Monitoring</div>
+                    <div class="client-industry">DevOps Platform</div>
+                    <div class="component-label">System Health Dashboard</div>
+                    <div class="component-preview">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Status</th>
+                                    <th style="text-align: right;">Uptime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-family: monospace; font-size: 13px;">api.production</td>
+                                    <td><span class="status-badge status-active">Operational</span></td>
+                                    <td style="text-align: right; font-family: monospace; font-size: 13px;">99.99%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family: monospace; font-size: 13px;">db.primary</td>
+                                    <td><span class="status-badge status-active">Operational</span></td>
+                                    <td style="text-align: right; font-family: monospace; font-size: 13px;">99.97%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family: monospace; font-size: 13px;">cache.redis</td>
+                                    <td><span class="status-badge status-pending">Degraded</span></td>
+                                    <td style="text-align: right; font-family: monospace; font-size: 13px;">98.45%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="client-description">
+                        Monitoring 500+ microservices across 12 regions
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2025 Studio 0172. All rights reserved.</p>
+    </footer>
+
+    <!-- Fluid Particle Effect -->
+    <script src="fluid-effect.js"></script>
+    
+    <!-- Theme Toggle Script -->
     <script>
-        // Create matrix rain effect
-        const matrixRain = document.getElementById('matrix-rain');
-        const columns = Math.floor(window.innerWidth / 20);
-        
-        for (let i = 0; i < columns; i++) {
-            const column = document.createElement('div');
-            column.className = 'rain-column';
-            column.style.left = i * 20 + 'px';
-            column.style.animationDelay = Math.random() * 10 + 's';
-            column.textContent = Array(30).fill().map(() => String.fromCharCode(33 + Math.random() * 94)).join('');
-            matrixRain.appendChild(column);
-        }
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            const html = document.documentElement;
+            
+            // Get saved theme or default to dark
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            
+            // Set initial theme
+            if (savedTheme === 'light') {
+                html.setAttribute('data-theme', 'light');
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+            
+            // Toggle theme on click
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'light') {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            });
+        })();
     </script>
 </body>
 </html>
