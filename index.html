@@ -70,6 +70,8 @@
             --btn-secondary-hover-border: rgba(0,0,0,0.2);
             --card-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.06);
             --card-hover-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.1);
+            --card-bg-light: #ffffff;
+            --card-border-light: rgba(0,0,0,0.06);
         }
 
         * {
@@ -262,11 +264,14 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            background: var(--bg-secondary);
+            background: #1A1A1A;
             padding: 20px 24px;
             border-radius: 12px;
-            border: 1px solid var(--border-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.03),
+                0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .feature-item svg {
@@ -278,9 +283,12 @@
         }
         
         .feature-item:hover {
-            background: var(--bg-hover);
-            border-color: var(--border-primary);
+            background: #1F1F1F;
+            border-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 4px 12px rgba(0, 0, 0, 0.5);
         }
         
         .feature-item:hover svg {
@@ -313,8 +321,56 @@
         /* Component Showcase */
         .showcase-section {
             padding: 80px 0;
+            position: relative;
+        }
+        
+        /* Add subtle radial background */
+        .showcase-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.015) 0%, transparent 70%);
+            pointer-events: none;
         }
 
+        /* Light theme card overrides */
+        [data-theme="light"] .component-card {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.03),
+                0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        [data-theme="light"] .component-card:hover {
+            background: #fafafa;
+            border-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.05),
+                0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Light theme feature items */
+        [data-theme="light"] .feature-item {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.02),
+                0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+        
+        [data-theme="light"] .feature-item:hover {
+            background: #fafafa;
+            border-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.04),
+                0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -343,8 +399,8 @@
         }
 
         .component-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-secondary);
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             padding: 24px;
             transition: all 0.3s ease;
@@ -353,14 +409,18 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            box-shadow: var(--card-shadow);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.03),
+                0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         .component-card:hover {
-            background: var(--bg-hover);
-            border-color: var(--border-primary);
-            transform: translateY(-4px);
-            box-shadow: var(--card-hover-shadow);
+            background: #1F1F1F;
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 6px 20px rgba(0, 0, 0, 0.6);
         }
 
         .client-name {
