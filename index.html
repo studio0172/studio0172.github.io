@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio 0172 - Build Better. Faster.</title>
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='60' height='60' rx='12' fill='%23000000'/%3E%3Ctext x='40' y='35' font-family='Arial Black, sans-serif' font-size='18' font-weight='900' text-anchor='middle' fill='%23ffffff'%3E01%3C/text%3E%3Ctext x='40' y='55' font-family='Arial Black, sans-serif' font-size='18' font-weight='900' text-anchor='middle' fill='%23ffffff'%3E72%3C/text%3E%3C/svg%3E">
     
@@ -16,9 +21,9 @@
             --bg-hover: rgba(255,255,255,0.03);
             --text-primary: #ffffff;
             --text-secondary: #fafafa;
-            --text-muted: #999;
-            --text-dim: #666;
-            --text-label: #71717a;
+            --text-muted: #bbbbbb;
+            --text-dim: #888888;
+            --text-label: #999999;
             --border-primary: rgba(255,255,255,0.1);
             --border-secondary: rgba(255,255,255,0.08);
             --header-bg: rgba(0, 0, 0, 0.8);
@@ -40,17 +45,17 @@
 
         [data-theme="light"] {
             /* Light theme */
-            --bg-primary: #ffffff;
-            --bg-secondary: #fafafa;
-            --bg-hover: rgba(0,0,0,0.02);
+            --bg-primary: #f7f8fa;
+            --bg-secondary: #ffffff;
+            --bg-hover: rgba(0,0,0,0.03);
             --text-primary: #000000;
             --text-secondary: #09090b;
-            --text-muted: #666;
-            --text-dim: #999;
-            --text-label: #71717a;
-            --border-primary: rgba(0,0,0,0.1);
-            --border-secondary: rgba(0,0,0,0.05);
-            --header-bg: rgba(255, 255, 255, 0.8);
+            --text-muted: #4a4a4a;
+            --text-dim: #6a6a6a;
+            --text-label: #5a5a5a;
+            --border-primary: rgba(0,0,0,0.08);
+            --border-secondary: rgba(0,0,0,0.04);
+            --header-bg: rgba(247, 248, 250, 0.9);
             --status-active-bg: rgba(34, 197, 94, 0.1);
             --status-active-text: #16a34a;
             --status-active-border: rgba(34, 197, 94, 0.3);
@@ -63,8 +68,8 @@
             --btn-secondary-border: rgba(0,0,0,0.1);
             --btn-secondary-hover-bg: rgba(0,0,0,0.05);
             --btn-secondary-hover-border: rgba(0,0,0,0.2);
-            --card-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.08);
-            --card-hover-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 8px 24px rgba(0,0,0,0.12);
+            --card-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.06);
+            --card-hover-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.1);
         }
 
         * {
@@ -74,13 +79,14 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
             transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
         }
 
         /* Header */
@@ -106,13 +112,23 @@
 
         .logo {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 4px;
         }
         
         .logo svg {
             height: 50px;
             width: 300px;
+        }
+        
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
         }
         
         /* Update SVG colors based on theme */
@@ -182,6 +198,24 @@
             padding-left: 40px;
             padding-right: 40px;
         }
+        
+        /* Hero gradient for depth */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(100, 150, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        [data-theme="light"] .hero-section::before {
+            background: radial-gradient(ellipse at center, rgba(100, 150, 255, 0.03) 0%, transparent 70%);
+        }
 
         .hero-tagline {
             font-size: 16px;
@@ -193,11 +227,12 @@
         }
 
         .hero-title {
-            font-size: 48px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
             font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            line-height: 1.1;
         }
 
         .hero-subtitle {
@@ -211,30 +246,45 @@
         }
 
         .features-list {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
             margin-bottom: 40px;
-            flex-wrap: wrap;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .feature-item {
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 500;
             color: var(--text-secondary);
-            position: relative;
-            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-secondary);
+            padding: 20px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-secondary);
+            transition: all 0.3s ease;
         }
 
-        .feature-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 4px;
-            background: var(--text-dim);
-            border-radius: 50%;
+        .feature-item svg {
+            flex-shrink: 0;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .feature-item:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-primary);
+            transform: translateY(-2px);
+        }
+        
+        .feature-item:hover svg {
+            color: var(--text-primary);
         }
 
         .cta-text {
@@ -245,7 +295,21 @@
             letter-spacing: -0.5px;
             margin-top: 20px;
         }
+        
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 32px;
+        }
 
+        /* Features Section */
+        .features-section {
+            padding: 60px 40px;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-primary);
+        }
+        
         /* Component Showcase */
         .showcase-section {
             padding: 80px 0;
@@ -257,15 +321,17 @@
         }
 
         .section-title {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 16px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.25px;
         }
 
         .section-subtitle {
-            font-size: 18px;
-            color: var(--text-dim);
+            font-size: 17px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         .component-grid {
@@ -370,6 +436,21 @@
         .btn-secondary:hover {
             background: var(--btn-secondary-hover-bg);
             border-color: var(--btn-secondary-hover-border);
+        }
+        
+        /* Small buttons */
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+        
+        /* Card CTA */
+        .card-cta {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-secondary);
         }
 
         .data-table {
@@ -517,20 +598,99 @@
 
         /* Footer */
         .footer {
-            text-align: center;
-            padding: 60px 0 40px;
+            padding: 60px 40px 40px;
             border-top: 1px solid var(--border-primary);
             margin-top: 100px;
+            background: var(--bg-secondary);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .footer-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .footer-subheading {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .footer-text {
             font-size: 14px;
             color: var(--text-dim);
         }
+        
+        .footer-legal {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-legal span {
+            color: var(--text-dim);
+        }
 
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 36px;
+                letter-spacing: -1px;
             }
             
             .hero-subtitle {
@@ -542,9 +702,54 @@
             }
 
             .features-list {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .cta-text {
+                font-size: 20px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero-cta button {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom {
                 flex-direction: column;
                 gap: 20px;
-                align-items: center;
+                text-align: center;
+            }
+            
+            .header-content {
+                padding: 0 20px;
+            }
+            
+            .main-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .features-section {
+                padding: 40px 20px;
+            }
+            
+            .logo svg {
+                height: 40px;
+                width: 240px;
+            }
+            
+            .theme-toggle {
+                right: 20px;
             }
         }
     </style>
@@ -568,6 +773,7 @@
                         <tspan font-weight="700" dx="3">0172</tspan>
                     </text>
                 </svg>
+                <span class="logo-subtitle">AI + SaaS Studio</span>
             </div>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <svg class="sun-icon" style="display: none;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -592,17 +798,43 @@
     <main class="main-content">
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="hero-tagline">Build Better. Faster.</div>
-            <h1 class="hero-title">Building Softwares That<br>Just Work</h1>
+            <h1 class="hero-title">Building Software That<br>Just Works</h1>
             <p class="hero-subtitle">
                 Explore a curated portfolio of next-gen tools—built for clarity, speed, and real-world impact.
             </p>
-            <div class="features-list">
-                <div class="feature-item">Task coordination, reimagined</div>
-                <div class="feature-item">Outreach, automated and intelligent</div>
-                <div class="feature-item">Agents that think before you do</div>
-            </div>
             <p class="cta-text">No clutter. Just products that work.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">Explore Our Tools</button>
+                <button class="btn-secondary">Contact Us</button>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="features-list">
+                <div class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <path d="M9 11l3 3L22 4"></path>
+                    </svg>
+                    <span>Task coordination, reimagined</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Outreach, automated and intelligent</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>Agents that think before you do</span>
+                </div>
+            </div>
         </section>
 
         <!-- Component Showcase -->
@@ -649,6 +881,10 @@
                     <p class="client-description">
                         Processing 50TB+ daily with sub-100ms response times
                     </p>
+                    <div class="card-cta">
+                        <button class="btn-primary btn-sm">View Demo</button>
+                        <button class="btn-secondary btn-sm">Learn More</button>
+                    </div>
                 </div>
 
                 <!-- Task Management -->
@@ -681,6 +917,10 @@
                     <p class="client-description">
                         Coordinating 500+ concurrent projects across 50 teams
                     </p>
+                    <div class="card-cta">
+                        <button class="btn-primary btn-sm">View Demo</button>
+                        <button class="btn-secondary btn-sm">Learn More</button>
+                    </div>
                 </div>
 
                 <!-- AI Operations -->
@@ -708,6 +948,10 @@
                     <p class="client-description">
                         Managing 200+ ML models in production
                     </p>
+                    <div class="card-cta">
+                        <button class="btn-primary btn-sm">View Demo</button>
+                        <button class="btn-secondary btn-sm">Learn More</button>
+                    </div>
                 </div>
 
                 <!-- Financial Dashboard -->
@@ -741,6 +985,10 @@
                     <p class="client-description">
                         Processing $2B+ in daily transactions
                     </p>
+                    <div class="card-cta">
+                        <button class="btn-primary btn-sm">View Demo</button>
+                        <button class="btn-secondary btn-sm">Learn More</button>
+                    </div>
                 </div>
 
                 <!-- Email Automation -->
@@ -787,6 +1035,10 @@
                     <p class="client-description">
                         Automating outreach for 10,000+ businesses
                     </p>
+                    <div class="card-cta">
+                        <button class="btn-primary btn-sm">View Demo</button>
+                        <button class="btn-secondary btn-sm">Learn More</button>
+                    </div>
                 </div>
 
                 <!-- Developer Tools -->
@@ -825,6 +1077,10 @@
                     <p class="client-description">
                         Monitoring 500+ microservices across 12 regions
                     </p>
+                    <div class="card-cta">
+                        <button class="btn-primary btn-sm">View Demo</button>
+                        <button class="btn-secondary btn-sm">Learn More</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -832,7 +1088,44 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p class="footer-text">© 2025 Studio 0172. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-heading">Studio 0172</h3>
+                <p class="footer-description">AI + SaaS Studio building software that just works.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subheading">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subheading">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subheading">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/studio0172" target="_blank">GitHub</a></li>
+                    <li><a href="https://linkedin.com/company/studio0172" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://twitter.com/studio0172" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-text">© 2025 Studio 0172. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#privacy">Privacy Policy</a>
+                <span>•</span>
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
     </footer>
 
     <!-- Fluid Particle Effect -->
