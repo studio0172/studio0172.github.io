@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Studio 0172 | Let's Build Your Website</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='60' height='60' rx='12' fill='%23000000'/%3E%3Ctext x='40' y='35' font-family='Arial Black, sans-serif' font-size='18' font-weight='900' text-anchor='middle' fill='%23ffffff'%3E01%3C/text%3E%3Ctext x='40' y='55' font-family='Arial Black, sans-serif' font-size='18' font-weight='900' text-anchor='middle' fill='%23ffffff'%3E72%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        :root {
+            /* Dark theme (default) */
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-hover: rgba(255,255,255,0.03);
+            --text-primary: #ffffff;
+            --text-secondary: #fafafa;
+            --text-muted: #bbbbbb;
+            --text-dim: #888888;
+            --text-label: #999999;
+            --border-primary: rgba(255,255,255,0.1);
+            --border-secondary: rgba(255,255,255,0.08);
+            --header-bg: rgba(0, 0, 0, 0.8);
+            --status-active-bg: rgba(34, 197, 94, 0.1);
+            --status-active-text: #22c55e;
+            --status-active-border: rgba(34, 197, 94, 0.2);
+            --btn-primary-bg: #ffffff;
+            --btn-primary-text: #000000;
+            --btn-primary-hover: #f4f4f5;
+            --btn-secondary-border: rgba(255,255,255,0.1);
+            --btn-secondary-hover-bg: rgba(255,255,255,0.05);
+            --btn-secondary-hover-border: rgba(255,255,255,0.2);
+            --card-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 2px 8px rgba(0,0,0,0.4);
+            --card-hover-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.6);
+        }
+
+        [data-theme="light"] {
+            /* Light theme */
+            --bg-primary: #f7f8fa;
+            --bg-secondary: #ffffff;
+            --bg-hover: rgba(0,0,0,0.03);
+            --text-primary: #000000;
+            --text-secondary: #09090b;
+            --text-muted: #4a4a4a;
+            --text-dim: #6a6a6a;
+            --text-label: #5a5a5a;
+            --border-primary: rgba(0,0,0,0.08);
+            --border-secondary: rgba(0,0,0,0.04);
+            --header-bg: rgba(247, 248, 250, 0.9);
+            --btn-primary-bg: #000000;
+            --btn-primary-text: #ffffff;
+            --btn-primary-hover: #18181b;
+            --btn-secondary-border: rgba(0,0,0,0.1);
+            --btn-secondary-hover-bg: rgba(0,0,0,0.05);
+            --btn-secondary-hover-border: rgba(0,0,0,0.2);
+            --card-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.06);
+            --card-hover-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.1);
+            --card-bg-light: #ffffff;
+            --card-border-light: rgba(0,0,0,0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-primary);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .header-content {
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 4px;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: 240px;
+        }
+        
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        
+        /* Update SVG colors based on theme */
+        .logo svg line,
+        .logo svg circle,
+        .logo svg rect {
+            stroke: var(--text-primary);
+            fill: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .logo svg text {
+            fill: var(--bg-primary);
+            transition: fill 0.3s ease;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--text-primary);
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 1px;
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-secondary);
+            border-radius: 24px;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-primary);
+        }
+        
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover svg {
+            transform: rotate(15deg);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            padding-left: 40px;
+            padding-right: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 40px 0;
+        }
+
+        .contact-info h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: #1F1F1F;
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        [data-theme="light"] .contact-method {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
+        }
+        
+        [data-theme="light"] .contact-method:hover {
+            background: #fafafa;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-details p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .contact-details a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--status-active-text);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+        }
+
+        [data-theme="light"] .contact-form {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-secondary);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .budget-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .budget-option {
+            position: relative;
+        }
+
+        .budget-radio {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .budget-label {
+            display: block;
+            padding: 12px 16px;
+            border: 1px solid var(--border-secondary);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--bg-primary);
+        }
+
+        .budget-radio:checked + .budget-label {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--btn-primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-primary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: #1F1F1F;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] .faq-item {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
+        }
+        
+        [data-theme="light"] .faq-item:hover {
+            background: #fafafa;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 40px 40px;
+            border-top: 1px solid var(--border-primary);
+            margin-top: 100px;
+            background: var(--bg-secondary);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .footer-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .footer-subheading {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-legal span {
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .nav {
+                display: none;
+            }
+            
+            .main-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .page-title {
+                font-size: 32px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-form {
+                padding: 24px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .budget-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Tech lines -->
+                    <line x1="5" y1="25" x2="25" y2="25" stroke="#000000" stroke-width="3"/>
+                    <line x1="175" y1="25" x2="195" y2="25" stroke="#000000" stroke-width="3"/>
+                    <!-- End dots -->
+                    <circle cx="5" cy="25" r="4" fill="#000000"/>
+                    <circle cx="195" cy="25" r="4" fill="#000000"/>
+                    <!-- Text container -->
+                    <rect x="30" y="10" width="140" height="30" rx="15" fill="#000000"/>
+                    <text x="100" y="30" font-family="Courier New, monospace" font-size="18" text-anchor="middle" fill="#ffffff">
+                        <tspan font-weight="400">Studio</tspan>
+                        <tspan font-weight="700" dx="3">0172</tspan>
+                    </text>
+                </svg>
+                <span class="logo-subtitle">Custom Web Development</span>
+            </a>
+            
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg class="sun-icon" style="display: none;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1 class="page-title">Let's Build Something Amazing</h1>
+            <p class="page-subtitle">
+                Ready to transform your online presence? We'd love to hear about your project 
+                and discuss how we can help you achieve your goals.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>
+                        Whether you're starting from scratch or looking to improve an existing website, 
+                        we're here to help. Reach out to us and let's discuss how we can bring your 
+                        vision to life.
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Us</h3>
+                                <p><a href="mailto:hello@studio0172.com">hello@studio0172.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Response Time</h3>
+                                <p>Within 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Free Consultation</h3>
+                                <p>30-minute discovery call</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company Name</label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectType" class="form-label">Project Type</label>
+                            <select id="projectType" name="projectType" class="form-select" required>
+                                <option value="">Select a project type</option>
+                                <option value="new-website">New Website</option>
+                                <option value="redesign">Website Redesign</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="web-app">Web Application</option>
+                                <option value="maintenance">Website Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Project Budget</label>
+                            <div class="budget-options">
+                                <div class="budget-option">
+                                    <input type="radio" id="budget1" name="budget" value="5k-10k" class="budget-radio">
+                                    <label for="budget1" class="budget-label">$5K - $10K</label>
+                                </div>
+                                <div class="budget-option">
+                                    <input type="radio" id="budget2" name="budget" value="10k-25k" class="budget-radio">
+                                    <label for="budget2" class="budget-label">$10K - $25K</label>
+                                </div>
+                                <div class="budget-option">
+                                    <input type="radio" id="budget3" name="budget" value="25k-50k" class="budget-radio">
+                                    <label for="budget3" class="budget-label">$25K - $50K</label>
+                                </div>
+                                <div class="budget-option">
+                                    <input type="radio" id="budget4" name="budget" value="50k+" class="budget-radio">
+                                    <label for="budget4" class="budget-label">$50K+</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Desired Timeline</label>
+                            <select id="timeline" name="timeline" class="form-select" required>
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush project)</option>
+                                <option value="1-2-months">1-2 months</option>
+                                <option value="3-4-months">3-4 months</option>
+                                <option value="6-months">6+ months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Details</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about your project, goals, and any specific requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            Send Message
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Quick answers to common questions about our process and services.
+                </p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">How long does a typical website project take?</h3>
+                    <p class="faq-answer">
+                        Most projects take 4-8 weeks depending on complexity. Simple websites can be completed in 2-4 weeks, 
+                        while complex e-commerce or web applications may take 8-12 weeks.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What's included in your website packages?</h3>
+                    <p class="faq-answer">
+                        All projects include custom design, development, mobile optimization, basic SEO, 
+                        content management system, and 30 days of post-launch support.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you provide ongoing maintenance?</h3>
+                    <p class="faq-answer">
+                        Yes! We offer monthly maintenance packages including updates, backups, security monitoring, 
+                        and content changes to keep your site running smoothly.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can you help with content and copywriting?</h3>
+                    <p class="faq-answer">
+                        Absolutely. We work with experienced copywriters who specialize in conversion-focused content 
+                        that aligns with your brand voice and business goals.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What if I need changes after the site launches?</h3>
+                    <p class="faq-answer">
+                        We provide 30 days of complimentary post-launch support. After that, we offer flexible 
+                        maintenance packages or hourly rates for ongoing updates and improvements.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you work with clients outside your local area?</h3>
+                    <p class="faq-answer">
+                        Yes, we work with clients worldwide. Most of our communication happens via video calls, 
+                        email, and project management tools, making location a non-issue.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-heading">Studio 0172</h3>
+                <p class="footer-description">We design and build custom websites that convert visitors into customers. Every project is tailored to your business goals.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subheading">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Web Design</a></li>
+                    <li><a href="services.html">Development</a></li>
+                    <li><a href="services.html">E-commerce</a></li>
+                    <li><a href="services.html">SEO & Analytics</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subheading">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subheading">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://linkedin.com/company/studio0172" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://twitter.com/studio0172" target="_blank">Twitter</a></li>
+                    <li><a href="mailto:hello@studio0172.com">hello@studio0172.com</a></li>
+                    <li><a href="tel:+1234567890">(123) 456-7890</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-text">© 2025 Studio 0172. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#privacy">Privacy Policy</a>
+                <span>•</span>
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            const html = document.documentElement;
+            
+            // Get saved theme or default to dark
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            
+            // Set initial theme
+            if (savedTheme === 'light') {
+                html.setAttribute('data-theme', 'light');
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+            
+            // Toggle theme on click
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'light') {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            });
+
+            // Form submission handling
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Here you would typically send the data to your server
+                    console.log('Form submitted with data:', data);
+                    
+                    // Show success message (you can customize this)
+                    alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+                    
+                    // Reset form
+                    form.reset();
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
