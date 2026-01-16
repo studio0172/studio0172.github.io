@@ -116,6 +116,41 @@
             font-weight: 500;
         }
 
+        .email-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .copy-btn {
+            background: none;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .copy-btn:hover {
+            border-color: rgba(0, 0, 0, 0.2);
+            color: var(--text-primary);
+        }
+
+        .copy-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .copy-btn.copied {
+            color: #22863a;
+            border-color: #22863a;
+        }
+
         @media (min-width: 640px) {
             .hero-title {
                 font-size: 96px;
@@ -271,7 +306,18 @@
         <section class="hero">
             <p class="hero-label">Custom software, mobile apps & internal tools</p>
             <h1 class="hero-title">Let's work<br>together</h1>
-            <a href="mailto:hello@studio0172.com" class="hero-email">hello@studio<span class="num">0172</span>.com</a>
+            <div class="email-wrapper">
+                <a href="mailto:hello@studio0172.com" class="hero-email">hello@studio<span class="num">0172</span>.com</a>
+                <button class="copy-btn" onclick="copyEmail()" title="Copy email">
+                    <svg class="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <svg class="check-icon" style="display:none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </button>
+            </div>
         </section>
 
         <!-- Info Row -->
@@ -312,5 +358,26 @@
     <footer>
         <p class="footer-text">&copy; 2025 Studio 0172 LLC</p>
     </footer>
+
+    <script>
+        function copyEmail() {
+            const email = 'hello@studio0172.com';
+            navigator.clipboard.writeText(email).then(function() {
+                const btn = document.querySelector('.copy-btn');
+                const copyIcon = btn.querySelector('.copy-icon');
+                const checkIcon = btn.querySelector('.check-icon');
+
+                btn.classList.add('copied');
+                copyIcon.style.display = 'none';
+                checkIcon.style.display = 'block';
+
+                setTimeout(function() {
+                    btn.classList.remove('copied');
+                    copyIcon.style.display = 'block';
+                    checkIcon.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
