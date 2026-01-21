@@ -43,6 +43,38 @@
             margin: 0 auto;
         }
 
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+        }
+
+        .nav a:hover {
+            color: var(--text-primary);
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav a.active {
+            color: var(--btn-primary-text);
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
         .hero {
             text-align: center;
             padding: 40px 20px;
@@ -197,6 +229,13 @@
 </head>
 <body>
     <div class="container">
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html" class="active">Terms</a>
+        </nav>
+
         <div class="hero">
             <img src="assets/logo-1.png" alt="Resonant Logo">
             <h1>Terms and Conditions</h1>
