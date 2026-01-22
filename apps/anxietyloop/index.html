@@ -3,25 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resonant - Daily Affirmations</title>
+    <title>Anxiety Loop - Track Your Wellbeing</title>
     <style>
-        :root {
-            --bg-primary: #1E2A1E;
-            --bg-secondary: #2A3A2A;
-            --bg-tertiary: #3A4A3A;
-            --text-primary: #E8F0E8;
-            --text-secondary: #A8C4A8;
-            --text-tertiary: #6B8A6B;
-            --accent: #7CB485;
-            --accent-secondary: #5B9A6B;
-            --card-bg: #2A3A2A;
-            --card-border: #4A5A4A;
-            --btn-primary: #E8F0E8;
-            --btn-primary-text: #1E2A1E;
-            --font-display: 'Palatino', 'Palatino Linotype', Georgia, serif;
-            --font-body: Georgia, 'Times New Roman', serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -29,10 +12,10 @@
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e5e5e5;
             min-height: 100vh;
         }
 
@@ -57,21 +40,20 @@
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s;
-            color: var(--text-secondary);
-            background: var(--bg-secondary);
-            border: 1px solid var(--card-border);
+            color: #a3a3a3;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav a:hover {
-            color: var(--text-primary);
-            border-color: var(--accent);
-            text-decoration: none;
+            color: #e5e5e5;
+            border-color: rgba(74, 222, 128, 0.3);
         }
 
         .nav a.active {
-            color: var(--btn-primary-text);
-            background: var(--accent);
-            border-color: var(--accent);
+            color: #000000;
+            background: #4ade80;
+            border-color: #4ade80;
         }
 
         .hero {
@@ -87,37 +69,33 @@
         }
 
         .hero h1 {
-            font-family: var(--font-display);
-            color: var(--text-primary);
+            color: #ffffff;
             font-size: 48px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
 
         .hero .tagline {
-            font-family: var(--font-display);
-            color: var(--text-secondary);
+            color: #a3a3a3;
             font-size: 20px;
-            font-style: italic;
             margin-bottom: 40px;
         }
 
         .quote {
-            font-family: var(--font-display);
-            font-size: 28px;
-            color: var(--text-primary);
+            font-size: 24px;
+            color: #d4d4d4;
             font-style: italic;
             line-height: 1.5;
             text-align: center;
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto 40px;
         }
 
         .app-store-btn {
             display: inline-block;
-            background: var(--btn-primary);
-            color: var(--btn-primary-text);
+            background: #4ade80;
+            color: #000000;
             padding: 16px 32px;
             border-radius: 12px;
             text-decoration: none;
@@ -127,9 +105,8 @@
         }
 
         .app-store-btn:hover {
-            background: var(--accent);
+            background: #22c55e;
             transform: translateY(-2px);
-            text-decoration: none;
         }
 
         .section {
@@ -137,8 +114,7 @@
         }
 
         .section-title {
-            font-family: var(--font-display);
-            color: var(--text-primary);
+            color: #ffffff;
             font-size: 28px;
             font-weight: 600;
             text-align: center;
@@ -153,16 +129,16 @@
         }
 
         .feature-card {
-            background: var(--card-bg);
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
             padding: 24px;
             border-radius: 16px;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             transition: all 0.3s;
         }
 
         .feature-card:hover {
-            border-color: var(--accent);
             transform: translateY(-2px);
         }
 
@@ -173,61 +149,78 @@
         .feature-icon svg {
             width: 40px;
             height: 40px;
-            stroke: var(--accent);
             stroke-width: 1.5;
             fill: none;
         }
 
         .feature-card h3 {
-            font-family: var(--font-display);
-            color: var(--accent);
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
+        .feature-card.color-green .feature-icon svg { stroke: #4ade80; color: #4ade80; }
+        .feature-card.color-green h3 { color: #4ade80; }
+        .feature-card.color-green:hover { border-color: rgba(74, 222, 128, 0.3); }
+
+        .feature-card.color-orange .feature-icon svg { stroke: #fbbf24; }
+        .feature-card.color-orange h3 { color: #fbbf24; }
+        .feature-card.color-orange:hover { border-color: rgba(251, 191, 36, 0.3); }
+
+        .feature-card.color-red .feature-icon svg { stroke: #f87171; }
+        .feature-card.color-red h3 { color: #f87171; }
+        .feature-card.color-red:hover { border-color: rgba(248, 113, 113, 0.3); }
+
+        .feature-card.color-purple .feature-icon svg { stroke: #c084fc; }
+        .feature-card.color-purple h3 { color: #c084fc; }
+        .feature-card.color-purple:hover { border-color: rgba(192, 132, 252, 0.3); }
+
         .feature-card p {
             font-size: 14px;
-            color: var(--text-tertiary);
+            color: #a3a3a3;
             margin: 0;
         }
 
         .highlight-section {
-            background: var(--bg-secondary);
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
             margin: 40px 0;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .highlight-section h2 {
-            font-family: var(--font-display);
-            color: var(--text-primary);
+            color: #ffffff;
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 16px;
         }
 
         .highlight-section p {
-            color: var(--text-secondary);
+            color: #d4d4d4;
             margin-bottom: 16px;
             line-height: 1.8;
         }
 
-        .themes-list, .categories-list {
+        .mood-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             margin-top: 16px;
         }
 
-        .themes-list span, .categories-list span {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            padding: 6px 14px;
+        .mood-list span {
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 14px;
+            font-weight: 500;
         }
+
+        .mood-calm { background: rgba(74, 222, 128, 0.2); color: #4ade80; }
+        .mood-elevated { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+        .mood-anxious { background: rgba(248, 113, 113, 0.2); color: #f87171; }
+        .mood-overwhelmed { background: rgba(192, 132, 252, 0.2); color: #c084fc; }
 
         .privacy-points {
             list-style: none;
@@ -236,9 +229,9 @@
         }
 
         .privacy-points li {
-            color: var(--text-secondary);
-            padding: 8px 0;
-            padding-left: 28px;
+            color: #d4d4d4;
+            padding: 10px 0;
+            padding-left: 32px;
             position: relative;
         }
 
@@ -246,10 +239,10 @@
             content: "";
             position: absolute;
             left: 0;
-            top: 12px;
+            top: 14px;
             width: 16px;
             height: 16px;
-            background: var(--accent);
+            background: #4ade80;
             border-radius: 50%;
             opacity: 0.6;
         }
@@ -257,8 +250,7 @@
         .closing {
             text-align: center;
             padding: 40px 20px;
-            color: var(--text-tertiary);
-            font-style: italic;
+            color: #737373;
             font-size: 16px;
             max-width: 600px;
             margin: 0 auto;
@@ -267,9 +259,9 @@
         .footer {
             text-align: center;
             padding: 30px 20px;
-            color: var(--text-tertiary);
+            color: #525252;
             font-size: 14px;
-            border-top: 1px solid var(--card-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 40px;
         }
 
@@ -278,14 +270,14 @@
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: #a3a3a3;
             text-decoration: none;
             margin: 0 12px;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: #4ade80;
         }
 
         @media (max-width: 768px) {
@@ -298,7 +290,7 @@
             }
 
             .quote {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .highlight-section {
@@ -321,93 +313,90 @@
         </nav>
 
         <div class="hero">
-            <img src="assets/logo-1.png" alt="Resonant Logo" class="logo">
-            <h1>Resonant</h1>
-            <p class="tagline">Daily affirmations that learn what moves you.</p>
+            <img src="assets/logo.png" alt="Anxiety Loop Logo" class="logo">
+            <h1>Anxiety Loop</h1>
+            <p class="tagline">One tap. That's all it takes.</p>
 
-            <p class="quote">"My self-worth comes from within, not from others."</p>
+            <p class="quote">"Understanding your patterns is the first step to feeling better."</p>
 
-            <a href="#" class="app-store-btn">Download on the App Store</a>
+            <a href="https://apps.apple.com/us/app/anxiety-loop/id6757244049" class="app-store-btn">Download on the App Store</a>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Getting Started</h2>
+            <h2 class="section-title">Simple Daily Check-ins</h2>
             <div class="feature-grid">
-                <div class="feature-card">
+                <div class="feature-card color-green">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2" fill="currentColor"/>
                         </svg>
                     </div>
-                    <h3>Save Favorites</h3>
-                    <p>Tap the heart to save affirmations that speak to you</p>
+                    <h3>One Tap</h3>
+                    <p>Check in with how you're feeling in seconds</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card color-orange">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            <path d="M3 3v18h18"/>
+                            <path d="M7 16l4-4 4 4 5-6"/>
                         </svg>
                     </div>
-                    <h3>Hits Home</h3>
-                    <p>Mark ones that truly resonate to personalize your feed</p>
+                    <h3>See Patterns</h3>
+                    <p>Discover trends in your mood over time</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card color-red">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                            <path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
-                    <h3>5 Themes</h3>
-                    <p>Ocean, Serenity, Forest, Midnight, or Daylight</p>
+                    <h3>Calm Down</h3>
+                    <p>Guided breathing exercises when you need them</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card color-purple">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="3" width="7" height="7" rx="1"/>
-                            <rect x="14" y="3" width="7" height="7" rx="1"/>
-                            <rect x="3" y="14" width="7" height="7" rx="1"/>
-                            <rect x="14" y="14" width="7" height="7" rx="1"/>
+                            <rect x="3" y="11" width="18" height="11" rx="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                         </svg>
                     </div>
-                    <h3>8 Categories</h3>
-                    <p>From Anxiety & Calm to Resilience</p>
+                    <h3>Private</h3>
+                    <p>Your data stays on your device</p>
                 </div>
             </div>
         </div>
 
         <div class="highlight-section">
-            <h2>Personalized Affirmations</h2>
-            <p>Your affirmations adapt to you. Resonant learns from your interactions - what you save, what you return to, what hits home - and surfaces content that genuinely resonates.</p>
-            <p>No algorithms gaming your attention. Just quiet intelligence that gets better over time.</p>
+            <h2>Track How You Feel</h2>
+            <p>Anxiety Loop uses a simple, color-coded system to help you name and track your emotional state. No complicated scales or lengthy questionnaires.</p>
+            <div class="mood-list">
+                <span class="mood-calm">Calm</span>
+                <span class="mood-elevated">Elevated</span>
+                <span class="mood-anxious">Anxious</span>
+                <span class="mood-overwhelmed">Overwhelmed</span>
+            </div>
         </div>
 
         <div class="highlight-section">
-            <h2>700+ Handcrafted Affirmations</h2>
-            <p>Every affirmation is thoughtfully written across 8 themes:</p>
-            <div class="categories-list">
-                <span>Anxiety & Calm</span>
-                <span>Self-Trust</span>
-                <span>Letting Go</span>
-                <span>Uncertainty</span>
-                <span>Boundaries</span>
-                <span>Patience</span>
-                <span>Resilience</span>
-                <span>Grounding</span>
-            </div>
+            <h2>Understand Your Patterns</h2>
+            <p>See how your anxiety changes throughout the week. Discover which days tend to be harder and what patterns emerge over time.</p>
+            <p>Knowledge is power. When you understand your patterns, you can start making changes that actually help.</p>
         </div>
 
         <div class="highlight-section">
             <h2>Privacy First</h2>
             <ul class="privacy-points">
-                <li>All data stays on your device by default</li>
+                <li>All data stays on your device</li>
                 <li>No account required</li>
                 <li>No tracking, no ads, no data selling</li>
-                <li>Optional iCloud sync - your choice</li>
+                <li>Your mental health data belongs to you</li>
             </ul>
         </div>
 
-        <p class="closing">Resonant is designed for reflection, not gamification. No streaks. No scores. No pressure. Just words that meet you where you are.</p>
+        <p class="closing">Anxiety Loop is a wellness companion, not a replacement for professional help. If you're struggling, please reach out to a mental health professional.</p>
     </div>
 
     <footer class="footer">

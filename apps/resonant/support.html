@@ -241,6 +241,41 @@
             line-height: 1.8;
         }
 
+        .email-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .email-row a {
+            margin: 0;
+        }
+
+        .copy-btn {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+            color: var(--btn-primary-text);
+            border-color: var(--accent);
+        }
+
+        .copy-btn.copied {
+            background: var(--accent-secondary);
+            color: var(--btn-primary-text);
+            border-color: var(--accent-secondary);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 12px;
@@ -445,6 +480,10 @@
         <div class="contact-card">
             <h3>Need Help?</h3>
             <p>Having trouble or have feedback? We'd love to hear from you.</p>
+            <div class="email-row">
+                <a href="mailto:support@studio0172.com">support@studio0172.com</a>
+                <button class="copy-btn" onclick="copyEmail()">Copy</button>
+            </div>
             <a href="mailto:support@studio0172.com" class="button">Email Support</a>
             <p style="margin-top: 15px; font-size: 14px; color: var(--text-tertiary);">
                 We typically respond within 24-48 hours.
@@ -472,8 +511,23 @@
         <div class="footer">
             <strong style="color: var(--accent);">Resonant - Daily Affirmations</strong><br>
             Thank you for using Resonant. We hope it brings a moment of calm to your day.<br>
-            © 2025 Studio0172. All rights reserved.
+            © 2026 Studio0172. All rights reserved.
         </div>
     </div>
+
+    <script>
+        function copyEmail() {
+            const email = 'support@studio0172.com';
+            navigator.clipboard.writeText(email).then(function() {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
