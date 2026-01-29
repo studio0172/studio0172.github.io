@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studio0172.com/sitemap.xml
+
+# Block old redirect paths from indexing
+Disallow: /apps/

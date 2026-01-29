@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anxiety Loop - Track Your Wellbeing</title>
+    <title>Anxiety Loop – Simple Anxiety Tracking App (Private & One-Tap)</title>
+    <meta name="description" content="Track anxiety with simple one-tap daily check-ins. Discover patterns, notice trends, and calm your mind. Private, on-device iOS app.">
+    <link rel="canonical" href="https://studio0172.com/anxietyloop/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Anxiety Loop – Simple Anxiety Tracking App">
+    <meta property="og:description" content="Track anxiety with simple one-tap daily check-ins. Discover patterns, notice trends, and calm your mind. Private, on-device iOS app.">
+    <meta property="og:url" content="https://studio0172.com/anxietyloop/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Studio 0172">
+    <meta property="og:image" content="https://studio0172.com/anxietyloop/assets/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anxiety Loop – Simple Anxiety Tracking App">
+    <meta name="twitter:description" content="Track anxiety with simple one-tap daily check-ins. Discover patterns, notice trends, and calm your mind.">
+    <meta name="twitter:image" content="https://studio0172.com/anxietyloop/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Anxiety Loop",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -280,6 +313,114 @@
             color: #4ade80;
         }
 
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-section h2 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .faq-item {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            color: #d4d4d4;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .audience-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 16px;
+        }
+
+        .audience-list li {
+            color: #d4d4d4;
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .audience-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 12px;
+            height: 12px;
+            background: #4ade80;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .learn-more-section {
+            margin: 40px 0;
+        }
+
+        .learn-more-section h2 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .learn-more-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .learn-more-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .learn-more-card:hover {
+            border-color: rgba(74, 222, 128, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .learn-more-card h3 {
+            color: #4ade80;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .learn-more-card p {
+            color: #a3a3a3;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
             .hero {
                 padding: 40px 10px;
@@ -313,8 +454,8 @@
         </nav>
 
         <div class="hero">
-            <img src="assets/logo.png" alt="Anxiety Loop Logo" class="logo">
-            <h1>Anxiety Loop</h1>
+            <img src="assets/logo.png" alt="Anxiety Loop app icon" class="logo">
+            <h1>Anxiety Tracking App to Understand Your Patterns</h1>
             <p class="tagline">One tap. That's all it takes.</p>
 
             <p class="quote">"Understanding your patterns is the first step to feeling better."</p>
@@ -323,7 +464,7 @@
         </div>
 
         <div class="section">
-            <h2 class="section-title">Simple Daily Check-ins</h2>
+            <h2 class="section-title">Simple Daily Anxiety Check-Ins</h2>
             <div class="feature-grid">
                 <div class="feature-card color-green">
                     <div class="feature-icon">
@@ -370,7 +511,7 @@
         </div>
 
         <div class="highlight-section">
-            <h2>Track How You Feel</h2>
+            <h2>Track How You Feel With a Clear, Simple System</h2>
             <p>Anxiety Loop uses a simple, color-coded system to help you name and track your emotional state. No complicated scales or lengthy questionnaires.</p>
             <div class="mood-list">
                 <span class="mood-calm">Calm</span>
@@ -381,13 +522,19 @@
         </div>
 
         <div class="highlight-section">
-            <h2>Understand Your Patterns</h2>
+            <h2>See Anxiety Patterns Over Time</h2>
             <p>See how your anxiety changes throughout the week. Discover which days tend to be harder and what patterns emerge over time.</p>
             <p>Knowledge is power. When you understand your patterns, you can start making changes that actually help.</p>
         </div>
 
         <div class="highlight-section">
-            <h2>Privacy First</h2>
+            <h2>Calm Down When You Need It</h2>
+            <p>When anxiety spikes, Anxiety Loop offers simple guided breathing exercises to help you regain calm. No complicated techniques—just follow the visual guide and breathe.</p>
+            <p>These exercises are designed to be quick and accessible, so you can use them anywhere: at your desk, on the train, or in bed before sleep.</p>
+        </div>
+
+        <div class="highlight-section">
+            <h2>Private, On-Device Anxiety Tracking</h2>
             <ul class="privacy-points">
                 <li>All data stays on your device</li>
                 <li>No account required</li>
@@ -395,6 +542,55 @@
                 <li>Your mental health data belongs to you</li>
             </ul>
         </div>
+
+        <div class="highlight-section">
+            <h2>Who Anxiety Loop Is For</h2>
+            <p>Anxiety Loop is designed for anyone who wants to understand their anxiety better through simple, consistent tracking.</p>
+            <ul class="audience-list">
+                <li>People who experience occasional or frequent anxiety and want to notice patterns</li>
+                <li>Anyone curious about how their mood changes day-to-day or week-to-week</li>
+                <li>Those who prefer a simple, private tool over complex mental health apps</li>
+                <li>Anyone looking for a non-clinical way to reflect on their emotional state</li>
+            </ul>
+        </div>
+
+        <section class="learn-more-section">
+            <h2>Learn More</h2>
+            <div class="learn-more-grid">
+                <a href="how-to-track-anxiety/" class="learn-more-card">
+                    <h3>How to Track Anxiety</h3>
+                    <p>A simple guide to understanding your patterns through daily check-ins. Learn what to track and how to build a lasting habit.</p>
+                </a>
+                <a href="anxiety-patterns-over-time/" class="learn-more-card">
+                    <h3>Understanding Anxiety Patterns</h3>
+                    <p>Discover why certain days feel harder and how recognizing weekly trends can help you feel more in control.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>Is this a therapy or medical app?</h3>
+                <p>No. Anxiety Loop is a wellness companion for tracking and reflection—not a replacement for therapy, medical advice, or professional mental health treatment. If you're struggling, please reach out to a mental health professional.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is my data stored online?</h3>
+                <p>No. All your data stays on your device. We don't have servers that store your check-ins, patterns, or any personal information. Your mental health data belongs to you.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do I need an account?</h3>
+                <p>No account required. Just download the app and start tracking. No email, no password, no sign-up process.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How long does a check-in take?</h3>
+                <p>About 2 seconds. Tap the mood that matches how you're feeling, and you're done. That's it—no lengthy questionnaires or complicated inputs.</p>
+            </div>
+        </section>
 
         <p class="closing">Anxiety Loop is a wellness companion, not a replacement for professional help. If you're struggling, please reach out to a mental health professional.</p>
     </div>
