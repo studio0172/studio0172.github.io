@@ -5,7 +5,7 @@
 **Mealie AI** is an iOS meal planning app with a web presence at `studio0172.com/mealieai/`.
 
 ### Dual Purpose
-1. **Landing Page** - Convert visitors to app downloads (App Store: id6504238545)
+1. **Landing Page** - Convert visitors to app downloads (App Store: id6754790038)
 2. **Content Funnel** - Recipe blog that drives organic traffic → app installs
 
 ---
@@ -133,7 +133,7 @@ Claude will:
 
 ## Key Links
 
-- **App Store**: https://apps.apple.com/app/mealie-ai/id6504238545
+- **App Store**: https://apps.apple.com/us/app/mealie-ai-your-ai-sous-chef/id6754790038
 - **Web App**: https://mealie.ai
 - **Landing Page**: https://studio0172.com/mealieai/
 - **Recipe Hub**: https://studio0172.com/mealieai/recipes/
