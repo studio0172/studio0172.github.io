@@ -394,24 +394,41 @@
         .learn-more-card {
             background: rgba(30, 30, 30, 0.6);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
+            border-radius: 0 16px 16px 0;
             padding: 24px;
+            padding-left: 28px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4ade80;
             text-decoration: none;
             transition: all 0.3s;
-            display: block;
+            display: flex;
+            flex-direction: column;
         }
 
         .learn-more-card:hover {
             border-color: rgba(74, 222, 128, 0.3);
+            border-left-color: #4ade80;
             transform: translateY(-2px);
+            background: rgba(40, 40, 40, 0.7);
+        }
+
+        .learn-more-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
         }
 
         .learn-more-card h3 {
             color: #4ade80;
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin: 0;
+        }
+
+        .learn-more-card .read-time {
+            color: #737373;
+            font-size: 13px;
         }
 
         .learn-more-card p {
@@ -419,6 +436,18 @@
             font-size: 14px;
             margin: 0;
             line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .learn-more-card .read-link {
+            color: #4ade80;
+            font-size: 14px;
+            margin-top: 16px;
+            display: inline-block;
+        }
+
+        .learn-more-card:hover .read-link {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -558,15 +587,23 @@
         </div>
 
         <section class="learn-more-section">
-            <h2>Learn More</h2>
+            <h2>Guides</h2>
             <div class="learn-more-grid">
                 <a href="how-to-track-anxiety/" class="learn-more-card">
-                    <h3>How to Track Anxiety</h3>
+                    <div class="learn-more-card-header">
+                        <h3>How to Track Anxiety</h3>
+                        <span class="read-time">5 min read</span>
+                    </div>
                     <p>A simple guide to understanding your patterns through daily check-ins. Learn what to track and how to build a lasting habit.</p>
+                    <span class="read-link">Read guide →</span>
                 </a>
                 <a href="anxiety-patterns-over-time/" class="learn-more-card">
-                    <h3>Understanding Anxiety Patterns</h3>
+                    <div class="learn-more-card-header">
+                        <h3>Understanding Anxiety Patterns</h3>
+                        <span class="read-time">6 min read</span>
+                    </div>
                     <p>Discover why certain days feel harder and how recognizing weekly trends can help you feel more in control.</p>
+                    <span class="read-link">Read guide →</span>
                 </a>
             </div>
         </section>
