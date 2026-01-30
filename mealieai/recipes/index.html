@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes – Delicious Meal Ideas from Mealie AI</title>
+    <meta name="description" content="Browse hundreds of delicious recipes with nutrition info, meal prep tips, and smart grocery lists. Find your next favorite meal and plan your week with Mealie AI.">
+    <meta name="keywords" content="recipes, meal ideas, dinner recipes, healthy recipes, quick meals, meal prep, weekly meal plan">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://studio0172.com/mealieai/recipes/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Recipes – Delicious Meal Ideas from Mealie AI">
+    <meta property="og:description" content="Browse hundreds of delicious recipes with nutrition info, meal prep tips, and smart grocery lists.">
+    <meta property="og:url" content="https://studio0172.com/mealieai/recipes/">
+    <meta property="og:site_name" content="Mealie AI">
+    <meta property="og:image" content="https://studio0172.com/mealieai/assets/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Recipes – Delicious Meal Ideas from Mealie AI">
+    <meta name="twitter:description" content="Browse hundreds of delicious recipes with nutrition info and meal prep tips.">
+    <meta name="twitter:image" content="https://studio0172.com/mealieai/assets/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Mealie AI Recipes",
+        "description": "Browse delicious recipes with nutrition info, meal prep tips, and smart grocery lists.",
+        "url": "https://studio0172.com/mealieai/recipes/",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Mealie AI",
+            "url": "https://studio0172.com/mealieai/"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            color: #a3a3a3;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav a:hover {
+            color: #e5e5e5;
+            border-color: rgba(251, 146, 60, 0.3);
+        }
+
+        .nav a.active {
+            color: #000000;
+            background: #fb923c;
+            border-color: #fb923c;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(234, 88, 12, 0.05) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(251, 146, 60, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            color: #fb923c;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .hero-description {
+            color: #a3a3a3;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 12px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(30, 30, 30, 0.8);
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input::placeholder {
+            color: #737373;
+        }
+
+        .search-input:focus {
+            border-color: #fb923c;
+        }
+
+        .search-btn {
+            padding: 16px 28px;
+            background: #fb923c;
+            color: #000000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #ea580c;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            margin: 48px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .view-all {
+            color: #fb923c;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .view-all:hover {
+            color: #ea580c;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            text-align: center;
+        }
+
+        .category-card:hover {
+            border-color: rgba(251, 146, 60, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(251, 146, 60, 0.1);
+        }
+
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .category-card h3 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        .category-count {
+            display: inline-block;
+            background: rgba(251, 146, 60, 0.2);
+            color: #fb923c;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+
+        /* Featured Recipes */
+        .featured-section {
+            margin: 60px 0;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .recipe-card {
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .recipe-card:hover {
+            border-color: rgba(251, 146, 60, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.3) 0%, rgba(234, 88, 12, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .recipe-content {
+            padding: 20px;
+        }
+
+        .recipe-category {
+            color: #fb923c;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .recipe-card h3 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .recipe-card p {
+            color: #a3a3a3;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 16px;
+            color: #737373;
+            font-size: 13px;
+        }
+
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(234, 88, 12, 0.08) 100%);
+            border-radius: 24px;
+            padding: 48px 32px;
+            margin: 60px 0;
+            border: 1px solid rgba(251, 146, 60, 0.25);
+            text-align: center;
+        }
+
+        .newsletter-section h2 {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-section .tagline {
+            color: #fb923c;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-section p {
+            color: #a3a3a3;
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 10, 0.8);
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .newsletter-input::placeholder {
+            color: #737373;
+        }
+
+        .newsletter-input:focus {
+            border-color: #fb923c;
+        }
+
+        .newsletter-btn {
+            padding: 16px 32px;
+            background: #fb923c;
+            color: #000000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-privacy {
+            color: #525252;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        .newsletter-privacy a {
+            color: #737373;
+            text-decoration: underline;
+        }
+
+        /* Browse by Cuisine */
+        .cuisine-section {
+            margin: 60px 0;
+        }
+
+        .cuisine-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .cuisine-tag {
+            padding: 12px 24px;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            color: #d4d4d4;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .cuisine-tag:hover {
+            border-color: #fb923c;
+            color: #fb923c;
+            background: rgba(251, 146, 60, 0.1);
+        }
+
+        /* App CTA */
+        .app-cta {
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 20px;
+            padding: 40px 32px;
+            margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .app-cta-content {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .app-cta h2 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .app-cta p {
+            color: #a3a3a3;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .app-cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            background: #fb923c;
+            color: #000000;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .app-store-btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .web-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fb923c;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            border: 2px solid #fb923c;
+            transition: all 0.3s;
+        }
+
+        .web-btn:hover {
+            background: rgba(251, 146, 60, 0.1);
+        }
+
+        .app-cta-features {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .app-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        .app-feature span {
+            color: #fb923c;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fb923c;
+        }
+
+        .footer p {
+            color: #525252;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-tagline {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 24px;
+            }
+
+            .newsletter-section {
+                padding: 32px 20px;
+            }
+
+            .newsletter-section h2 {
+                font-size: 26px;
+            }
+
+            .app-cta {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .app-cta h2 {
+                text-align: center;
+            }
+
+            .app-cta-buttons {
+                justify-content: center;
+            }
+
+            .app-cta-features {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="../index.html">Home</a>
+            <a href="index.html" class="active">Recipes</a>
+            <a href="../privacy.html">Privacy</a>
+            <a href="../terms.html">Terms</a>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Discover Delicious Recipes</h1>
+            <p class="hero-tagline">Cook Smarter, Eat Better</p>
+            <p class="hero-description">Browse our collection of chef-tested recipes with step-by-step instructions, nutrition info, and smart meal planning tools.</p>
+
+            <div class="search-container">
+                <form class="search-box" action="#" method="get">
+                    <input type="text" class="search-input" placeholder="Search recipes... (e.g., chicken stir fry)" name="q">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="section-header">
+                <h2>Browse by Category</h2>
+            </div>
+            <div class="category-grid">
+                <a href="category/quick-meals.html" class="category-card">
+                    <div class="category-icon">⚡</div>
+                    <h3>Quick Meals</h3>
+                    <p>Ready in 30 minutes or less</p>
+                    <span class="category-count">Coming Soon</span>
+                </a>
+                <a href="category/healthy.html" class="category-card">
+                    <div class="category-icon">🥗</div>
+                    <h3>Healthy</h3>
+                    <p>Nutritious and delicious</p>
+                    <span class="category-count">Coming Soon</span>
+                </a>
+                <a href="category/meal-prep.html" class="category-card">
+                    <div class="category-icon">📦</div>
+                    <h3>Meal Prep</h3>
+                    <p>Cook once, eat all week</p>
+                    <span class="category-count">Coming Soon</span>
+                </a>
+                <a href="category/comfort-food.html" class="category-card">
+                    <div class="category-icon">🍲</div>
+                    <h3>Comfort Food</h3>
+                    <p>Hearty family favorites</p>
+                    <span class="category-count">Coming Soon</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Recipes -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h2>Latest Recipes</h2>
+                <a href="#" class="view-all">View All Recipes</a>
+            </div>
+            <div class="recipe-grid">
+                <a href="garlic-butter-chicken.html" class="recipe-card">
+                    <div class="recipe-image">🍗</div>
+                    <div class="recipe-content">
+                        <span class="recipe-category">Quick Meals</span>
+                        <h3>Garlic Butter Chicken</h3>
+                        <p>Juicy pan-seared chicken in a rich garlic butter sauce. Perfect for busy weeknights.</p>
+                        <div class="recipe-meta">
+                            <span>🕐 25 min</span>
+                            <span>🔥 450 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="mediterranean-quinoa-bowl.html" class="recipe-card">
+                    <div class="recipe-image">🥗</div>
+                    <div class="recipe-content">
+                        <span class="recipe-category">Healthy</span>
+                        <h3>Mediterranean Quinoa Bowl</h3>
+                        <p>Fresh vegetables, feta, and herbs over fluffy quinoa with lemon tahini dressing.</p>
+                        <div class="recipe-meta">
+                            <span>🕐 20 min</span>
+                            <span>🔥 380 cal</span>
+                            <span>👤 2 servings</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="sheet-pan-fajitas.html" class="recipe-card">
+                    <div class="recipe-image">🌮</div>
+                    <div class="recipe-content">
+                        <span class="recipe-category">Meal Prep</span>
+                        <h3>Sheet Pan Chicken Fajitas</h3>
+                        <p>Colorful peppers and seasoned chicken roasted to perfection. Minimal cleanup!</p>
+                        <div class="recipe-meta">
+                            <span>🕐 35 min</span>
+                            <span>🔥 320 cal</span>
+                            <span>👤 6 servings</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h2>Free Weekly Meal Plan</h2>
+            <p class="tagline">Join 10,000+ home cooks</p>
+            <p>Get a free meal plan PDF every week with recipes, grocery lists, and prep tips delivered to your inbox.</p>
+            <form class="newsletter-form" action="https://formspree.io/f/hello@mealie.ai" method="POST">
+                <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Get Free Meal Plan</button>
+            </form>
+            <p class="newsletter-privacy">No spam, ever. Unsubscribe anytime. <a href="../privacy.html">Privacy Policy</a></p>
+        </section>
+
+        <!-- Browse by Cuisine -->
+        <section class="cuisine-section">
+            <div class="section-header">
+                <h2>Explore Cuisines</h2>
+            </div>
+            <div class="cuisine-tags">
+                <a href="category/italian.html" class="cuisine-tag">🇮🇹 Italian</a>
+                <a href="category/mexican.html" class="cuisine-tag">🇲🇽 Mexican</a>
+                <a href="category/asian.html" class="cuisine-tag">🥢 Asian</a>
+                <a href="category/mediterranean.html" class="cuisine-tag">🫒 Mediterranean</a>
+                <a href="category/american.html" class="cuisine-tag">🇺🇸 American</a>
+                <a href="category/indian.html" class="cuisine-tag">🇮🇳 Indian</a>
+                <a href="category/thai.html" class="cuisine-tag">🇹🇭 Thai</a>
+                <a href="category/japanese.html" class="cuisine-tag">🇯🇵 Japanese</a>
+            </div>
+        </section>
+
+        <!-- App CTA -->
+        <section class="app-cta">
+            <div class="app-cta-content">
+                <h2>Save Recipes to Your Meal Plan</h2>
+                <p>Love a recipe? Save it to Mealie AI and add it to your weekly meal plan with one tap. Auto-generate grocery lists grouped by store aisle.</p>
+                <div class="app-cta-buttons">
+                    <a href="https://apps.apple.com/app/mealie-ai/id6504238545" class="app-store-btn">Download for iPhone</a>
+                    <a href="https://mealie.ai" class="web-btn">Open Web App</a>
+                </div>
+            </div>
+            <div class="app-cta-features">
+                <div class="app-feature"><span>✓</span> Save unlimited recipes</div>
+                <div class="app-feature"><span>✓</span> Drag-and-drop meal planning</div>
+                <div class="app-feature"><span>✓</span> Smart grocery lists</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html">Recipes</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="mailto:hello@mealie.ai">Contact</a>
+            </div>
+            <p>&copy; 2026 Mealie AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
