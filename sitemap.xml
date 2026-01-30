@@ -49,4 +49,17 @@
     <loc>https://studio0172.com/resonant/support.html</loc>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://studio0172.com/mealieai/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://studio0172.com/mealieai/privacy.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://studio0172.com/mealieai/terms.html</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

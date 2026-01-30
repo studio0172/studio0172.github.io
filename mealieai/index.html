@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealie AI – Smart Meal Planning App with AI Recipe Suggestions</title>
+    <meta name="description" content="Plan meals, save recipes, and generate grocery lists — all powered by AI. Mealie AI is your smart meal planning assistant for iPhone and web.">
+    <meta name="keywords" content="meal planning app, AI meal planner, recipe management, grocery list app, meal prep, weekly meal plan, recipe suggestions">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://studio0172.com/mealieai/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mealie AI – Smart Meal Planning App with AI Recipe Suggestions">
+    <meta property="og:description" content="Plan meals, save recipes, and generate grocery lists — all powered by AI. Your smart meal planning assistant.">
+    <meta property="og:url" content="https://studio0172.com/mealieai/">
+    <meta property="og:site_name" content="Mealie AI">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mealie AI – Smart Meal Planning App">
+    <meta name="twitter:description" content="Plan meals, save recipes, and generate grocery lists — all powered by AI.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Mealie AI",
+        "operatingSystem": "iOS, Web",
+        "applicationCategory": "LifestyleApplication",
+        "description": "AI-powered meal planning app that helps you plan meals, save recipes, and generate grocery lists.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            color: #a3a3a3;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav a:hover {
+            color: #e5e5e5;
+            border-color: rgba(251, 146, 60, 0.3);
+        }
+
+        .nav a.active {
+            color: #000000;
+            background: #fb923c;
+            border-color: #fb923c;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(234, 88, 12, 0.05) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(251, 146, 60, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            color: #fb923c;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            color: #a3a3a3;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            background: #fb923c;
+            color: #000000;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .app-store-btn:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .web-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fb923c;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid #fb923c;
+            transition: all 0.3s;
+        }
+
+        .web-btn:hover {
+            background: rgba(251, 146, 60, 0.1);
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .features-section {
+            margin: 60px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(251, 146, 60, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            color: #fb923c;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #a3a3a3;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .ai-section {
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.08) 0%, rgba(234, 88, 12, 0.04) 100%);
+            border-radius: 20px;
+            padding: 48px 32px;
+            margin: 60px 0;
+            border: 1px solid rgba(251, 146, 60, 0.15);
+        }
+
+        .ai-section h2 {
+            margin-bottom: 16px;
+        }
+
+        .ai-subtitle {
+            color: #fb923c;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .ai-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .ai-feature {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .ai-feature h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .ai-feature p {
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        .how-it-works {
+            margin: 60px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #fb923c;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .step h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #a3a3a3;
+            font-size: 14px;
+        }
+
+        .faq-section {
+            margin: 60px 0;
+        }
+
+        .faq-item {
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item h3 {
+            color: #fb923c;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            color: #a3a3a3;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 48px 24px;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(234, 88, 12, 0.05) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(251, 146, 60, 0.2);
+            margin: 60px 0;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: #a3a3a3;
+            margin-bottom: 24px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fb923c;
+        }
+
+        .footer p {
+            color: #525252;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .tagline {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .ai-section {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+
+        <div class="hero">
+            <h1>Meal Planning, Reimagined</h1>
+            <p class="tagline">Your AI-Powered Sous Chef</p>
+            <p class="hero-description">Plan meals, save recipes, and generate grocery lists — all powered by AI. Mealie AI helps you eat better, save time, and reduce food waste.</p>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/app/mealie-ai/id6504238545" class="app-store-btn">Download for iPhone</a>
+                <a href="https://mealie.ai" class="web-btn">Open Web App</a>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <h2>Plan Your Week, Your Way</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Plan in Minutes</h3>
+                    <p>Drag recipes into your weekly calendar — customize meal plans for your household in minutes, not hours.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Smarter Grocery Lists</h3>
+                    <p>Groceries grouped by store and aisle — no more wandering around wondering what you need.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Save Hours Weekly</h3>
+                    <p>Drag-and-drop meal planning and auto-generated grocery lists save you hours every week.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>All Recipes in One Place</h3>
+                    <p>Unlimited recipe storage with import from any website. Your entire recipe collection, organized.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-section">
+            <h2>Meet Your AI Sous-Chef</h2>
+            <p class="ai-subtitle">Ask for recipe ideas, get instant nutrition info, and save recipes in seconds.</p>
+            <div class="ai-features">
+                <div class="ai-feature">
+                    <h3>Ask Anything About Food</h3>
+                    <p>Get recipe suggestions, cooking tips, and food advice instantly.</p>
+                </div>
+                <div class="ai-feature">
+                    <h3>AI-Structured Recipes</h3>
+                    <p>Save recipes perfectly formatted — ingredients, steps, and nutrition included.</p>
+                </div>
+                <div class="ai-feature">
+                    <h3>Instant Nutrition Info</h3>
+                    <p>Get accurate macros and calories for any recipe or ingredient.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>Get Started in Seconds</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Download the App</h3>
+                    <p>Get started with our iPhone app — includes a 7-day free trial.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Your Preferences</h3>
+                    <p>Tell us about your dietary needs and favorite stores.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Start Planning</h3>
+                    <p>Create meal plans, save recipes, and generate shopping lists instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>Is Mealie AI free to use?</h3>
+                <p>Mealie AI offers a 7-day free trial with full access to all features. After the trial, you can subscribe to continue using premium features, or use the limited free tier.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Does the AI create my meal plans automatically?</h3>
+                <p>The AI assistant helps you brainstorm recipe ideas and provides suggestions, but you're always in control. All meal planning decisions are made by you — we just make it easier.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I import recipes from websites?</h3>
+                <p>Yes! You can import recipes from any website with one click. Our AI will structure the recipe with ingredients, steps, and nutrition info automatically.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is my data private?</h3>
+                <p>We take privacy seriously. Your recipes and meal plans are stored securely, and we never sell or share your personal data for advertising. Read our <a href="privacy.html">Privacy Policy</a> for details.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Transform Your Meal Planning?</h2>
+            <p>Join thousands planning smarter with Mealie AI.</p>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/app/mealie-ai/id6504238545" class="app-store-btn">Download for iPhone</a>
+                <a href="https://mealie.ai" class="web-btn">Sign in to Web App</a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@mealie.ai">Contact</a>
+            </div>
+            <p>&copy; 2026 Mealie AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
