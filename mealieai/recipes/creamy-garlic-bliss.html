@@ -145,11 +145,36 @@
         .footer-links a { color: #737373; text-decoration: none; font-size: 14px; }
         .footer-links a:hover { color: #fb923c; }
         .footer p { color: #525252; font-size: 13px; }
+        
+        /* Slide Carousel */
+        .carousel-section { margin-bottom: 40px; }
+        .carousel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .carousel-header h2 { color: #fff; font-size: 22px; font-weight: 600; }
+        .carousel-badge { background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%); color: #000; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .carousel-container { position: relative; background: rgba(30, 30, 30, 0.6); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.3s ease; }
+        .carousel-slide { min-width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .carousel-slide img { max-width: 100%; max-height: 500px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(251, 146, 60, 0.9); border: none; border-radius: 50%; color: #000; font-size: 24px; font-weight: bold; cursor: pointer; transition: all 0.2s; z-index: 10; }
+        .carousel-btn:hover { background: #fb923c; transform: translateY(-50%) scale(1.1); }
+        .carousel-btn.prev { left: 16px; }
+        .carousel-btn.next { right: 16px; }
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; padding: 16px; }
+        .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.2s; }
+        .carousel-dot.active { background: #fb923c; transform: scale(1.2); }
+        .carousel-app-promo { background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(234, 88, 12, 0.08) 100%); padding: 20px; text-align: center; border-top: 1px solid rgba(251, 146, 60, 0.2); }
+        .carousel-app-promo p { color: #a3a3a3; font-size: 14px; margin-bottom: 12px; }
+        .carousel-app-promo strong { color: #fb923c; }
+        .carousel-app-btn { display: inline-block; background: #fb923c; color: #000; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.2s; }
+        .carousel-app-btn:hover { background: #ea580c; }
+        
         @media (max-width: 768px) {
             .recipe-header h1 { font-size: 32px; }
             .recipe-content { grid-template-columns: 1fr; }
             .ingredients-section { position: static; }
             .save-cta { flex-direction: column; text-align: center; }
+            .carousel-slide img { max-height: 400px; }
+            .carousel-btn { width: 40px; height: 40px; font-size: 20px; }
         }
     </style>
 </head>
@@ -189,6 +214,35 @@
         <div class="recipe-image-container">
             <img src="images/creamy-garlic-bliss.png" alt="Creamy Garlic Bliss - delicious creamy garlic pasta" loading="lazy">
         </div>
+
+        <!-- Visual Step-by-Step Carousel -->
+        <section class="carousel-section">
+            <div class="carousel-header">
+                <h2>📱 Visual Recipe Guide</h2>
+                <span class="carousel-badge">Swipe Through</span>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_01_title.png" alt="Recipe Title" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_02_ingredients_1.png" alt="Ingredients" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_03_step_1_1.png" alt="Step 1" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_04_step_1_2.png" alt="Step 1 continued" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_05_step_2_1.png" alt="Step 2" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_06_step_2_2.png" alt="Step 2 continued" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_07_step_3_1.png" alt="Step 3" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_08_step_3_2.png" alt="Step 3 continued" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_09_step_4.png" alt="Step 4" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/creamy-garlic-bliss/slide_10_cta.png" alt="Get the App" loading="lazy"></div>
+                </div>
+                <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <div class="carousel-app-promo">
+                    <p><strong>Love this view?</strong> Get the full experience in our app — swipe through recipes, save favorites, and cook hands-free!</p>
+                    <a href="https://apps.apple.com/us/app/mealie-ai-your-ai-sous-chef/id6754790038" class="carousel-app-btn">Download Mealie AI</a>
+                </div>
+            </div>
+        </section>
 
         <div class="save-cta">
             <div class="save-cta-text">
@@ -307,5 +361,46 @@
             <p>&copy; 2026 Mealie AI. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const slides = track.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.getElementById('carouselDots');
+        
+        // Create dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        });
+        
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        function moveSlide(dir) {
+            currentSlide = (currentSlide + dir + slides.length) % slides.length;
+            updateCarousel();
+        }
+        
+        function goToSlide(i) {
+            currentSlide = i;
+            updateCarousel();
+        }
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        track.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
+        track.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) moveSlide(diff > 0 ? 1 : -1);
+        });
+    </script>
 </body>
 </html>

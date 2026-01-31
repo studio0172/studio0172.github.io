@@ -56,7 +56,7 @@
         .recipe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px; }
         .recipe-card { background: rgba(30, 30, 30, 0.6); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; text-decoration: none; }
         .recipe-card:hover { border-color: rgba(251, 146, 60, 0.4); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(251, 146, 60, 0.1); }
-        .recipe-image { width: 100%; height: 200px; background: linear-gradient(135deg, rgba(251, 146, 60, 0.25) 0%, rgba(234, 88, 12, 0.15) 100%); display: flex; align-items: center; justify-content: center; font-size: 64px; }
+        .recipe-image { width: 100%; aspect-ratio: 9 / 12; background: linear-gradient(135deg, rgba(251, 146, 60, 0.25) 0%, rgba(234, 88, 12, 0.15) 100%); background-size: cover; background-position: center top; display: flex; align-items: center; justify-content: center; font-size: 64px; }
         .recipe-content { padding: 20px; }
         .recipe-vibe { display: inline-block; background: rgba(251, 146, 60, 0.2); color: #fb923c; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
         .recipe-card h3 { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
@@ -123,45 +123,20 @@
                 <h2>Soul-Warming Recipes</h2>
             </div>
             <div class="recipe-grid">
-                <a href="../creamy-tuscan-chicken.html" class="recipe-card">
-                    <div class="recipe-image">🍗</div>
+                <a href="../creamy-garlic-bliss.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/creamy-garlic-bliss.png'); font-size: 0;"></div>
                     <div class="recipe-content">
                         <span class="recipe-vibe">Weeknight Winner</span>
-                        <h3>Creamy Tuscan Chicken</h3>
-                        <p>Tender chicken in a rich sun-dried tomato and spinach cream sauce.</p>
+                        <h3>Creamy Garlic Bliss</h3>
+                        <p>Rich, velvety pasta bursting with garlic and Parmesan. The ultimate comfort food!</p>
                         <div class="recipe-meta">
-                            <span>🕐 30 min</span>
-                            <span>🔥 520 cal</span>
+                            <span>🕐 25 min</span>
+                            <span>🔥 699 cal</span>
                             <span>👤 4 servings</span>
                         </div>
                     </div>
                 </a>
-                <a href="../beef-stew.html" class="recipe-card">
-                    <div class="recipe-image">🥘</div>
-                    <div class="recipe-content">
-                        <span class="recipe-vibe">Slow Cooker</span>
-                        <h3>Classic Beef Stew</h3>
-                        <p>Fall-apart tender beef with potatoes and carrots in rich gravy.</p>
-                        <div class="recipe-meta">
-                            <span>🕐 3 hours</span>
-                            <span>🔥 450 cal</span>
-                            <span>👤 6 servings</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="../baked-mac-and-cheese.html" class="recipe-card">
-                    <div class="recipe-image">🧀</div>
-                    <div class="recipe-content">
-                        <span class="recipe-vibe">Family Favorite</span>
-                        <h3>Baked Mac and Cheese</h3>
-                        <p>Ultra-creamy three-cheese mac with a crispy breadcrumb topping.</p>
-                        <div class="recipe-meta">
-                            <span>🕐 45 min</span>
-                            <span>🔥 580 cal</span>
-                            <span>👤 8 servings</span>
-                        </div>
-                    </div>
-                </a>
+                <!-- More comfort food recipes coming soon! -->
             </div>
         </section>
 
