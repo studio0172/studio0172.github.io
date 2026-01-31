@@ -722,13 +722,14 @@
 
         <!-- Newsletter Section -->
         <section class="newsletter-section">
-            <h2>Free Weekly Meal Plan</h2>
-            <p class="tagline">Join 10,000+ home cooks</p>
-            <p>Get a free meal plan PDF every week with recipes, grocery lists, and prep tips delivered to your inbox.</p>
-            <form class="newsletter-form" action="https://formspree.io/f/hello@mealie.ai" method="POST">
+            <h2>Fresh Recipes, Weekly</h2>
+            <p class="tagline">Never run out of dinner ideas</p>
+            <p>Get delicious new recipes delivered to your inbox every week. Simple, tasty, and ready to cook.</p>
+            <form class="newsletter-form" id="newsletter-form">
                 <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
-                <button type="submit" class="newsletter-btn">Get Free Meal Plan</button>
+                <button type="submit" class="newsletter-btn">Subscribe Free</button>
             </form>
+            <p id="newsletter-status" style="display:none; margin-top: 12px; font-size: 14px;"></p>
             <p class="newsletter-privacy">No spam, ever. Unsubscribe anytime. <a href="../privacy.html">Privacy Policy</a></p>
         </section>
 
@@ -777,5 +778,49 @@
             <p>&copy; 2026 Mealie AI. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+    // Newsletter form handling
+    document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const form = this;
+        const email = form.querySelector('input[name="email"]').value;
+        const btn = form.querySelector('button');
+        const status = document.getElementById('newsletter-status');
+        
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        
+        try {
+            // TODO: Set up api.studio0172.com with SSL proxy to VPS:3847
+            const res = await fetch('https://api.studio0172.com/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            
+            const data = await res.json();
+            
+            status.style.display = 'block';
+            status.style.color = data.success ? '#22c55e' : '#ef4444';
+            status.textContent = data.message;
+            
+            if (data.success) {
+                form.reset();
+                btn.textContent = 'Subscribed! ✓';
+            } else {
+                btn.textContent = 'Subscribe Free';
+                btn.disabled = false;
+            }
+        } catch (err) {
+            status.style.display = 'block';
+            status.style.color = '#ef4444';
+            status.textContent = 'Something went wrong. Please try again.';
+            btn.textContent = 'Subscribe Free';
+            btn.disabled = false;
+        }
+    });
+    </script>
 </body>
 </html>
