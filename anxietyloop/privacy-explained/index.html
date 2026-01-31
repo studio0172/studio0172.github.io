@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Privacy Matters for Mental Health Apps | On-Device vs Cloud Storage</title>
+    <meta name="description" content="Learn why on-device storage is crucial for mental health data. Understand the difference between on-device and cloud storage, and how to verify an app's privacy claims.">
+    <link rel="canonical" href="https://studio0172.com/anxietyloop/privacy-explained/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why Privacy Matters for Mental Health Apps">
+    <meta property="og:description" content="Learn why on-device storage is crucial for mental health data and how to verify an app's privacy claims.">
+    <meta property="og:url" content="https://studio0172.com/anxietyloop/privacy-explained/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Studio 0172">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Privacy Matters for Mental Health Apps">
+    <meta name="twitter:description" content="Learn why on-device storage is crucial for mental health data.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why Privacy Matters for Mental Health Apps",
+        "description": "An educational guide to understanding on-device vs cloud storage for mental health data",
+        "author": {
+            "@type": "Organization",
+            "name": "Studio 0172"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Studio 0172"
+        },
+        "datePublished": "2026-02-01",
+        "dateModified": "2026-02-01"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            color: #a3a3a3;
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav a:hover {
+            color: #e5e5e5;
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .breadcrumb {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #4ade80;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #525252;
+            margin: 0 8px;
+        }
+
+        article {
+            padding: 20px 0;
+        }
+
+        article h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        article h2 {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+
+        article h3 {
+            color: #e5e5e5;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        article p {
+            color: #d4d4d4;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        article ul, article ol {
+            color: #d4d4d4;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        article li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #e5e5e5;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 15px;
+        }
+
+        .comparison-table th {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .comparison-table td {
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(30, 30, 30, 0.4);
+            vertical-align: top;
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(40, 40, 40, 0.6);
+        }
+
+        .comparison-table .feature-name {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .good {
+            color: #4ade80;
+        }
+
+        .bad {
+            color: #f87171;
+        }
+
+        .neutral {
+            color: #fbbf24;
+        }
+
+        .data-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-card h4 {
+            color: #4ade80;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .data-card ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        .data-card li {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            padding-left: 36px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .warning-box {
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .warning-box p {
+            margin-bottom: 0;
+            color: #e5e5e5;
+        }
+
+        .warning-box strong {
+            color: #f87171;
+        }
+
+        .cta-section {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 48px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-section h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #4ade80;
+            color: #000000;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        .disclaimer {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 32px 0;
+            font-size: 14px;
+            color: #d4d4d4;
+        }
+
+        .disclaimer strong {
+            color: #fbbf24;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #525252;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a3a3a3;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #4ade80;
+        }
+
+        @media (max-width: 768px) {
+            article h1 {
+                font-size: 28px;
+            }
+
+            article h2 {
+                font-size: 22px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            .comparison-table {
+                font-size: 13px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="../">Anxiety Loop</a>
+            <a href="../support.html">Support</a>
+            <a href="../privacy.html">Privacy</a>
+        </nav>
+
+        <div class="breadcrumb">
+            <a href="../">Anxiety Loop</a>
+            <span>/</span>
+            Privacy Explained
+        </div>
+
+        <article>
+            <h1>Why Privacy Matters for Mental Health Apps</h1>
+
+            <p>When you track your mental health, you're recording some of the most personal information imaginable: your emotional states, your struggles, your vulnerable moments. Where that data goes—and who can access it—matters enormously.</p>
+
+            <p>This isn't a legal privacy policy. It's an educational guide to help you understand the difference between on-device and cloud storage, why it matters for mental health data, and how to verify any app's privacy claims.</p>
+
+            <div class="highlight-box">
+                <p><strong>The core question:</strong> When you log your anxiety, does that data stay on your phone? Or does it travel to servers owned by the app company (or third parties)?</p>
+            </div>
+
+            <h2>On-Device vs. Cloud Storage: What's the Difference?</h2>
+
+            <h3>On-Device Storage</h3>
+            <p>Your data lives only on your phone. It never leaves. The app company can't see it, can't analyze it, can't sell it—because they never receive it. If you delete the app, the data is gone. If your phone is lost, the data is lost (unless you use local backups).</p>
+
+            <h3>Cloud Storage</h3>
+            <p>Your data is sent to servers operated by the app company or third-party services. This enables features like syncing across devices, account recovery, and often—data analysis, personalization, or monetization.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>On-Device</th>
+                        <th>Cloud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Who has access?</td>
+                        <td class="good">Only you</td>
+                        <td class="bad">You + company + potentially third parties</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Data breach risk</td>
+                        <td class="good">Your phone only</td>
+                        <td class="bad">Central servers = bigger target</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Can be subpoenaed?</td>
+                        <td class="good">Only from your device</td>
+                        <td class="bad">From company servers</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Sync across devices</td>
+                        <td class="neutral">Usually not</td>
+                        <td class="good">Yes</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Account recovery</td>
+                        <td class="neutral">Usually not possible</td>
+                        <td class="good">Usually possible</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Can data be sold?</td>
+                        <td class="good">No—company never has it</td>
+                        <td class="bad">Depends on privacy policy</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Requires account?</td>
+                        <td class="good">Usually no</td>
+                        <td class="bad">Usually yes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Why Mental Health Data Is Especially Sensitive</h2>
+
+            <p>Not all personal data carries the same weight. Your mental health data is uniquely sensitive for several reasons:</p>
+
+            <ul>
+                <li><strong>Stigma:</strong> Despite progress, mental health struggles still carry social stigma. Data about anxiety, depression, or other conditions could affect how others perceive you.</li>
+                <li><strong>Insurance implications:</strong> In some jurisdictions, mental health history can affect insurance eligibility or premiums.</li>
+                <li><strong>Employment concerns:</strong> While illegal in many places, discrimination based on mental health status does occur.</li>
+                <li><strong>Personal vulnerability:</strong> Your emotional states represent you at your most vulnerable. That deserves protection.</li>
+                <li><strong>Pattern revelation:</strong> Over time, mood tracking data reveals intimate patterns about your life, relationships, and struggles.</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Real risk:</strong> Mental health app data has been shared with advertisers, sold to data brokers, and exposed in breaches. This isn't theoretical—it has happened, and continues to happen with apps that use cloud storage.</p>
+            </div>
+
+            <h2>What Data Stays Where in Anxiety Loop</h2>
+
+            <p>Anxiety Loop is designed with privacy as a core principle, not an afterthought. Here's exactly what happens with your data:</p>
+
+            <div class="data-card">
+                <h4>Stored Only on Your Device</h4>
+                <ul>
+                    <li>All mood check-ins and timestamps</li>
+                    <li>Any notes you add to entries</li>
+                    <li>Your historical patterns and trends</li>
+                    <li>App preferences and settings</li>
+                    <li>Everything you create in the app</li>
+                </ul>
+            </div>
+
+            <div class="data-card">
+                <h4>Never Collected or Transmitted</h4>
+                <ul>
+                    <li>Your email or identity</li>
+                    <li>Your mood data</li>
+                    <li>Your usage patterns</li>
+                    <li>Your location</li>
+                    <li>Analytics that could identify you</li>
+                </ul>
+            </div>
+
+            <p>There's no account because there's nothing to sync. There's no cloud backup because your data never leaves your phone. The app works entirely offline.</p>
+
+            <h2>How to Verify Privacy Claims</h2>
+
+            <p>Any app can claim to be "private" or "secure." Here's how to verify those claims:</p>
+
+            <h3>1. Check the App Store Privacy Labels</h3>
+            <p>Apple requires developers to disclose what data they collect. Look for apps that show "Data Not Collected" or minimal collection. Be skeptical of apps that collect "Usage Data," "Identifiers," or "Diagnostics" while claiming to be private.</p>
+
+            <h3>2. Read the Privacy Policy</h3>
+            <p>Look for specific language about:</p>
+            <ul>
+                <li>What data is collected</li>
+                <li>Where it's stored (on-device vs. servers)</li>
+                <li>Who it's shared with</li>
+                <li>How long it's retained</li>
+            </ul>
+
+            <h3>3. Test Offline Functionality</h3>
+            <p>Turn on airplane mode and try using the app. If it works fully offline, that's a good sign data stays local. If it requires internet connection for basic features, your data is likely going somewhere.</p>
+
+            <h3>4. Look for Account Requirements</h3>
+            <p>If an app requires you to create an account (email, phone number, etc.), your data is almost certainly being stored on their servers. No account = a strong signal of local-only storage.</p>
+
+            <h3>5. Check for Third-Party SDKs</h3>
+            <p>Many apps include analytics tools (like Firebase, Mixpanel, or Facebook SDK) that send data to third parties. These are sometimes disclosed in privacy policies or can be detected through technical analysis.</p>
+
+            <ul class="checklist">
+                <li>App Store privacy label shows "Data Not Collected"</li>
+                <li>Works fully offline (test in airplane mode)</li>
+                <li>No account or login required</li>
+                <li>Privacy policy explicitly states on-device storage</li>
+                <li>No third-party analytics SDKs disclosed</li>
+            </ul>
+
+            <h2>The Trade-offs of Privacy</h2>
+
+            <p>On-device storage isn't without drawbacks. Being honest about them helps you make an informed choice:</p>
+
+            <ul>
+                <li><strong>No sync:</strong> You can't access your data on multiple devices</li>
+                <li><strong>No recovery:</strong> If you lose your phone without a backup, your data is gone</li>
+                <li><strong>No social features:</strong> You can't share progress with friends or therapists through the app</li>
+                <li><strong>Limited insights:</strong> The app can't use aggregate data to improve recommendations</li>
+            </ul>
+
+            <p>For mental health data, many people find these trade-offs worthwhile. The peace of mind knowing your emotional data belongs only to you often outweighs the convenience of cloud features.</p>
+
+            <div class="highlight-box">
+                <p><strong>Our philosophy:</strong> Mental health data is too sensitive for convenience trade-offs. Your anxiety patterns, your vulnerable moments, your emotional journey—these should be yours alone. Not ours. Not advertisers'. Not data brokers'. Yours.</p>
+            </div>
+
+            <h2>Questions to Ask Any Mental Health App</h2>
+
+            <p>Before trusting any app with your mental health data, consider asking:</p>
+
+            <ol>
+                <li>Where exactly is my data stored?</li>
+                <li>Who at your company can access my data?</li>
+                <li>Do you share data with any third parties?</li>
+                <li>What happens to my data if I delete my account?</li>
+                <li>Have you ever had a data breach?</li>
+                <li>Can my data be subpoenaed from your servers?</li>
+                <li>Do you use my data to train AI models?</li>
+                <li>What's your business model? (If it's free, you might be the product)</li>
+            </ol>
+
+            <div class="disclaimer">
+                <strong>Note:</strong> This page is educational content about data privacy, not legal advice or our formal privacy policy. For Anxiety Loop's official privacy policy, see our <a href="../privacy.html" style="color: #4ade80;">Privacy Policy</a> page.
+            </div>
+
+            <div class="cta-section">
+                <h3>Try Privacy-First Anxiety Tracking</h3>
+                <p>Anxiety Loop stores everything on your device. No account, no cloud, no data collection. Just simple, private check-ins.</p>
+                <a href="https://apps.apple.com/us/app/anxiety-loop/id6757244049" class="cta-btn">Download on the App Store</a>
+            </div>
+
+        </article>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../">Anxiety Loop</a>
+            <a href="../support.html">Support</a>
+            <a href="../privacy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms</a>
+        </div>
+        <div>&copy; 2026 Studio0172. All rights reserved.</div>
+    </footer>
+</body>
+</html>
