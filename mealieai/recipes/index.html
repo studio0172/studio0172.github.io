@@ -94,8 +94,11 @@
         /* Recipe Grid */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
+        }
+        @media (max-width: 700px) {
+            .recipe-grid { grid-template-columns: 1fr; }
         }
         .recipe-card {
             background: rgba(30, 30, 30, 0.6);
@@ -110,10 +113,11 @@
         .recipe-card.hidden { display: none; }
         .recipe-image {
             width: 100%;
-            aspect-ratio: 16/9;
+            aspect-ratio: 9/16;
             background: linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, rgba(234, 88, 12, 0.1) 100%);
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
         }
         .recipe-content { padding: 20px; }
         .recipe-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
