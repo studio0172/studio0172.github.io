@@ -3,38 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Meals – 30-Minute Dinner Recipes | Mealie AI</title>
-    <meta name="description" content="Delicious dinner recipes ready in 30 minutes or less. Quick weeknight meals that don't sacrifice flavor – perfect for busy families.">
-    <meta name="keywords" content="quick meals, 30 minute dinners, fast recipes, weeknight meals, easy dinner ideas, quick healthy meals">
-
+    <title>Quick Meals Recipes | Mealie AI</title>
+    <meta name="description" content="Delicious dinner recipes ready in 30 minutes or less. Perfect for busy weeknights.">
     <link rel="canonical" href="https://studio0172.com/mealieai/recipes/category/quick-meals.html" />
-
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Quick Meals – 30-Minute Dinner Recipes">
-    <meta property="og:description" content="Delicious dinner recipes ready in 30 minutes or less.">
+    <meta property="og:title" content="Quick Meals Recipes | Mealie AI">
+    <meta property="og:description" content="Delicious dinner recipes ready in 30 minutes or less. Perfect for busy weeknights.">
     <meta property="og:url" content="https://studio0172.com/mealieai/recipes/category/quick-meals.html">
     <meta property="og:site_name" content="Mealie AI">
-    <meta property="og:image" content="https://studio0172.com/mealieai/assets/og-image.png">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": "Quick Meals - 30-Minute Recipes",
-        "description": "Delicious dinner recipes ready in 30 minutes or less.",
-        "url": "https://studio0172.com/mealieai/recipes/category/quick-meals.html"
-    }
-    </script>
-
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
-            color: #e5e5e5;
-            min-height: 100vh;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; line-height: 1.6; background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%); color: #e5e5e5; min-height: 100vh; }
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         .nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
         .nav a { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; color: #a3a3a3; background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -53,41 +32,21 @@
         .stat { text-align: center; }
         .stat-value { color: #fb923c; font-size: 28px; font-weight: 700; }
         .stat-label { color: #737373; font-size: 14px; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-        .section-header h2 { color: #fff; font-size: 28px; font-weight: 600; }
         .recipe-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-bottom: 48px; }
         .recipe-card { background: rgba(30, 30, 30, 0.6); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s; text-decoration: none; }
         .recipe-card:hover { border-color: rgba(251, 146, 60, 0.3); transform: translateY(-4px); }
-        .recipe-image { width: 100%; aspect-ratio: 4 / 5; background: linear-gradient(135deg, rgba(251, 146, 60, 0.3) 0%, rgba(234, 88, 12, 0.2) 100%); background-size: cover; background-position: center top; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+        .recipe-image { width: 100%; aspect-ratio: 4 / 5; background: linear-gradient(135deg, rgba(251, 146, 60, 0.3) 0%, rgba(234, 88, 12, 0.2) 100%); background-size: cover; background-position: center top; display: flex; align-items: center; justify-content: center; }
         .recipe-content { padding: 20px; }
         .recipe-time { display: inline-block; background: rgba(251, 146, 60, 0.2); color: #fb923c; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
         .recipe-card h3 { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
         .recipe-card p { color: #a3a3a3; font-size: 14px; margin-bottom: 16px; line-height: 1.5; }
         .recipe-meta { display: flex; gap: 16px; color: #737373; font-size: 13px; }
-        .tips-section { background: linear-gradient(135deg, rgba(251, 146, 60, 0.08) 0%, rgba(234, 88, 12, 0.04) 100%); border-radius: 20px; padding: 40px 32px; margin: 48px 0; border: 1px solid rgba(251, 146, 60, 0.15); }
-        .tips-section h2 { color: #fff; font-size: 24px; font-weight: 600; margin-bottom: 24px; text-align: center; }
-        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .tip-card { background: rgba(20, 20, 20, 0.6); padding: 24px; border-radius: 12px; }
-        .tip-card h3 { color: #fb923c; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-        .tip-card p { color: #a3a3a3; font-size: 14px; line-height: 1.6; }
-        .newsletter-section { background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(234, 88, 12, 0.08) 100%); border-radius: 20px; padding: 40px 32px; margin: 48px 0; border: 1px solid rgba(251, 146, 60, 0.25); text-align: center; }
-        .newsletter-section h2 { color: #fff; font-size: 28px; font-weight: 600; margin-bottom: 12px; }
-        .newsletter-section p { color: #a3a3a3; font-size: 16px; max-width: 450px; margin: 0 auto 20px; }
-        .newsletter-form { display: flex; gap: 12px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-        .newsletter-input { flex: 1; min-width: 220px; padding: 14px 18px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(10, 10, 10, 0.8); color: #fff; font-size: 15px; outline: none; }
-        .newsletter-input:focus { border-color: #fb923c; }
-        .newsletter-btn { padding: 14px 28px; background: #fb923c; color: #000; border: none; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.3s; }
-        .newsletter-btn:hover { background: #ea580c; }
         .footer { text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 40px; }
         .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
         .footer-links a { color: #737373; text-decoration: none; font-size: 14px; }
         .footer-links a:hover { color: #fb923c; }
         .footer p { color: #525252; font-size: 13px; }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero { padding: 40px 16px; }
-            .stats-bar { gap: 24px; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 32px; } .hero { padding: 40px 16px; } }
     </style>
 </head>
 <body>
@@ -100,83 +59,351 @@
         </nav>
 
         <div class="breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span>/</span>
-            <a href="../index.html">Recipes</a>
-            <span>/</span>
+            <a href="../../index.html">Home</a><span>/</span>
+            <a href="../index.html">Recipes</a><span>/</span>
             <span class="current">Quick Meals</span>
         </div>
 
         <div class="hero">
             <div class="hero-icon">⚡</div>
             <h1>Quick Meals</h1>
-            <p class="hero-description">Delicious dinner recipes ready in 30 minutes or less. Perfect for busy weeknights when you want real food without the wait.</p>
+            <p class="hero-description">Delicious dinner recipes ready in 30 minutes or less. Perfect for busy weeknights.</p>
             <div class="stats-bar">
                 <div class="stat">
-                    <div class="stat-value">30</div>
-                    <div class="stat-label">Minutes or Less</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">Easy</div>
-                    <div class="stat-label">Skill Level</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">Growing</div>
-                    <div class="stat-label">Collection</div>
+                    <div class="stat-value">25</div>
+                    <div class="stat-label">Recipes</div>
                 </div>
             </div>
         </div>
 
         <section>
-            <div class="section-header">
-                <h2>Quick Meal Recipes</h2>
-            </div>
             <div class="recipe-grid">
-                <a href="../peanut-chicken-noodle-party.html" class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('../images/peanut-chicken-noodle-party.png'); font-size: 0;"></div>
+
+                <a href="../15-minute-egg-fried-rice-with-frozen-veg.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/15-minute-egg-fried-rice-with-frozen-veg.png'); font-size: 0;"></div>
                     <div class="recipe-content">
                         <span class="recipe-time">15 min</span>
-                        <h3>Peanut Chicken Noodle Party</h3>
-                        <p>Vibrant noodles with sweet-spicy sauce, crunchy peanuts, and fresh herbs.</p>
+                        <h3>15-Minute Egg Fried Rice with Frozen Veg</h3>
+                        <p>Fast fried rice using leftover rice, eggs, and frozen vegetables for a cheap, sa...</p>
                         <div class="recipe-meta">
-                            <span>🔥 407 cal</span>
+                            <span>🔥 410 cal</span>
                             <span>👤 4 servings</span>
                         </div>
                     </div>
                 </a>
-                <!-- More quick meal recipes coming soon! -->
-            </div>
-        </section>
 
-        <section class="tips-section">
-            <h2>Quick Cooking Tips</h2>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h3>🔪 Prep Ahead</h3>
-                    <p>Chop vegetables on Sunday and store them in containers. Weeknight cooking becomes assembly.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>🍳 One-Pan Meals</h3>
-                    <p>Sheet pan dinners and one-skillet meals mean less cleanup and faster cooking.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>🧄 Flavor Shortcuts</h3>
-                    <p>Keep garlic paste, ginger paste, and quality seasonings on hand for instant flavor.</p>
-                </div>
-                <div class="tip-card">
-                    <h3>📱 Plan with Mealie</h3>
-                    <p>Use Mealie AI to plan quick meals for the week and auto-generate your grocery list.</p>
-                </div>
-            </div>
-        </section>
+                <a href="../chicken-fajita-sheet-pan-bowls.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/chicken-fajita-sheet-pan-bowls.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">30 min</span>
+                        <h3>Chicken Fajita Sheet-Pan Bowls</h3>
+                        <p>Juicy chicken and colorful peppers roasted fast, then served over rice or salad....</p>
+                        <div class="recipe-meta">
+                            <span>🔥 480 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
 
-        <section class="newsletter-section">
-            <h2>Quick Recipes Every Week</h2>
-            <p>Get 5 new quick meal ideas delivered to your inbox every Sunday.</p>
-            <form class="newsletter-form" action="https://formspree.io/f/hello@mealie.ai" method="POST">
-                <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
-                <button type="submit" class="newsletter-btn">Subscribe Free</button>
-            </form>
+                <a href="../classic-turkey-smash-burgers-with-secret-sauce.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/classic-turkey-smash-burgers-with-secret-sauce.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">20 min</span>
+                        <h3>Classic Turkey Smash Burgers with Secret Sauce</h3>
+                        <p>A lighter take on smash burgers with crispy edges and a tangy sauce. Great for q...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 560 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../creamy-tomato-tortellini-with-spinach.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/creamy-tomato-tortellini-with-spinach.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">20 min</span>
+                        <h3>Creamy Tomato Tortellini with Spinach</h3>
+                        <p>A cozy, quick tortellini dinner in a creamy tomato sauce that comes together in ...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 560 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../crispy-fish-tacos-with-lime-slaw.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/crispy-fish-tacos-with-lime-slaw.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Crispy Fish Tacos with Lime Slaw</h3>
+                        <p>Crunchy pan-seared fish with a zesty lime slaw and creamy sauce in warm tortilla...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 510 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../egg-fried-rice-with-frozen-veggies.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/egg-fried-rice-with-frozen-veggies.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">20 min</span>
+                        <h3>Egg Fried Rice with Frozen Veggies</h3>
+                        <p>A quick, low-cost fried rice that uses leftover rice and frozen vegetables. Eggs...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 420 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../garlic-ginger-beef-broccoli-stir-fry.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/garlic-ginger-beef-broccoli-stir-fry.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">27 min</span>
+                        <h3>Garlic-Ginger Beef & Broccoli Stir-Fry</h3>
+                        <p>A takeout-style stir-fry with lean beef and lots of broccoli in a glossy garlic-...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 520 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../garlic-parmesan-chickpea-pasta.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/garlic-parmesan-chickpea-pasta.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Garlic Parmesan Chickpea Pasta</h3>
+                        <p>A quick pantry pasta with chickpeas, garlic, and parmesan for a filling weeknigh...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 520 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../ginger-soy-salmon-with-sesame-broccoli.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/ginger-soy-salmon-with-sesame-broccoli.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Ginger-Soy Salmon with Sesame Broccoli</h3>
+                        <p>A quick Asian-inspired dinner with savory-sweet glazed salmon and crisp-tender b...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 470 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../greek-chicken-souvlaki-bowls-quick-marinade.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/greek-chicken-souvlaki-bowls-quick-marinade.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">27 min</span>
+                        <h3>Greek Chicken Souvlaki Bowls (Quick Marinade)</h3>
+                        <p>Bright, garlicky chicken served with rice, cucumber-tomato salad, and a simple y...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 560 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../honey-soy-ground-pork-lettuce-bowls.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/honey-soy-ground-pork-lettuce-bowls.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">22 min</span>
+                        <h3>Honey Soy Ground Pork Lettuce Bowls</h3>
+                        <p>Sweet-salty ground pork cooked with a simple honey-soy sauce and served in lettu...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 460 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../honey-sriracha-salmon-with-edamame-rice.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/honey-sriracha-salmon-with-edamame-rice.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Honey-Sriracha Salmon with Edamame Rice</h3>
+                        <p>Sticky-sweet salmon with a gentle heat over rice studded with edamame. Balanced,...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 560 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../indian-spiced-chickpea-chaat-jar-salad-tamarind-date-dressing.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/indian-spiced-chickpea-chaat-jar-salad-tamarind-date-dressing.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">20 min</span>
+                        <h3>Indian Spiced Chickpea \u201cChaat\u201d Jar Salad with Tamarind Date Dressing</h3>
+                        <p>A crunchy, tangy chaat-style salad built for meal prep: chickpeas, cucumber, app...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 420 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../korean-doenjang-butter-clams-scallion-gremolata.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/korean-doenjang-butter-clams-scallion-gremolata.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">27 min</span>
+                        <h3>Korean Doenjang Butter Clams with Scallion Gremolata</h3>
+                        <p>Briny clams meet funky doenjang (Korean soybean paste) and browned butter for a ...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 410 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../korean-inspired-beef-bulgogi-lettuce-wraps.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/korean-inspired-beef-bulgogi-lettuce-wraps.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Korean-Inspired Beef Bulgogi Lettuce Wraps</h3>
+                        <p>Sweet-savory ground beef bulgogi served in crisp lettuce cups with quick cucumbe...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 430 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../lemon-herb-tuna-pasta-salad.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/lemon-herb-tuna-pasta-salad.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Lemon Herb Tuna Pasta Salad</h3>
+                        <p>A no-fuss pasta salad with canned tuna, lemony dressing, and crunchy vegetables....</p>
+                        <div class="recipe-meta">
+                            <span>🔥 480 cal</span>
+                            <span>👤 5 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../mediterranean-chickpea-tuna-salad-pitas.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/mediterranean-chickpea-tuna-salad-pitas.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">15 min</span>
+                        <h3>Mediterranean Chickpea & Tuna Salad Pitas</h3>
+                        <p>A no-cook, protein-packed dinner with chickpeas, tuna, crunchy veggies, and lemo...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 430 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../pesto-veggie-pasta-with-white-beans.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/pesto-veggie-pasta-with-white-beans.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Pesto Veggie Pasta with White Beans</h3>
+                        <p>A fast vegetarian pasta that uses pantry beans for extra protein and creamy text...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 590 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../pork-cabbage-stir-fry-with-garlic-noodles.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/pork-cabbage-stir-fry-with-garlic-noodles.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">27 min</span>
+                        <h3>Pork & Cabbage Stir-Fry with Garlic Noodles</h3>
+                        <p>Fast, budget-friendly stir-fry using ground pork and crunchy cabbage. Tossed wit...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 660 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../quick-beef-and-cabbage-stir-fry.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/quick-beef-and-cabbage-stir-fry.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Quick Beef and Cabbage Stir-Fry</h3>
+                        <p>A fast stir-fry that turns cheap cabbage into a flavorful dinner with ground bee...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 490 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../sheet-pan-chicken-fajitas.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/sheet-pan-chicken-fajitas.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">30 min</span>
+                        <h3>Sheet Pan Chicken Fajitas</h3>
+                        <p>A fast, one-pan fajita dinner with tender chicken, peppers, and onions roasted u...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 430 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../southern-buttermilk-cornbread-panzanella-pickled-okra-vinaigrette.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/southern-buttermilk-cornbread-panzanella-pickled-okra-vinaigrette.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">30 min</span>
+                        <h3>Southern Buttermilk Cornbread Panzanella with Pickled Okra Vinaigrette</h3>
+                        <p>A Southern riff on panzanella using toasted cornbread cubes instead of crusty br...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 480 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../thai-red-curry-mussels-basil-corn-broth.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/thai-red-curry-mussels-basil-corn-broth.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">30 min</span>
+                        <h3>Thai Red Curry Mussels with Basil Corn Broth</h3>
+                        <p>Mussels steam in a silky red curry broth built from coconut milk and sweet corn ...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 520 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../tuna-white-bean-lemon-pasta.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/tuna-white-bean-lemon-pasta.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">25 min</span>
+                        <h3>Tuna White Bean Lemon Pasta</h3>
+                        <p>A fast pantry pasta with tuna and white beans for staying power and a creamy tex...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 520 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="../turkey-black-bean-chili-30-minute.html" class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('../images/turkey-black-bean-chili-30-minute.png'); font-size: 0;"></div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">30 min</span>
+                        <h3>Turkey & Black Bean Chili (30-Minute)</h3>
+                        <p>A fast, hearty chili with lean turkey and black beans for big protein without he...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 480 cal</span>
+                            <span>👤 4 servings</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </section>
 
         <footer class="footer">
@@ -185,7 +412,6 @@
                 <a href="../index.html">Recipes</a>
                 <a href="../../privacy.html">Privacy Policy</a>
                 <a href="../../terms.html">Terms of Service</a>
-                <a href="mailto:hello@mealie.ai">Contact</a>
             </div>
             <p>&copy; 2026 Mealie AI. All rights reserved.</p>
         </footer>

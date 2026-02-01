@@ -1,15 +1,98 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const recipesDir = __dirname;
+const categoryDir = path.join(recipesDir, 'category');
+
+// Extract recipe data from HTML files
+function extractRecipeData(filename) {
+  const filepath = path.join(recipesDir, filename);
+  const html = fs.readFileSync(filepath, 'utf8');
+  
+  const nameMatch = html.match(/"name":\s*"([^"]+)"/);
+  const categoryMatch = html.match(/"recipeCategory":\s*"([^"]+)"/);
+  const timeMatch = html.match(/"totalTime":\s*"PT(\d+)M"/);
+  const descMatch = html.match(/"description":\s*"([^"]+)"/);
+  const calMatch = html.match(/"calories":\s*"(\d+)/);
+  const servingsMatch = html.match(/"recipeYield":\s*"(\d+)/);
+  
+  if (!nameMatch) return null;
+  
+  return {
+    file: filename,
+    name: nameMatch[1],
+    category: categoryMatch ? categoryMatch[1] : 'Uncategorized',
+    time: timeMatch ? timeMatch[1] : '30',
+    desc: descMatch ? descMatch[1].substring(0, 100) : '',
+    cal: calMatch ? calMatch[1] : '400',
+    servings: servingsMatch ? servingsMatch[1] : '4'
+  };
+}
+
+// Get all recipes
+const files = fs.readdirSync(recipesDir).filter(f => 
+  f.endsWith('.html') && f !== 'index.html'
+);
+
+const recipes = files.map(extractRecipeData).filter(Boolean);
+
+// Group by category
+const categories = {
+  'Quick Meals': recipes.filter(r => r.category === 'Quick Meals'),
+  'Comfort Food': recipes.filter(r => r.category === 'Comfort Food'),
+  'Healthy': recipes.filter(r => r.category === 'Healthy'),
+  'Meal Prep': recipes.filter(r => r.category === 'Meal Prep')
+};
+
+console.log('Recipe counts:');
+Object.entries(categories).forEach(([cat, list]) => {
+  console.log(`  ${cat}: ${list.length}`);
+});
+
+// Generate recipe card HTML
+function recipeCard(recipe) {
+  const slug = recipe.file.replace('.html', '');
+  const imgPath = `../images/${slug}.png`;
+  const imgExists = fs.existsSync(path.join(recipesDir, 'images', `${slug}.png`)) ||
+                    fs.existsSync(path.join(recipesDir, 'images', `${slug}.jpg`));
+  
+  const imgStyle = imgExists 
+    ? `background-image: url('${imgPath}'); font-size: 0;`
+    : `font-size: 64px;`;
+  const imgContent = imgExists ? '' : '🍽️';
+  
+  return `
+                <a href="../${recipe.file}" class="recipe-card">
+                    <div class="recipe-image" style="${imgStyle}">${imgContent}</div>
+                    <div class="recipe-content">
+                        <span class="recipe-time">${recipe.time} min</span>
+                        <h3>${recipe.name}</h3>
+                        <p>${recipe.desc.substring(0, 80)}...</p>
+                        <div class="recipe-meta">
+                            <span>🔥 ${recipe.cal} cal</span>
+                            <span>👤 ${recipe.servings} servings</span>
+                        </div>
+                    </div>
+                </a>`;
+}
+
+// Category page template
+function categoryPage(catName, catRecipes, icon, description) {
+  const cards = catRecipes.map(recipeCard).join('\n');
+  const slug = catName.toLowerCase().replace(/ /g, '-');
+  
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Prep Recipes | Mealie AI</title>
-    <meta name="description" content="Make-ahead recipes perfect for batch cooking and weekly meal preparation.">
-    <link rel="canonical" href="https://studio0172.com/mealieai/recipes/category/meal-prep.html" />
+    <title>${catName} Recipes | Mealie AI</title>
+    <meta name="description" content="${description}">
+    <link rel="canonical" href="https://studio0172.com/mealieai/recipes/category/${slug}.html" />
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Meal Prep Recipes | Mealie AI">
-    <meta property="og:description" content="Make-ahead recipes perfect for batch cooking and weekly meal preparation.">
-    <meta property="og:url" content="https://studio0172.com/mealieai/recipes/category/meal-prep.html">
+    <meta property="og:title" content="${catName} Recipes | Mealie AI">
+    <meta property="og:description" content="${description}">
+    <meta property="og:url" content="https://studio0172.com/mealieai/recipes/category/${slug}.html">
     <meta property="og:site_name" content="Mealie AI">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,16 +144,16 @@
         <div class="breadcrumb">
             <a href="../../index.html">Home</a><span>/</span>
             <a href="../index.html">Recipes</a><span>/</span>
-            <span class="current">Meal Prep</span>
+            <span class="current">${catName}</span>
         </div>
 
         <div class="hero">
-            <div class="hero-icon">📦</div>
-            <h1>Meal Prep</h1>
-            <p class="hero-description">Make-ahead recipes perfect for batch cooking and weekly meal preparation.</p>
+            <div class="hero-icon">${icon}</div>
+            <h1>${catName}</h1>
+            <p class="hero-description">${description}</p>
             <div class="stats-bar">
                 <div class="stat">
-                    <div class="stat-value">2</div>
+                    <div class="stat-value">${catRecipes.length}</div>
                     <div class="stat-label">Recipes</div>
                 </div>
             </div>
@@ -78,32 +161,7 @@
 
         <section>
             <div class="recipe-grid">
-
-                <a href="../lemon-garlic-chicken-quinoa-bowls.html" class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('../images/lemon-garlic-chicken-quinoa-bowls.png'); font-size: 0;"></div>
-                    <div class="recipe-content">
-                        <span class="recipe-time">35 min</span>
-                        <h3>Lemon-Garlic Chicken Quinoa Bowls</h3>
-                        <p>Juicy lemon-garlic chicken served over fluffy quinoa with crisp cucumber and tom...</p>
-                        <div class="recipe-meta">
-                            <span>🔥 510 cal</span>
-                            <span>👤 4 servings</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="../teriyaki-tofu-vegetable-rice-bowls.html" class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('../images/teriyaki-tofu-vegetable-rice-bowls.png'); font-size: 0;"></div>
-                    <div class="recipe-content">
-                        <span class="recipe-time">35 min</span>
-                        <h3>Teriyaki Tofu & Vegetable Rice Bowls</h3>
-                        <p>Crispy tofu cubes tossed in a glossy teriyaki sauce with colorful vegetables. A ...</p>
-                        <div class="recipe-meta">
-                            <span>🔥 520 cal</span>
-                            <span>👤 4 servings</span>
-                        </div>
-                    </div>
-                </a>
+${cards}
             </div>
         </section>
 
@@ -118,4 +176,26 @@
         </footer>
     </div>
 </body>
-</html>
+</html>`;
+}
+
+// Generate category pages
+const categoryMeta = {
+  'Quick Meals': { icon: '⚡', desc: 'Delicious dinner recipes ready in 30 minutes or less. Perfect for busy weeknights.' },
+  'Comfort Food': { icon: '🍲', desc: 'Hearty, satisfying meals that warm the soul. Classic favorites and cozy dishes.' },
+  'Healthy': { icon: '🥗', desc: 'Nutritious recipes packed with vegetables, lean proteins, and whole grains.' },
+  'Meal Prep': { icon: '📦', desc: 'Make-ahead recipes perfect for batch cooking and weekly meal preparation.' }
+};
+
+Object.entries(categories).forEach(([catName, catRecipes]) => {
+  if (catRecipes.length === 0) return;
+  
+  const meta = categoryMeta[catName];
+  const slug = catName.toLowerCase().replace(/ /g, '-');
+  const html = categoryPage(catName, catRecipes, meta.icon, meta.desc);
+  
+  fs.writeFileSync(path.join(categoryDir, `${slug}.html`), html);
+  console.log(`Generated ${slug}.html with ${catRecipes.length} recipes`);
+});
+
+console.log('Done!');
