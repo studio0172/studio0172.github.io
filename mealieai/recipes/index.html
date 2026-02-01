@@ -120,6 +120,19 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .recipe-image-text {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.3;
+            opacity: 0.9;
         }
         .recipe-content { padding: 20px; }
         .recipe-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
@@ -401,14 +414,55 @@
             grid.style.display = count === 0 ? 'none' : 'grid';
         }
         
+        // List of recipes that have images
+        const recipesWithImages = new Set([
+            'baked-bbq-chicken-thighs-with-roasted-potatoes',
+            'bbq-chicken-sweet-potato-skillet',
+            'beef-taco-rice-skillet',
+            'black-bean-sweet-potato-skillet',
+            'chicken-fajita-sheet-pan-bowls',
+            'classic-turkey-smash-burgers-with-secret-sauce',
+            'creamy-garlic-bliss',
+            'creamy-lemon-chicken-orzo-one-pot',
+            'creamy-tomato-tortellini-with-spinach',
+            'crispy-fish-tacos-with-lime-slaw',
+            'egg-fried-rice-with-frozen-veggies',
+            'garlic-parmesan-chickpea-pasta',
+            'ginger-soy-salmon-with-sesame-broccoli',
+            'gochujang-sweet-potato-breakfast-hash-kimchi-yogurt',
+            'greek-chicken-souvlaki-bowls-quick-marinade',
+            'greek-spanakopita-waffles-with-lemon-dill-yogurt',
+            'honey-soy-ground-pork-lettuce-bowls',
+            'indian-spiced-chickpea-chaat-jar-salad-tamarind-date-dressing',
+            'korean-barley-bibim-salad-perilla-pesto-roasted-carrots',
+            'korean-inspired-beef-bulgogi-lettuce-wraps',
+            'lemon-herb-tuna-pasta-salad',
+            'lemony-lentil-soup-with-spinach',
+            'mediterranean-chickpea-tuna-salad-pitas',
+            'one-pot-turkey-taco-rice',
+            'pesto-veggie-pasta-with-white-beans',
+            'pork-cabbage-stir-fry-with-garlic-noodles',
+            'quick-beef-and-cabbage-stir-fry',
+            'sheet-pan-chicken-fajitas',
+            'sheet-pan-sausage-peppers-potatoes',
+            'southern-buttermilk-cornbread-panzanella-pickled-okra-vinaigrette',
+            'teriyaki-tofu-vegetable-rice-bowls',
+            'thai-red-curry-mussels-basil-corn-broth'
+        ]);
+
         function createRecipeCard(recipe) {
             const imgPath = `images/${recipe.slug}.png`;
+            const hasImage = recipesWithImages.has(recipe.slug);
             const mealTag = recipe.tags.find(t => ['breakfast', 'lunch', 'dinner', 'snack'].includes(t));
             const proteinTag = recipe.tags.find(t => ['chicken', 'beef', 'pork', 'seafood', 'turkey', 'vegetarian'].includes(t));
-            
+
+            const imageContent = hasImage
+                ? `<div class="recipe-image" style="background-image: url('${imgPath}');"></div>`
+                : `<div class="recipe-image"><div class="recipe-image-text">${recipe.name}</div></div>`;
+
             return `
                 <a href="${recipe.slug}.html" class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('${imgPath}');"></div>
+                    ${imageContent}
                     <div class="recipe-content">
                         <div class="recipe-tags">
                             <span class="recipe-tag time">${recipe.time} min</span>
