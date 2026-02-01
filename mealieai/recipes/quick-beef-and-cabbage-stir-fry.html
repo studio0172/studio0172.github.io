@@ -188,6 +188,65 @@
             .ingredients-section { position: static; }
             .save-cta { flex-direction: column; text-align: center; }
         }
+    
+        /* Slide Carousel */
+        .slide-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #1a1a1a;
+        }
+        .carousel-container {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 9/16;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #1a1a1a;
+        }
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .carousel-nav:hover { background: rgba(251, 146, 60, 0.8); }
+        .carousel-nav.prev { left: 10px; }
+        .carousel-nav.next { right: 10px; }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px;
+            background: #1a1a1a;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #444;
+            cursor: pointer;
+            border: none;
+        }
+        .carousel-dot.active { background: #fb923c; }
+
     </style>
 </head>
 <body>
@@ -331,5 +390,39 @@
             <p>&copy; 2026 Mealie AI. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+
+        function initCarousel(carouselEl) {
+            const container = carouselEl.querySelector('.carousel-container');
+            const slides = carouselEl.querySelectorAll('.carousel-slide');
+            const dots = carouselEl.querySelectorAll('.carousel-dot');
+            const prevBtn = carouselEl.querySelector('.prev');
+            const nextBtn = carouselEl.querySelector('.next');
+            let currentIndex = 0;
+            
+            function goToSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                currentIndex = index;
+                container.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            }
+            
+            prevBtn?.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn?.addEventListener('click', () => goToSlide(currentIndex + 1));
+            dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+            
+            // Touch support
+            let touchStartX = 0;
+            container.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
+            container.addEventListener('touchend', e => {
+                const diff = touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) goToSlide(currentIndex + (diff > 0 ? 1 : -1));
+            });
+        }
+        document.querySelectorAll('.slide-carousel').forEach(initCarousel);
+
+    </script>
 </body>
 </html>
