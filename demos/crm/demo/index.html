@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Demo | Studio 0172</title>
+    <meta name="description" content="Interactive demo of Studio 0172's simple CRM for small teams. See how easy it is to track leads, manage your pipeline, and never miss a follow-up.">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://studio0172.com/demos/crm/demo/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,6 +49,27 @@
             color: var(--gray-800);
             height: 100vh;
             overflow: hidden;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .icon-sm {
+            width: 16px;
+            height: 16px;
+        }
+
+        .icon-lg {
+            width: 24px;
+            height: 24px;
         }
 
         .app {
@@ -194,6 +218,9 @@
         }
 
         .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 8px 16px;
             border-radius: 6px;
             font-size: 14px;
@@ -256,6 +283,9 @@
         }
 
         .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 13px;
@@ -454,7 +484,9 @@
             border: none;
             background: var(--gray-100);
             cursor: pointer;
-            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--gray-500);
         }
 
@@ -514,7 +546,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            color: var(--gray-600);
             flex-shrink: 0;
         }
 
@@ -605,8 +637,8 @@
 </head>
 <body>
     <div class="demo-banner">
-        <span>🎯 This is a demo with sample data</span>
-        <a href="../">Get Early Access →</a>
+        <span>This is a demo with sample data</span>
+        <a href="../">Get Early Access</a>
     </div>
 
     <div class="app">
@@ -618,27 +650,27 @@
                 <div class="nav-section">
                     <div class="nav-section-title">Pipeline</div>
                     <div class="nav-item active" data-filter="all">
-                        <span>📋</span>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
                         <span>All Leads</span>
                         <span class="count">24</span>
                     </div>
                     <div class="nav-item" data-filter="new">
-                        <span>🆕</span>
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                         <span>New</span>
                         <span class="count">6</span>
                     </div>
                     <div class="nav-item" data-filter="contacted">
-                        <span>📞</span>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         <span>Contacted</span>
                         <span class="count">8</span>
                     </div>
                     <div class="nav-item" data-filter="active">
-                        <span>✅</span>
+                        <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                         <span>Active</span>
                         <span class="count">5</span>
                     </div>
                     <div class="nav-item" data-filter="closed">
-                        <span>📁</span>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
                         <span>Closed</span>
                         <span class="count">5</span>
                     </div>
@@ -646,15 +678,15 @@
                 <div class="nav-section">
                     <div class="nav-section-title">Team</div>
                     <div class="nav-item" data-owner="mike">
-                        <span>👤</span>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         <span>Mike's Leads</span>
                     </div>
                     <div class="nav-item" data-owner="sarah">
-                        <span>👤</span>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         <span>Sarah's Leads</span>
                     </div>
                     <div class="nav-item" data-owner="alex">
-                        <span>👤</span>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         <span>Alex's Leads</span>
                     </div>
                 </div>
@@ -675,18 +707,27 @@
                 <h1 id="pageTitle">All Leads</h1>
                 <div class="topbar-actions">
                     <div class="search-box">
-                        <span>🔍</span>
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                         <input type="text" placeholder="Search leads..." id="searchInput">
                     </div>
-                    <button class="btn btn-secondary"><span>📤</span> <span>Export</span></button>
-                    <button class="btn btn-primary"><span>➕</span> <span>Add Lead</span></button>
+                    <button class="btn btn-secondary">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <span>Export</span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        <span>Add Lead</span>
+                    </button>
                 </div>
             </div>
 
             <div class="content">
                 <div class="filters">
                     <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="high">🔴 High Priority</button>
+                    <button class="filter-btn" data-filter="high">
+                        <span class="priority priority-high"></span>
+                        High Priority
+                    </button>
                     <button class="filter-btn" data-filter="today">Today</button>
                     <button class="filter-btn" data-filter="week">This Week</button>
                     <button class="filter-btn" data-filter="stale">Needs Follow-up</button>
@@ -719,7 +760,9 @@
         <div class="panel">
             <div class="panel-header">
                 <div class="panel-title" id="panelTitle">Lead Details</div>
-                <button class="panel-close" id="panelClose">×</button>
+                <button class="panel-close" id="panelClose">
+                    <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
             </div>
             <div class="panel-body" id="panelBody">
                 <!-- Dynamic content -->
@@ -728,6 +771,19 @@
     </div>
 
     <script>
+        const activityIcons = {
+            email: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+            call: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+            meeting: '<svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+            note: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+            created: '<svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+            won: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+            lost: '<svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>',
+            message: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+            demo: '<svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>',
+            trial: '<svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'
+        };
+
         const leads = [
             {
                 id: 1,
@@ -745,8 +801,8 @@
                 lastActivity: "Just now",
                 notes: "Interested in full practice management. Has 3 locations. Looking to consolidate systems by Q2.",
                 activities: [
-                    { type: "📧", text: "Inbound inquiry from website form", time: "Just now" },
-                    { type: "✨", text: "Lead created", time: "2 hours ago" }
+                    { icon: "email", text: "Inbound inquiry from website form", time: "Just now" },
+                    { icon: "created", text: "Lead created", time: "2 hours ago" }
                 ]
             },
             {
@@ -765,10 +821,10 @@
                 lastActivity: "2 hours ago",
                 notes: "Referred by David Kim. 12-person firm. Current using Clio but unhappy with complexity. Decision maker.",
                 activities: [
-                    { type: "📞", text: "Call completed - demo scheduled for Friday", time: "2 hours ago" },
-                    { type: "📧", text: "Follow-up email sent", time: "Yesterday" },
-                    { type: "📧", text: "Initial outreach", time: "3 days ago" },
-                    { type: "✨", text: "Lead created from referral", time: "3 days ago" }
+                    { icon: "call", text: "Call completed - demo scheduled for Friday", time: "2 hours ago" },
+                    { icon: "email", text: "Follow-up email sent", time: "Yesterday" },
+                    { icon: "email", text: "Initial outreach", time: "3 days ago" },
+                    { icon: "created", text: "Lead created from referral", time: "3 days ago" }
                 ]
             },
             {
@@ -787,10 +843,10 @@
                 lastActivity: "Yesterday",
                 notes: "8 agents. Needs simple lead tracking and follow-up reminders. Currently everything in spreadsheets. Trial started.",
                 activities: [
-                    { type: "✅", text: "Started trial - invited 3 team members", time: "Yesterday" },
-                    { type: "🎥", text: "Demo completed - very positive", time: "4 days ago" },
-                    { type: "📞", text: "Discovery call - qualified", time: "1 week ago" },
-                    { type: "💬", text: "LinkedIn connection accepted", time: "2 weeks ago" }
+                    { icon: "trial", text: "Started trial - invited 3 team members", time: "Yesterday" },
+                    { icon: "demo", text: "Demo completed - very positive", time: "4 days ago" },
+                    { icon: "call", text: "Discovery call - qualified", time: "1 week ago" },
+                    { icon: "message", text: "LinkedIn connection accepted", time: "2 weeks ago" }
                 ]
             },
             {
@@ -809,9 +865,9 @@
                 lastActivity: "2 days ago",
                 notes: "Small firm, 4 attorneys. Looking for simple client tracking. Referred James Wilson.",
                 activities: [
-                    { type: "📧", text: "Sent pricing info", time: "2 days ago" },
-                    { type: "📞", text: "Brief intro call", time: "4 days ago" },
-                    { type: "📧", text: "Inbound from website", time: "5 days ago" }
+                    { icon: "email", text: "Sent pricing info", time: "2 days ago" },
+                    { icon: "call", text: "Brief intro call", time: "4 days ago" },
+                    { icon: "email", text: "Inbound from website", time: "5 days ago" }
                 ]
             },
             {
@@ -830,9 +886,9 @@
                 lastActivity: "Last week",
                 notes: "Won! Annual contract signed. Onboarding scheduled for next Monday.",
                 activities: [
-                    { type: "🎉", text: "Contract signed - $3,200/year", time: "Last week" },
-                    { type: "📄", text: "Proposal sent", time: "2 weeks ago" },
-                    { type: "🎥", text: "Demo completed", time: "2 weeks ago" }
+                    { icon: "won", text: "Contract signed - $3,200/year", time: "Last week" },
+                    { icon: "note", text: "Proposal sent", time: "2 weeks ago" },
+                    { icon: "demo", text: "Demo completed", time: "2 weeks ago" }
                 ]
             },
             {
@@ -851,8 +907,8 @@
                 lastActivity: "1 day ago",
                 notes: "CPA firm, 6 staff. Peak season coming up. Wants to improve client onboarding.",
                 activities: [
-                    { type: "📧", text: "Submitted contact form", time: "1 day ago" },
-                    { type: "✨", text: "Lead created", time: "1 day ago" }
+                    { icon: "email", text: "Submitted contact form", time: "1 day ago" },
+                    { icon: "created", text: "Lead created", time: "1 day ago" }
                 ]
             },
             {
@@ -871,9 +927,9 @@
                 lastActivity: "3 hours ago",
                 notes: "Recruiting agency, 15 recruiters. Needs candidate + client tracking. High volume. Trial ongoing.",
                 activities: [
-                    { type: "💬", text: "Slack message: 'Team loves it so far'", time: "3 hours ago" },
-                    { type: "✅", text: "Trial started", time: "3 days ago" },
-                    { type: "🎥", text: "Full team demo", time: "5 days ago" }
+                    { icon: "message", text: "Slack message: 'Team loves it so far'", time: "3 hours ago" },
+                    { icon: "trial", text: "Trial started", time: "3 days ago" },
+                    { icon: "demo", text: "Full team demo", time: "5 days ago" }
                 ]
             },
             {
@@ -892,9 +948,9 @@
                 lastActivity: "Yesterday",
                 notes: "General contractor. Wants to track leads and project status. Mobile access important.",
                 activities: [
-                    { type: "📧", text: "Sent mobile app info", time: "Yesterday" },
-                    { type: "📞", text: "Discovery call completed", time: "2 days ago" },
-                    { type: "📧", text: "Initial inquiry", time: "4 days ago" }
+                    { icon: "email", text: "Sent mobile app info", time: "Yesterday" },
+                    { icon: "call", text: "Discovery call completed", time: "2 days ago" },
+                    { icon: "email", text: "Initial inquiry", time: "4 days ago" }
                 ]
             },
             {
@@ -913,8 +969,8 @@
                 lastActivity: "6 hours ago",
                 notes: "Single location dental practice. Looking for simple patient follow-up system.",
                 activities: [
-                    { type: "📧", text: "Contact form submitted", time: "6 hours ago" },
-                    { type: "✨", text: "Lead created", time: "6 hours ago" }
+                    { icon: "email", text: "Contact form submitted", time: "6 hours ago" },
+                    { icon: "created", text: "Lead created", time: "6 hours ago" }
                 ]
             },
             {
@@ -933,10 +989,10 @@
                 lastActivity: "4 hours ago",
                 notes: "Wealth management firm, 8 advisors. High-touch client relationships. Compliance requirements. Very engaged.",
                 activities: [
-                    { type: "📧", text: "Sent compliance documentation", time: "4 hours ago" },
-                    { type: "📞", text: "Call with compliance officer", time: "2 days ago" },
-                    { type: "✅", text: "Trial started", time: "1 week ago" },
-                    { type: "🎥", text: "Demo completed", time: "2 weeks ago" }
+                    { icon: "email", text: "Sent compliance documentation", time: "4 hours ago" },
+                    { icon: "call", text: "Call with compliance officer", time: "2 days ago" },
+                    { icon: "trial", text: "Trial started", time: "1 week ago" },
+                    { icon: "demo", text: "Demo completed", time: "2 weeks ago" }
                 ]
             },
             {
@@ -955,9 +1011,9 @@
                 lastActivity: "2 weeks ago",
                 notes: "Lost to competitor. Price was main concern. Keep warm for future.",
                 activities: [
-                    { type: "❌", text: "Lost - went with cheaper option", time: "2 weeks ago" },
-                    { type: "📄", text: "Proposal sent", time: "3 weeks ago" },
-                    { type: "🎥", text: "Demo completed", time: "3 weeks ago" }
+                    { icon: "lost", text: "Lost - went with cheaper option", time: "2 weeks ago" },
+                    { icon: "note", text: "Proposal sent", time: "3 weeks ago" },
+                    { icon: "demo", text: "Demo completed", time: "3 weeks ago" }
                 ]
             },
             {
@@ -976,9 +1032,9 @@
                 lastActivity: "1 day ago",
                 notes: "Marketing agency. 20 clients to manage. Wants simple project + client tracking.",
                 activities: [
-                    { type: "📧", text: "Follow-up email sent", time: "1 day ago" },
-                    { type: "📞", text: "Intro call - interested", time: "4 days ago" },
-                    { type: "✨", text: "Referral from Jennifer Martinez", time: "6 days ago" }
+                    { icon: "email", text: "Follow-up email sent", time: "1 day ago" },
+                    { icon: "call", text: "Intro call - interested", time: "4 days ago" },
+                    { icon: "created", text: "Referral from Jennifer Martinez", time: "6 days ago" }
                 ]
             }
         ];
@@ -1012,7 +1068,6 @@
                 </tr>
             `).join('');
 
-            // Add click handlers
             tableBody.querySelectorAll('tr').forEach(row => {
                 row.addEventListener('click', () => {
                     const lead = leads.find(l => l.id === parseInt(row.dataset.id));
@@ -1063,7 +1118,7 @@
                     <div class="panel-section-title">Activity</div>
                     ${lead.activities.map(a => `
                         <div class="activity-item">
-                            <div class="activity-icon">${a.type}</div>
+                            <div class="activity-icon">${activityIcons[a.icon] || activityIcons.note}</div>
                             <div class="activity-content">
                                 <div class="activity-text">${a.text}</div>
                                 <div class="activity-time">${a.time}</div>
@@ -1087,13 +1142,11 @@
             return name.split(' ').map(n => n[0]).join('');
         }
 
-        // Event listeners
         panelClose.addEventListener('click', closePanel);
         panelOverlay.addEventListener('click', (e) => {
             if (e.target === panelOverlay) closePanel();
         });
 
-        // Nav filtering
         document.querySelectorAll('.nav-item[data-filter]').forEach(item => {
             item.addEventListener('click', () => {
                 document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -1116,7 +1169,6 @@
             });
         });
 
-        // Filter buttons
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1131,7 +1183,6 @@
             });
         });
 
-        // Search
         searchInput.addEventListener('input', (e) => {
             const q = e.target.value.toLowerCase();
             const filtered = leads.filter(l => 
@@ -1142,7 +1193,6 @@
             renderLeads(filtered);
         });
 
-        // Initial render
         renderLeads(leads);
     </script>
 </body>

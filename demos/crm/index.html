@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple CRM for Small Teams | Studio 0172</title>
-    <meta name="description" content="A lightweight CRM built for small teams. Replace spreadsheets and inbox chaos with a simple system that actually works.">
+    <title>Simple CRM for Small Teams | Replace Spreadsheets & Inbox Chaos</title>
+    <meta name="description" content="A lightweight CRM built for teams of 2-20. Stop losing leads in spreadsheets and email threads. Simple pipeline, team visibility, smart reminders.">
+    <meta name="keywords" content="simple CRM, small team CRM, lightweight CRM, CRM for agencies, CRM for small business, spreadsheet alternative, lead tracking">
+    <meta name="author" content="Studio 0172">
+    <link rel="canonical" href="https://studio0172.com/demos/crm/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Simple CRM for Small Teams | Studio 0172">
+    <meta property="og:description" content="Replace spreadsheets and inbox chaos with a CRM your team will actually use. Built for teams of 2-20.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studio0172.com/demos/crm/">
+    <meta property="og:image" content="https://studio0172.com/demos/crm/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Simple CRM for Small Teams">
+    <meta name="twitter:description" content="Replace spreadsheets and inbox chaos with a CRM your team will actually use.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Studio 0172 CRM",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "A lightweight CRM built for small teams of 2-20 people. Replace spreadsheets and inbox chaos with simple lead tracking.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Early access - contact for pricing"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Studio 0172",
+            "url": "https://studio0172.com"
+        }
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,9 +67,6 @@
             --gray-700: #374151;
             --gray-800: #1f2937;
             --gray-900: #111827;
-            --green-500: #22c55e;
-            --yellow-500: #eab308;
-            --red-500: #ef4444;
         }
 
         body {
@@ -44,6 +80,22 @@
             max-width: 1120px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* Icons */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-lg {
+            width: 28px;
+            height: 28px;
         }
 
         /* Navigation */
@@ -70,6 +122,9 @@
         }
 
         nav a.demo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
@@ -106,10 +161,17 @@
             letter-spacing: -0.02em;
         }
 
-        .hero p {
+        .hero p.lead {
             font-size: 19px;
             color: var(--gray-500);
             max-width: 560px;
+            margin: 0 auto 16px;
+        }
+
+        .hero p.subtext {
+            font-size: 15px;
+            color: var(--gray-400);
+            max-width: 480px;
             margin: 0 auto 40px;
         }
 
@@ -174,18 +236,61 @@
             display: none;
         }
 
+        /* Problem Section */
+        .problem-section {
+            padding: 60px 0;
+            background: var(--gray-50);
+        }
+
+        .problem-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gray-900);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .problem-card .icon-wrap {
+            width: 44px;
+            height: 44px;
+            background: #fef2f2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: #dc2626;
+        }
+
+        .problem-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
         /* Demo Preview */
         .demo-preview {
             margin: 60px 0;
             padding: 20px;
             background: var(--gray-50);
             border-radius: 16px;
-        }
-
-        .demo-preview img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         .demo-frame {
@@ -222,11 +327,19 @@
         }
 
         .demo-sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             padding: 10px 12px;
             border-radius: 6px;
             font-size: 14px;
             color: var(--gray-600);
             margin-bottom: 4px;
+        }
+
+        .demo-sidebar-item .icon {
+            width: 18px;
+            height: 18px;
         }
 
         .demo-sidebar-item.active {
@@ -325,7 +438,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 16px;
-            font-size: 20px;
+            color: var(--gray-700);
         }
 
         .feature-card h3 {
@@ -368,22 +481,75 @@
             color: var(--gray-700);
         }
 
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gray-900);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-200);
+            padding: 24px 0;
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
         /* Bottom CTA */
         .bottom-cta {
             padding: 80px 0;
+            background: var(--gray-900);
             text-align: center;
         }
 
         .bottom-cta h2 {
             font-size: 32px;
             margin-bottom: 16px;
-            color: var(--gray-900);
+            color: #fff;
         }
 
         .bottom-cta p {
-            color: var(--gray-500);
+            color: var(--gray-400);
             margin-bottom: 32px;
             font-size: 17px;
+        }
+
+        .bottom-cta .cta-form input {
+            background: #fff;
+        }
+
+        .bottom-cta .form-note {
+            color: var(--gray-500);
+        }
+
+        .bottom-cta .form-success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
         }
 
         /* Footer */
@@ -428,10 +594,12 @@
                 display: flex;
                 gap: 8px;
                 overflow-x: auto;
+                padding: 12px;
             }
 
             .demo-sidebar-item {
                 white-space: nowrap;
+                padding: 8px 12px;
             }
 
             .demo-table {
@@ -448,23 +616,56 @@
     <nav>
         <div class="container">
             <a href="/" class="logo">Studio <span>0172</span></a>
-            <a href="demo/" class="demo-link">Try Demo →</a>
+            <a href="demo/" class="demo-link">
+                Try Demo
+                <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">For teams of 2–20</div>
-            <h1>A CRM that doesn't feel like work</h1>
-            <p>Replace spreadsheets and inbox chaos with a simple system your team will actually use.</p>
+            <div class="hero-badge">For teams of 2-20 people</div>
+            <h1>Stop losing leads in spreadsheets</h1>
+            <p class="lead">A simple CRM that replaces your scattered spreadsheets, email threads, and sticky notes with one clean system.</p>
+            <p class="subtext">No 6-month implementation. No training required. Just add your leads and go.</p>
             
             <form class="cta-form" id="signupForm">
-                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Enter your work email" required>
                 <button type="submit">Get Early Access</button>
             </form>
-            <p class="form-note">We'll reach out to schedule a demo.</p>
+            <p class="form-note">Free during early access. We'll reach out to set up your workspace.</p>
             <div class="form-success" id="formSuccess">
-                Thanks! We'll be in touch soon.
+                Thanks! We'll be in touch within 24 hours.
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <h2>Sound familiar?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon-wrap">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+                    </div>
+                    <h3>Leads scattered across spreadsheets</h3>
+                    <p>Multiple Google Sheets, outdated Excel files, and no one knows which version is current.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon-wrap">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Follow-ups buried in email</h3>
+                    <p>"I forgot to reply to that lead" happens way too often. Important conversations get lost.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon-wrap">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>No visibility into your pipeline</h3>
+                    <p>How many active deals do you have? Who's working on what? Silence.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -479,11 +680,26 @@
                 </div>
                 <div class="demo-frame-content">
                     <div class="demo-sidebar">
-                        <div class="demo-sidebar-item active">📋 All Leads</div>
-                        <div class="demo-sidebar-item">🆕 New</div>
-                        <div class="demo-sidebar-item">📞 Contacted</div>
-                        <div class="demo-sidebar-item">✅ Active</div>
-                        <div class="demo-sidebar-item">📁 Closed</div>
+                        <div class="demo-sidebar-item active">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
+                            All Leads
+                        </div>
+                        <div class="demo-sidebar-item">
+                            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                            New
+                        </div>
+                        <div class="demo-sidebar-item">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Contacted
+                        </div>
+                        <div class="demo-sidebar-item">
+                            <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Active
+                        </div>
+                        <div class="demo-sidebar-item">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            Closed
+                        </div>
                     </div>
                     <div class="demo-main">
                         <h3>All Leads</h3>
@@ -543,45 +759,57 @@
 
     <section class="features">
         <div class="container">
-            <h2>Everything you need, nothing you don't</h2>
+            <h2>Everything you need. Nothing you don't.</h2>
             <p>Built for how small teams actually work.</p>
             
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+                    </div>
                     <h3>Simple Pipeline</h3>
-                    <p>See every lead at a glance. New, Contacted, Active, Closed. No complex stages to configure.</p>
-                </div>
+                    <p>See every lead at a glance. New, Contacted, Active, Closed. No complex stages to configure or maintain.</p>
+                </article>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
                     <h3>Team Visibility</h3>
-                    <p>Know who's working on what. Assign owners, leave notes, never drop a follow-up.</p>
-                </div>
+                    <p>Know who's working on what. Assign owners, leave notes, and never drop a follow-up again.</p>
+                </article>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🔔</div>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
                     <h3>Smart Reminders</h3>
-                    <p>Get nudged when leads go cold. No more "I forgot to follow up."</p>
-                </div>
+                    <p>Get nudged when leads go cold. No more "I forgot to follow up" moments that cost you deals.</p>
+                </article>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
                     <h3>Works Everywhere</h3>
-                    <p>Desktop, tablet, phone. Update on the go, check in from anywhere.</p>
-                </div>
+                    <p>Desktop, tablet, phone. Update from anywhere, check in on the go. Your data syncs instantly.</p>
+                </article>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
                     <h3>5-Minute Setup</h3>
-                    <p>Import your spreadsheet or start fresh. You'll be up and running today.</p>
-                </div>
+                    <p>Import your spreadsheet or start fresh. No consultants, no training videos. You'll be live today.</p>
+                </article>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
                     <h3>Your Data, Secured</h3>
-                    <p>Role-based access. Owners see everything, staff sees what they need.</p>
-                </div>
+                    <p>Role-based access keeps sensitive data protected. Owners see everything, staff sees what they need.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -590,36 +818,61 @@
         <div class="container">
             <h2>Built for service businesses</h2>
             <div class="who-grid">
-                <div class="who-tag">Agencies</div>
-                <div class="who-tag">Consultancies</div>
-                <div class="who-tag">Real Estate</div>
-                <div class="who-tag">Recruiters</div>
+                <div class="who-tag">Marketing Agencies</div>
+                <div class="who-tag">Consulting Firms</div>
+                <div class="who-tag">Real Estate Teams</div>
+                <div class="who-tag">Recruiting Agencies</div>
                 <div class="who-tag">Law Firms</div>
-                <div class="who-tag">Clinics</div>
-                <div class="who-tag">Accountants</div>
-                <div class="who-tag">Contractors</div>
+                <div class="who-tag">Dental Practices</div>
+                <div class="who-tag">Accounting Firms</div>
+                <div class="who-tag">General Contractors</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2>Common Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Why not just use Salesforce or HubSpot?</h3>
+                    <p>Those tools are built for enterprises with dedicated admins. They're powerful, but overkill for a 5-person team. We built this for people who want something that works without a training manual.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I import my existing spreadsheet?</h3>
+                    <p>Yes. Export your Google Sheet or Excel file as CSV, and we'll map the columns for you. Most teams are up and running in under 10 minutes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What does "early access" mean?</h3>
+                    <p>We're onboarding teams one at a time to make sure the product fits your workflow. Early access is free, and you'll help shape the features we build next.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is my data safe?</h3>
+                    <p>Yes. We use industry-standard encryption for data at rest and in transit. Your data is yours—we never sell or share it with third parties.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="bottom-cta">
         <div class="container">
-            <h2>Ready to ditch the spreadsheet?</h2>
-            <p>Get early access and we'll build it around your workflow.</p>
+            <h2>Ready to get organized?</h2>
+            <p>Join early access and we'll help you set up a system that actually works.</p>
             
             <form class="cta-form" id="signupForm2">
-                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Enter your work email" required>
                 <button type="submit">Get Early Access</button>
             </form>
+            <p class="form-note">No credit card required. Free during early access.</p>
             <div class="form-success" id="formSuccess2">
-                Thanks! We'll be in touch soon.
+                Thanks! We'll be in touch within 24 hours.
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 Studio 0172. We build simple tools for small teams.</p>
+            <p>&copy; 2026 Studio 0172. Simple tools for small teams.</p>
             <p class="contact-email">Questions? <a href="mailto:hello@studio0172.com">hello@studio0172.com</a></p>
         </div>
     </footer>
