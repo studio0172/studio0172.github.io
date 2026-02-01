@@ -110,14 +110,10 @@
         .recipe-card.hidden { display: none; }
         .recipe-image {
             width: 100%;
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/9;
             background: linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, rgba(234, 88, 12, 0.1) 100%);
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
         }
         .recipe-content { padding: 20px; }
         .recipe-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
@@ -262,7 +258,7 @@
             
             return `
                 <a href="${recipe.slug}.html" class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('${imgPath}');">🍽️</div>
+                    <div class="recipe-image" style="background-image: url('${imgPath}');"></div>
                     <div class="recipe-content">
                         <div class="recipe-tags">
                             <span class="recipe-tag time">${recipe.time} min</span>
