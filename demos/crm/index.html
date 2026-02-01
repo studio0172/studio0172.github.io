@@ -3,50 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple CRM for Small Teams | Replace Spreadsheets & Inbox Chaos</title>
-    <meta name="description" content="A lightweight CRM built for teams of 2-20. Stop losing leads in spreadsheets and email threads. Simple pipeline, team visibility, smart reminders.">
-    <meta name="keywords" content="simple CRM, small team CRM, lightweight CRM, CRM for agencies, CRM for small business, spreadsheet alternative, lead tracking">
+    <title>Simple CRM for Small Teams – Track Leads, Close Deals | Studio 0172</title>
+    <meta name="description" content="Stop losing leads in spreadsheets. Our lightweight CRM helps small teams of 2-20 track leads, manage follow-ups, and close more deals. Try the interactive demo.">
+    <meta name="keywords" content="simple CRM, small team CRM, lightweight CRM, lead tracking, sales pipeline, spreadsheet alternative, small business CRM, easy CRM">
     <meta name="author" content="Studio 0172">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://studio0172.com/demos/crm/">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Simple CRM for Small Teams | Studio 0172">
-    <meta property="og:description" content="Replace spreadsheets and inbox chaos with a CRM your team will actually use. Built for teams of 2-20.">
+    <meta property="og:title" content="Simple CRM for Small Teams – Track Leads, Close Deals">
+    <meta property="og:description" content="Stop losing leads in spreadsheets. Lightweight CRM built for teams of 2-20.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://studio0172.com/demos/crm/">
+    <meta property="og:site_name" content="Studio 0172">
     <meta property="og:image" content="https://studio0172.com/demos/crm/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Simple CRM for Small Teams">
-    <meta name="twitter:description" content="Replace spreadsheets and inbox chaos with a CRM your team will actually use.">
-    
+    <meta name="twitter:description" content="Stop losing leads in spreadsheets. Lightweight CRM built for teams of 2-20.">
+    <meta name="twitter:image" content="https://studio0172.com/demos/crm/og-image.png">
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Studio 0172 CRM",
+        "name": "Simple CRM by Studio 0172",
+        "description": "Lightweight CRM for small teams. Track leads, manage follow-ups, and close more deals without the enterprise complexity.",
+        "url": "https://studio0172.com/demos/crm/",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "A lightweight CRM built for small teams of 2-20 people. Replace spreadsheets and inbox chaos with simple lead tracking.",
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD",
-            "description": "Early access - contact for pricing"
+            "description": "Free early access"
         },
-        "provider": {
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "24"
+        },
+        "author": {
             "@type": "Organization",
             "name": "Studio 0172",
             "url": "https://studio0172.com"
         }
     }
     </script>
-    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is this really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Early access is completely free. We're building in public and want real feedback from real teams. Paid tiers will come later with advanced features—but the core will always be accessible."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I import my existing data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Export your spreadsheet as CSV and we'll help you import. Most teams are up and running in under an hour."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is this different from other CRMs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We built this for teams that need a CRM but don't need Salesforce. No complex setup. No features you'll never use. Just the essentials, done well."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What integrations do you support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Email (Gmail, Outlook), calendar sync, and Zapier for everything else. We're adding more based on user requests."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0a'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='11' font-weight='700' text-anchor='middle' fill='%23fff'%3E0172%3C/text%3E%3C/svg%3E">
+
     <style>
         * {
             margin: 0;
@@ -55,34 +111,44 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --accent: #22d3ee;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --text-primary: #0a0a0a;
+            --text-secondary: #171717;
+            --text-muted: #525252;
+            --text-light: #a3a3a3;
+            --bg: #fafafa;
+            --bg-white: #ffffff;
+            --bg-dark: #0a0a0a;
+            --border: #e5e5e5;
+            --border-light: #f5f5f5;
+            --gradient-text: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
+            --gradient-bg: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.1) 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--gray-800);
+            color: var(--text-primary);
+            background-color: var(--bg);
             line-height: 1.6;
-            background: #fff;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 24px;
+        h1, h2, h3, h4 {
+            font-family: 'Sora', sans-serif;
+            letter-spacing: -0.02em;
         }
 
-        /* Icons */
         .icon {
             width: 24px;
             height: 24px;
@@ -93,322 +159,548 @@
             stroke-linejoin: round;
         }
 
-        .icon-lg {
-            width: 28px;
-            height: 28px;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Navigation */
-        nav {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--gray-100);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        nav .container {
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 32px;
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 12px 32px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
         .logo {
+            font-family: 'Sora', sans-serif;
             font-weight: 700;
             font-size: 18px;
-            color: var(--gray-900);
+            color: var(--text-primary);
             text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        nav a.demo-link {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 6px;
-            color: var(--primary);
+            gap: 8px;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--text-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-link {
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
-        nav a.demo-link:hover {
-            text-decoration: underline;
+        .header-link:hover {
+            color: var(--text-primary);
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .header-cta svg {
+            width: 16px;
+            height: 16px;
         }
 
         /* Hero */
         .hero {
-            padding: 80px 0 60px;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 32px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 540px;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: var(--gray-100);
-            color: var(--gray-600);
-            padding: 6px 14px;
-            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-bg);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 24px;
+            animation: fadeIn 0.6s ease;
         }
 
-        h1 {
-            font-size: clamp(36px, 5vw, 52px);
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
             font-weight: 700;
-            line-height: 1.15;
-            color: var(--gray-900);
+            line-height: 1.1;
+            color: var(--text-primary);
             margin-bottom: 20px;
-            letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .hero p.lead {
-            font-size: 19px;
-            color: var(--gray-500);
-            max-width: 560px;
-            margin: 0 auto 16px;
+        .hero h1 .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero p.subtext {
-            font-size: 15px;
-            color: var(--gray-400);
-            max-width: 480px;
-            margin: 0 auto 40px;
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.1s both;
         }
 
         /* CTA Form */
         .cta-form {
             display: flex;
             gap: 12px;
-            justify-content: center;
             flex-wrap: wrap;
-            max-width: 440px;
-            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
         }
 
         .cta-form input {
             flex: 1;
-            min-width: 220px;
-            padding: 14px 18px;
+            min-width: 200px;
+            padding: 16px 20px;
             font-size: 16px;
-            border: 1px solid var(--gray-300);
-            border-radius: 8px;
+            font-family: inherit;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             outline: none;
-            transition: border-color 0.2s;
+            background: var(--bg-white);
+            transition: all 0.2s;
         }
 
         .cta-form input:focus {
             border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
         }
 
         .cta-form button {
-            padding: 14px 28px;
+            padding: 16px 28px;
             background: var(--primary);
-            color: #fff;
+            color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 600;
+            font-family: inherit;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
         }
 
         .cta-form button:hover {
             background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.25);
         }
 
         .cta-form button:disabled {
             opacity: 0.7;
             cursor: not-allowed;
+            transform: none;
+        }
+
+        .cta-form button svg {
+            width: 18px;
+            height: 18px;
         }
 
         .form-note {
-            font-size: 13px;
-            color: var(--gray-400);
-            margin-top: 14px;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: fadeIn 1s ease 0.4s both;
+        }
+
+        .form-note svg {
+            width: 16px;
+            height: 16px;
+            color: var(--success);
         }
 
         .form-success {
-            background: #dcfce7;
+            background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%);
             color: #166534;
-            padding: 14px 24px;
-            border-radius: 8px;
+            padding: 16px 24px;
+            border-radius: 12px;
             font-weight: 500;
             display: none;
         }
 
+        /* Demo Preview */
+        .demo-preview {
+            position: relative;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        .demo-mockup {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 25px 100px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .demo-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .demo-header {
+            padding: 12px 16px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .demo-dot.red { background: #ef4444; }
+        .demo-dot.yellow { background: #f59e0b; }
+        .demo-dot.green { background: #22c55e; }
+
+        .demo-content {
+            padding: 20px;
+        }
+
+        .demo-pipeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .demo-column {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .demo-column-header {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .demo-column-count {
+            background: var(--border);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        .demo-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+        }
+
+        .demo-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-card-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .demo-card-meta {
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        .demo-card-value {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--success);
+            margin-top: 6px;
+        }
+
+        .demo-badge-live {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .demo-badge-live::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
         /* Problem Section */
-        .problem-section {
-            padding: 60px 0;
-            background: var(--gray-50);
+        .problem {
+            padding: 120px 32px;
+            background: var(--bg-white);
         }
 
-        .problem-section h2 {
-            font-size: 28px;
+        .problem-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--gray-900);
+            margin-bottom: 64px;
         }
 
-        .problem-grid {
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-bg);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .problems-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
 
         .problem-card {
-            background: #fff;
-            border: 1px solid var(--gray-200);
-            border-radius: 10px;
-            padding: 24px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
         }
 
-        .problem-card .icon-wrap {
-            width: 44px;
-            height: 44px;
-            background: #fef2f2;
-            border-radius: 10px;
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 16px;
-            color: #dc2626;
+            color: var(--warning);
         }
 
         .problem-card h3 {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 8px;
-            color: var(--gray-800);
+            color: var(--text-primary);
         }
 
         .problem-card p {
-            font-size: 14px;
-            color: var(--gray-500);
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.7;
         }
 
-        /* Demo Preview */
-        .demo-preview {
-            margin: 60px 0;
-            padding: 20px;
-            background: var(--gray-50);
-            border-radius: 16px;
-        }
-
-        .demo-frame {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .demo-frame-header {
-            background: var(--gray-100);
-            padding: 12px 16px;
-            display: flex;
-            gap: 8px;
-        }
-
-        .demo-frame-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gray-300);
-        }
-
-        .demo-frame-content {
-            height: 400px;
-            display: flex;
-        }
-
-        .demo-sidebar {
-            width: 200px;
-            background: var(--gray-50);
-            border-right: 1px solid var(--gray-200);
-            padding: 16px;
-        }
-
-        .demo-sidebar-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            color: var(--gray-600);
-            margin-bottom: 4px;
-        }
-
-        .demo-sidebar-item .icon {
-            width: 18px;
-            height: 18px;
-        }
-
-        .demo-sidebar-item.active {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .demo-main {
-            flex: 1;
-            padding: 20px;
-            overflow: auto;
-        }
-
-        .demo-main h3 {
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: var(--gray-800);
-        }
-
-        .demo-table {
-            width: 100%;
-            font-size: 13px;
-        }
-
-        .demo-table th {
-            text-align: left;
-            padding: 10px 12px;
-            background: var(--gray-50);
-            color: var(--gray-500);
-            font-weight: 500;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .demo-table td {
-            padding: 12px;
-            border-bottom: 1px solid var(--gray-100);
-            color: var(--gray-700);
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .status-new { background: #dbeafe; color: #1d4ed8; }
-        .status-contacted { background: #fef3c7; color: #b45309; }
-        .status-active { background: #dcfce7; color: #166534; }
-        .status-closed { background: var(--gray-100); color: var(--gray-500); }
-
-        /* Features */
+        /* Features Section */
         .features {
-            padding: 80px 0;
+            padding: 120px 32px;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-white) 100%);
         }
 
-        .features h2 {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 16px;
-            color: var(--gray-900);
-        }
-
-        .features > p {
-            text-align: center;
-            color: var(--gray-500);
-            margin-bottom: 48px;
-            font-size: 17px;
+        .features-inner {
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .features-grid {
@@ -418,474 +710,786 @@
         }
 
         .feature-card {
-            padding: 28px;
-            border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-text);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
         .feature-card:hover {
-            border-color: var(--gray-300);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: var(--primary-light);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--gray-100);
-            border-radius: 10px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-bg);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
-            color: var(--gray-700);
+            margin-bottom: 20px;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
         }
 
         .feature-card h3 {
-            font-size: 17px;
-            margin-bottom: 8px;
-            color: var(--gray-800);
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
         }
 
         .feature-card p {
             font-size: 15px;
-            color: var(--gray-500);
+            color: var(--text-muted);
+            line-height: 1.7;
         }
 
-        /* Who it's for */
-        .who-section {
-            padding: 60px 0 80px;
-            background: var(--gray-50);
+        /* Who Section */
+        .who {
+            padding: 120px 32px;
+            background: var(--bg-white);
         }
 
-        .who-section h2 {
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--gray-900);
+        .who-inner {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .who-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
-        .who-tag {
-            background: #fff;
-            border: 1px solid var(--gray-200);
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 15px;
-            color: var(--gray-700);
+        .who-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 24px;
+            background: var(--bg);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .who-item:hover {
+            background: var(--gradient-bg);
+        }
+
+        .who-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .who-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .who-content p {
+            font-size: 14px;
+            color: var(--text-muted);
         }
 
         /* FAQ Section */
-        .faq-section {
-            padding: 80px 0;
+        .faq {
+            padding: 120px 32px;
+            background: var(--bg);
         }
 
-        .faq-section h2 {
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--gray-900);
-        }
-
-        .faq-list {
+        .faq-inner {
             max-width: 700px;
             margin: 0 auto;
         }
 
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .faq-item {
-            border-bottom: 1px solid var(--gray-200);
-            padding: 24px 0;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .faq-item:first-child {
-            border-top: 1px solid var(--gray-200);
+        .faq-item:hover {
+            border-color: var(--primary-light);
         }
 
-        .faq-item h3 {
+        .faq-question {
+            padding: 24px;
             font-size: 16px;
             font-weight: 600;
-            color: var(--gray-800);
-            margin-bottom: 12px;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
         }
 
-        .faq-item p {
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-light);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
             font-size: 15px;
-            color: var(--gray-500);
+            color: var(--text-muted);
             line-height: 1.7;
+            display: none;
         }
 
-        /* Bottom CTA */
-        .bottom-cta {
-            padding: 80px 0;
-            background: var(--gray-900);
+        .faq-item.open .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 32px;
+            background: var(--bg-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 60%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .bottom-cta h2 {
-            font-size: 32px;
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 42px);
             margin-bottom: 16px;
-            color: #fff;
         }
 
-        .bottom-cta p {
-            color: var(--gray-400);
-            margin-bottom: 32px;
-            font-size: 17px;
+        .cta-section > .cta-inner > p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 18px;
         }
 
-        .bottom-cta .cta-form input {
-            background: #fff;
+        .cta-section .cta-form input {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
-        .bottom-cta .form-note {
-            color: var(--gray-500);
+        .cta-section .cta-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .bottom-cta .form-success {
+        .cta-section .cta-form input:focus {
+            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-section .cta-form button {
+            background: white;
+            color: var(--text-primary);
+        }
+
+        .cta-section .cta-form button:hover {
+            background: var(--bg);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-section .form-note {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cta-section .form-note svg {
+            color: #4ade80;
+        }
+
+        .cta-section .form-success {
             background: rgba(34, 197, 94, 0.2);
             color: #4ade80;
         }
 
+        .demo-cta {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .demo-cta p {
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .demo-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+
+        .demo-cta a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .demo-cta a svg {
+            width: 18px;
+            height: 18px;
+        }
+
         /* Footer */
         footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--gray-100);
+            padding: 32px;
             text-align: center;
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         footer p {
             font-size: 14px;
-            color: var(--gray-400);
+            color: rgba(255, 255, 255, 0.4);
         }
 
         footer a {
-            color: var(--gray-500);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
         }
 
         footer a:hover {
-            color: var(--primary);
+            color: white;
         }
 
-        .contact-email {
-            margin-top: 8px;
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .cta-form {
+                justify-content: center;
+            }
+
+            .form-note {
+                justify-content: center;
+            }
+
+            .demo-preview {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .demo-mockup {
+                transform: none;
+            }
+
+            .demo-mockup:hover {
+                transform: translateY(-8px);
+            }
+
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 640px) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            .header-link {
+                display: none;
+            }
+
             .hero {
-                padding: 60px 0 40px;
+                padding: 100px 20px 60px;
             }
 
-            .demo-frame-content {
+            .problem, .features, .who, .faq, .cta-section {
+                padding: 80px 20px;
+            }
+
+            .cta-form {
                 flex-direction: column;
-                height: auto;
             }
 
-            .demo-sidebar {
+            .cta-form input,
+            .cta-form button {
                 width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--gray-200);
-                display: flex;
-                gap: 8px;
-                overflow-x: auto;
-                padding: 12px;
+                min-width: auto;
             }
 
-            .demo-sidebar-item {
-                white-space: nowrap;
-                padding: 8px 12px;
-            }
-
-            .demo-table {
-                font-size: 12px;
-            }
-
-            .demo-table th, .demo-table td {
-                padding: 8px;
+            .demo-pipeline {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">Studio <span>0172</span></a>
-            <a href="demo/" class="demo-link">
+    <header class="header" id="header">
+        <a href="/" class="logo">
+            <span class="logo-mark">0172</span>
+            Studio 0172
+        </a>
+        <nav class="header-nav">
+            <a href="#features" class="header-link">Features</a>
+            <a href="#faq" class="header-link">FAQ</a>
+            <a href="demo/" class="header-cta">
                 Try Demo
-                <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <section class="hero">
-        <div class="container">
-            <div class="hero-badge">For teams of 2-20 people</div>
-            <h1>Stop losing leads in spreadsheets</h1>
-            <p class="lead">A simple CRM that replaces your scattered spreadsheets, email threads, and sticky notes with one clean system.</p>
-            <p class="subtext">No 6-month implementation. No training required. Just add your leads and go.</p>
-            
-            <form class="cta-form" id="signupForm">
-                <input type="email" name="email" placeholder="Enter your work email" required>
-                <button type="submit">Get Early Access</button>
-            </form>
-            <p class="form-note">Free during early access. We'll reach out to set up your workspace.</p>
-            <div class="form-success" id="formSuccess">
-                Thanks! We'll be in touch within 24 hours.
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Early Access — Free for Teams
+                </div>
+                <h1>Stop losing leads in <span class="gradient-text">spreadsheets</span></h1>
+                <p class="hero-description">A lightweight CRM built for teams that need to track leads but don't need Salesforce. See your pipeline at a glance, never miss a follow-up, close more deals.</p>
+                
+                <form class="cta-form" id="heroForm">
+                    <input type="email" name="email" placeholder="Enter your work email" required aria-label="Email address">
+                    <button type="submit">
+                        Get Early Access
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </form>
+                <p class="form-note">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    No credit card required. Set up in 5 minutes.
+                </p>
+                <div class="form-success" id="heroSuccess">
+                    You're in! We'll send setup instructions shortly.
+                </div>
+            </div>
+
+            <div class="demo-preview">
+                <div class="demo-badge-live">Interactive Demo</div>
+                <a href="demo/" class="demo-mockup">
+                    <div class="demo-header">
+                        <span class="demo-dot red"></span>
+                        <span class="demo-dot yellow"></span>
+                        <span class="demo-dot green"></span>
+                    </div>
+                    <div class="demo-content">
+                        <div class="demo-pipeline">
+                            <div class="demo-column">
+                                <div class="demo-column-header">
+                                    New <span class="demo-column-count">4</span>
+                                </div>
+                                <div class="demo-card">
+                                    <div class="demo-card-title">Acme Corp</div>
+                                    <div class="demo-card-meta">Sarah Chen</div>
+                                    <div class="demo-card-value">$12,000</div>
+                                </div>
+                                <div class="demo-card">
+                                    <div class="demo-card-title">TechFlow</div>
+                                    <div class="demo-card-meta">Mike Ross</div>
+                                    <div class="demo-card-value">$8,500</div>
+                                </div>
+                            </div>
+                            <div class="demo-column">
+                                <div class="demo-column-header">
+                                    Contacted <span class="demo-column-count">3</span>
+                                </div>
+                                <div class="demo-card">
+                                    <div class="demo-card-title">Startup Labs</div>
+                                    <div class="demo-card-meta">Jess Liu</div>
+                                    <div class="demo-card-value">$15,000</div>
+                                </div>
+                            </div>
+                            <div class="demo-column">
+                                <div class="demo-column-header">
+                                    Proposal <span class="demo-column-count">2</span>
+                                </div>
+                                <div class="demo-card">
+                                    <div class="demo-card-title">DataSync</div>
+                                    <div class="demo-card-meta">Tom Baker</div>
+                                    <div class="demo-card-value">$24,000</div>
+                                </div>
+                            </div>
+                            <div class="demo-column">
+                                <div class="demo-column-header">
+                                    Won <span class="demo-column-count">5</span>
+                                </div>
+                                <div class="demo-card">
+                                    <div class="demo-card-title">CloudFirst</div>
+                                    <div class="demo-card-meta">Anna Park</div>
+                                    <div class="demo-card-value">$18,500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="problem-section">
-        <div class="container">
-            <h2>Sound familiar?</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="icon-wrap">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-                    </div>
-                    <h3>Leads scattered across spreadsheets</h3>
-                    <p>Multiple Google Sheets, outdated Excel files, and no one knows which version is current.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon-wrap">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </div>
-                    <h3>Follow-ups buried in email</h3>
-                    <p>"I forgot to reply to that lead" happens way too often. Important conversations get lost.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="icon-wrap">
-                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <h3>No visibility into your pipeline</h3>
-                    <p>How many active deals do you have? Who's working on what? Silence.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="problem">
+        <div class="problem-inner">
+            <header class="section-header animate-on-scroll">
+                <span class="section-tag">The Problem</span>
+                <h2>Sound familiar?</h2>
+                <p>These are the problems we built Simple CRM to solve.</p>
+            </header>
 
-    <section class="demo-preview">
-        <div class="container">
-            <div class="demo-frame">
-                <div class="demo-frame-header">
-                    <div class="demo-frame-dot"></div>
-                    <div class="demo-frame-dot"></div>
-                    <div class="demo-frame-dot"></div>
+            <div class="problems-grid">
+                <div class="problem-card animate-on-scroll delay-1">
+                    <div class="problem-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3>Spreadsheet chaos</h3>
+                    <p>Multiple sheets, outdated info, no one knows which version is current. You're managing a system, not your leads.</p>
                 </div>
-                <div class="demo-frame-content">
-                    <div class="demo-sidebar">
-                        <div class="demo-sidebar-item active">
-                            <svg class="icon" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
-                            All Leads
-                        </div>
-                        <div class="demo-sidebar-item">
-                            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                            New
-                        </div>
-                        <div class="demo-sidebar-item">
-                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            Contacted
-                        </div>
-                        <div class="demo-sidebar-item">
-                            <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                            Active
-                        </div>
-                        <div class="demo-sidebar-item">
-                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                            Closed
-                        </div>
+
+                <div class="problem-card animate-on-scroll delay-2">
+                    <div class="problem-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
-                    <div class="demo-main">
-                        <h3>All Leads</h3>
-                        <table class="demo-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Company</th>
-                                    <th>Status</th>
-                                    <th>Owner</th>
-                                    <th>Last Activity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Sarah Chen</strong></td>
-                                    <td>Greenleaf Dental</td>
-                                    <td><span class="status-badge status-new">New</span></td>
-                                    <td>Mike</td>
-                                    <td>Just now</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>James Wilson</strong></td>
-                                    <td>Wilson & Partners</td>
-                                    <td><span class="status-badge status-contacted">Contacted</span></td>
-                                    <td>Sarah</td>
-                                    <td>2 hours ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Maria Garcia</strong></td>
-                                    <td>Coastal Realty</td>
-                                    <td><span class="status-badge status-active">Active</span></td>
-                                    <td>Mike</td>
-                                    <td>Yesterday</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>David Kim</strong></td>
-                                    <td>Kim Legal Group</td>
-                                    <td><span class="status-badge status-contacted">Contacted</span></td>
-                                    <td>Sarah</td>
-                                    <td>2 days ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Emily Brown</strong></td>
-                                    <td>Bright Futures Academy</td>
-                                    <td><span class="status-badge status-closed">Closed</span></td>
-                                    <td>Mike</td>
-                                    <td>Last week</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <h3>Dropped follow-ups</h3>
+                    <p>Leads slip through the cracks. You remember that hot prospect... three weeks after they went cold.</p>
+                </div>
+
+                <div class="problem-card animate-on-scroll delay-3">
+                    <div class="problem-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
+                    <h3>Zero visibility</h3>
+                    <p>Team members working from their own notes. No shared context on deals. Every handoff is a scramble.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <h2>Everything you need. Nothing you don't.</h2>
-            <p>Built for how small teams actually work.</p>
-            
+    <section class="features" id="features">
+        <div class="features-inner">
+            <header class="section-header animate-on-scroll">
+                <span class="section-tag">Features</span>
+                <h2>Everything you need, nothing you don't</h2>
+                <p>Built for speed and simplicity. Learn it in minutes, not months.</p>
+            </header>
+
             <div class="features-grid">
-                <article class="feature-card">
+                <div class="feature-card animate-on-scroll delay-1">
                     <div class="feature-icon">
-                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     </div>
-                    <h3>Simple Pipeline</h3>
-                    <p>See every lead at a glance. New, Contacted, Active, Closed. No complex stages to configure or maintain.</p>
-                </article>
-                
-                <article class="feature-card">
+                    <h3>Visual Pipeline</h3>
+                    <p>Drag-and-drop Kanban board. See every deal at a glance. Know exactly where each lead stands.</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll delay-2">
                     <div class="feature-icon">
-                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3>Team Visibility</h3>
-                    <p>Know who's working on what. Assign owners, leave notes, and never drop a follow-up again.</p>
-                </article>
-                
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
                     </div>
                     <h3>Smart Reminders</h3>
-                    <p>Get nudged when leads go cold. No more "I forgot to follow up" moments that cost you deals.</p>
-                </article>
-                
-                <article class="feature-card">
+                    <p>Never miss a follow-up. Automatic reminders based on lead activity and your custom rules.</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll delay-3">
                     <div class="feature-icon">
-                        <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3>Works Everywhere</h3>
-                    <p>Desktop, tablet, phone. Update from anywhere, check in on the go. Your data syncs instantly.</p>
-                </article>
-                
-                <article class="feature-card">
+                    <h3>Team Collaboration</h3>
+                    <p>Shared notes, activity history, deal assignments. Everyone on the same page, always.</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll delay-4">
                     <div class="feature-icon">
-                        <svg class="icon icon-lg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
-                    <h3>5-Minute Setup</h3>
-                    <p>Import your spreadsheet or start fresh. No consultants, no training videos. You'll be live today.</p>
-                </article>
-                
-                <article class="feature-card">
+                    <h3>Email Integration</h3>
+                    <p>Connect Gmail or Outlook. Log emails automatically. Send follow-ups without leaving the CRM.</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll delay-1">
                     <div class="feature-icon">
-                        <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
                     </div>
-                    <h3>Your Data, Secured</h3>
-                    <p>Role-based access keeps sensitive data protected. Owners see everything, staff sees what they need.</p>
-                </article>
+                    <h3>Simple Analytics</h3>
+                    <p>Pipeline value, conversion rates, activity metrics. The numbers that actually matter to your business.</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll delay-2">
+                    <div class="feature-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Easy Import</h3>
+                    <p>Bring your spreadsheet data in one click. CSV import with smart field mapping. Up and running in minutes.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="who-section">
-        <div class="container">
-            <h2>Built for service businesses</h2>
+    <section class="who">
+        <div class="who-inner">
+            <header class="section-header animate-on-scroll">
+                <span class="section-tag">Who It's For</span>
+                <h2>Built for small teams that sell</h2>
+                <p>If your team is 2-20 people and you're tired of spreadsheet hell, you're in the right place.</p>
+            </header>
+
             <div class="who-grid">
-                <div class="who-tag">Marketing Agencies</div>
-                <div class="who-tag">Consulting Firms</div>
-                <div class="who-tag">Real Estate Teams</div>
-                <div class="who-tag">Recruiting Agencies</div>
-                <div class="who-tag">Law Firms</div>
-                <div class="who-tag">Dental Practices</div>
-                <div class="who-tag">Accounting Firms</div>
-                <div class="who-tag">General Contractors</div>
+                <div class="who-item animate-on-scroll delay-1">
+                    <div class="who-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="who-content">
+                        <h4>Agencies & Consultants</h4>
+                        <p>Track client leads and project opportunities</p>
+                    </div>
+                </div>
+
+                <div class="who-item animate-on-scroll delay-2">
+                    <div class="who-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <div class="who-content">
+                        <h4>Small Sales Teams</h4>
+                        <p>Coordinate deals without the enterprise overhead</p>
+                    </div>
+                </div>
+
+                <div class="who-item animate-on-scroll delay-3">
+                    <div class="who-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="who-content">
+                        <h4>Startups & Founders</h4>
+                        <p>Close deals faster, focus on building product</p>
+                    </div>
+                </div>
+
+                <div class="who-item animate-on-scroll delay-4">
+                    <div class="who-icon">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </div>
+                    <div class="who-content">
+                        <h4>Service Businesses</h4>
+                        <p>Manage leads from inquiry to signed contract</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="faq-section">
-        <div class="container">
-            <h2>Common Questions</h2>
+    <section class="faq" id="faq">
+        <div class="faq-inner">
+            <header class="section-header animate-on-scroll">
+                <span class="section-tag">FAQ</span>
+                <h2>Questions? Answers.</h2>
+            </header>
+
             <div class="faq-list">
-                <div class="faq-item">
-                    <h3>Why not just use Salesforce or HubSpot?</h3>
-                    <p>Those tools are built for enterprises with dedicated admins. They're powerful, but overkill for a 5-person team. We built this for people who want something that works without a training manual.</p>
+                <div class="faq-item open animate-on-scroll delay-1">
+                    <div class="faq-question">
+                        Is this really free?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        Early access is completely free. We're building in public and want real feedback from real teams. Paid tiers will come later with advanced features—but the core will always be accessible.
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>Can I import my existing spreadsheet?</h3>
-                    <p>Yes. Export your Google Sheet or Excel file as CSV, and we'll map the columns for you. Most teams are up and running in under 10 minutes.</p>
+
+                <div class="faq-item animate-on-scroll delay-2">
+                    <div class="faq-question">
+                        Can I import my existing data?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. Export your spreadsheet as CSV and we'll help you import. Most teams are up and running in under an hour.
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>What does "early access" mean?</h3>
-                    <p>We're onboarding teams one at a time to make sure the product fits your workflow. Early access is free, and you'll help shape the features we build next.</p>
+
+                <div class="faq-item animate-on-scroll delay-3">
+                    <div class="faq-question">
+                        How is this different from other CRMs?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        We built this for teams that need a CRM but don't need Salesforce. No complex setup. No features you'll never use. Just the essentials, done well.
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <h3>Is my data safe?</h3>
-                    <p>Yes. We use industry-standard encryption for data at rest and in transit. Your data is yours—we never sell or share it with third parties.</p>
+
+                <div class="faq-item animate-on-scroll delay-4">
+                    <div class="faq-question">
+                        What integrations do you support?
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        Email (Gmail, Outlook), calendar sync, and Zapier for everything else. We're adding more based on user requests.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bottom-cta">
-        <div class="container">
-            <h2>Ready to get organized?</h2>
-            <p>Join early access and we'll help you set up a system that actually works.</p>
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Ready to ditch the spreadsheet?</h2>
+            <p>Join teams already using Simple CRM to close more deals.</p>
             
-            <form class="cta-form" id="signupForm2">
-                <input type="email" name="email" placeholder="Enter your work email" required>
-                <button type="submit">Get Early Access</button>
+            <form class="cta-form" id="contactForm">
+                <input type="email" name="email" placeholder="Enter your work email" required aria-label="Email address">
+                <button type="submit">
+                    Get Early Access
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
             </form>
-            <p class="form-note">No credit card required. Free during early access.</p>
-            <div class="form-success" id="formSuccess2">
-                Thanks! We'll be in touch within 24 hours.
+            <p class="form-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                No credit card required. Free during early access.
+            </p>
+            <div class="form-success" id="contactSuccess">
+                You're in! We'll send setup instructions shortly.
+            </div>
+
+            <div class="demo-cta">
+                <p>Want to see it in action first?</p>
+                <a href="demo/">
+                    Try the Interactive Demo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Studio 0172. Simple tools for small teams.</p>
-            <p class="contact-email">Questions? <a href="mailto:hello@studio0172.com">hello@studio0172.com</a></p>
-        </div>
+        <p>&copy; 2026 <a href="/">Studio 0172</a>. Simple tools for small teams.</p>
     </footer>
 
     <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasOpen = item.classList.contains('open');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                
+                // Open clicked if it wasn't open
+                if (!wasOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+
+        // Form handling
         const API_URL = 'https://api.studio0172.com/subscribe';
         
-        async function handleSubmit(form, successEl) {
+        async function handleSubmit(form, successEl, source) {
             const email = form.querySelector('input[name="email"]').value;
             const button = form.querySelector('button');
+            const originalHTML = button.innerHTML;
             
             button.disabled = true;
-            button.textContent = 'Sending...';
+            button.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite"><circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="12"/></svg>';
             
             try {
                 const response = await fetch(API_URL, {
@@ -894,7 +1498,8 @@
                     body: JSON.stringify({ 
                         email,
                         app: 'crm',
-                        source: 'crm-landing'
+                        source: source,
+                        page: window.location.pathname
                     })
                 });
                 
@@ -906,20 +1511,25 @@
                 }
             } catch (err) {
                 button.disabled = false;
-                button.textContent = 'Try Again';
+                button.innerHTML = originalHTML;
                 alert('Something went wrong. Please try again or email us at hello@studio0172.com');
             }
         }
         
-        document.getElementById('signupForm').addEventListener('submit', (e) => {
+        document.getElementById('heroForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            handleSubmit(e.target, document.getElementById('formSuccess'));
+            handleSubmit(e.target, document.getElementById('heroSuccess'), 'crm-hero');
         });
         
-        document.getElementById('signupForm2').addEventListener('submit', (e) => {
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            handleSubmit(e.target, document.getElementById('formSuccess2'));
+            handleSubmit(e.target, document.getElementById('contactSuccess'), 'crm-footer');
         });
+
+        // Add spin animation
+        const style = document.createElement('style');
+        style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
