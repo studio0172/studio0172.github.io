@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CRM for Small Teams | Studio 0172</title>
+    <meta name="description" content="A lightweight CRM built for small teams. Replace spreadsheets and inbox chaos with a simple system that actually works.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --green-500: #22c55e;
+            --yellow-500: #eab308;
+            --red-500: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gray-900);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav a.demo-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        nav a.demo-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: var(--gray-500);
+            max-width: 560px;
+            margin: 0 auto 40px;
+        }
+
+        /* CTA Form */
+        .cta-form {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .cta-form input {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 18px;
+            font-size: 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .cta-form input:focus {
+            border-color: var(--primary);
+        }
+
+        .cta-form button {
+            padding: 14px 28px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .cta-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        .cta-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: var(--gray-400);
+            margin-top: 14px;
+        }
+
+        .form-success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Demo Preview */
+        .demo-preview {
+            margin: 60px 0;
+            padding: 20px;
+            background: var(--gray-50);
+            border-radius: 16px;
+        }
+
+        .demo-preview img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .demo-frame {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .demo-frame-header {
+            background: var(--gray-100);
+            padding: 12px 16px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .demo-frame-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-300);
+        }
+
+        .demo-frame-content {
+            height: 400px;
+            display: flex;
+        }
+
+        .demo-sidebar {
+            width: 200px;
+            background: var(--gray-50);
+            border-right: 1px solid var(--gray-200);
+            padding: 16px;
+        }
+
+        .demo-sidebar-item {
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 4px;
+        }
+
+        .demo-sidebar-item.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .demo-main {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .demo-main h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--gray-800);
+        }
+
+        .demo-table {
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .demo-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: var(--gray-50);
+            color: var(--gray-500);
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .demo-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-new { background: #dbeafe; color: #1d4ed8; }
+        .status-contacted { background: #fef3c7; color: #b45309; }
+        .status-active { background: #dcfce7; color: #166534; }
+        .status-closed { background: var(--gray-100); color: var(--gray-500); }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--gray-900);
+        }
+
+        .features > p {
+            text-align: center;
+            color: var(--gray-500);
+            margin-bottom: 48px;
+            font-size: 17px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 28px;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--gray-300);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gray-100);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--gray-500);
+        }
+
+        /* Who it's for */
+        .who-section {
+            padding: 60px 0 80px;
+            background: var(--gray-50);
+        }
+
+        .who-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gray-900);
+        }
+
+        .who-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .who-tag {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .bottom-cta h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--gray-900);
+        }
+
+        .bottom-cta p {
+            color: var(--gray-500);
+            margin-bottom: 32px;
+            font-size: 17px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--gray-100);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        footer a {
+            color: var(--gray-500);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        .contact-email {
+            margin-top: 8px;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .demo-frame-content {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .demo-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--gray-200);
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+            }
+
+            .demo-sidebar-item {
+                white-space: nowrap;
+            }
+
+            .demo-table {
+                font-size: 12px;
+            }
+
+            .demo-table th, .demo-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">Studio <span>0172</span></a>
+            <a href="demo/" class="demo-link">Try Demo →</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">For teams of 2–20</div>
+            <h1>A CRM that doesn't feel like work</h1>
+            <p>Replace spreadsheets and inbox chaos with a simple system your team will actually use.</p>
+            
+            <form class="cta-form" id="signupForm">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Get Early Access</button>
+            </form>
+            <p class="form-note">We'll reach out to schedule a demo.</p>
+            <div class="form-success" id="formSuccess">
+                Thanks! We'll be in touch soon.
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-preview">
+        <div class="container">
+            <div class="demo-frame">
+                <div class="demo-frame-header">
+                    <div class="demo-frame-dot"></div>
+                    <div class="demo-frame-dot"></div>
+                    <div class="demo-frame-dot"></div>
+                </div>
+                <div class="demo-frame-content">
+                    <div class="demo-sidebar">
+                        <div class="demo-sidebar-item active">📋 All Leads</div>
+                        <div class="demo-sidebar-item">🆕 New</div>
+                        <div class="demo-sidebar-item">📞 Contacted</div>
+                        <div class="demo-sidebar-item">✅ Active</div>
+                        <div class="demo-sidebar-item">📁 Closed</div>
+                    </div>
+                    <div class="demo-main">
+                        <h3>All Leads</h3>
+                        <table class="demo-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Company</th>
+                                    <th>Status</th>
+                                    <th>Owner</th>
+                                    <th>Last Activity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Sarah Chen</strong></td>
+                                    <td>Greenleaf Dental</td>
+                                    <td><span class="status-badge status-new">New</span></td>
+                                    <td>Mike</td>
+                                    <td>Just now</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>James Wilson</strong></td>
+                                    <td>Wilson & Partners</td>
+                                    <td><span class="status-badge status-contacted">Contacted</span></td>
+                                    <td>Sarah</td>
+                                    <td>2 hours ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Maria Garcia</strong></td>
+                                    <td>Coastal Realty</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>Mike</td>
+                                    <td>Yesterday</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>David Kim</strong></td>
+                                    <td>Kim Legal Group</td>
+                                    <td><span class="status-badge status-contacted">Contacted</span></td>
+                                    <td>Sarah</td>
+                                    <td>2 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Emily Brown</strong></td>
+                                    <td>Bright Futures Academy</td>
+                                    <td><span class="status-badge status-closed">Closed</span></td>
+                                    <td>Mike</td>
+                                    <td>Last week</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Everything you need, nothing you don't</h2>
+            <p>Built for how small teams actually work.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Simple Pipeline</h3>
+                    <p>See every lead at a glance. New, Contacted, Active, Closed. No complex stages to configure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Team Visibility</h3>
+                    <p>Know who's working on what. Assign owners, leave notes, never drop a follow-up.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Smart Reminders</h3>
+                    <p>Get nudged when leads go cold. No more "I forgot to follow up."</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Works Everywhere</h3>
+                    <p>Desktop, tablet, phone. Update on the go, check in from anywhere.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>5-Minute Setup</h3>
+                    <p>Import your spreadsheet or start fresh. You'll be up and running today.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Your Data, Secured</h3>
+                    <p>Role-based access. Owners see everything, staff sees what they need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="who-section">
+        <div class="container">
+            <h2>Built for service businesses</h2>
+            <div class="who-grid">
+                <div class="who-tag">Agencies</div>
+                <div class="who-tag">Consultancies</div>
+                <div class="who-tag">Real Estate</div>
+                <div class="who-tag">Recruiters</div>
+                <div class="who-tag">Law Firms</div>
+                <div class="who-tag">Clinics</div>
+                <div class="who-tag">Accountants</div>
+                <div class="who-tag">Contractors</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-cta">
+        <div class="container">
+            <h2>Ready to ditch the spreadsheet?</h2>
+            <p>Get early access and we'll build it around your workflow.</p>
+            
+            <form class="cta-form" id="signupForm2">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Get Early Access</button>
+            </form>
+            <div class="form-success" id="formSuccess2">
+                Thanks! We'll be in touch soon.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Studio 0172. We build simple tools for small teams.</p>
+            <p class="contact-email">Questions? <a href="mailto:hello@studio0172.com">hello@studio0172.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const API_URL = 'https://api.studio0172.com/subscribe';
+        
+        async function handleSubmit(form, successEl) {
+            const email = form.querySelector('input[name="email"]').value;
+            const button = form.querySelector('button');
+            
+            button.disabled = true;
+            button.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email,
+                        source: 'crm-landing',
+                        product: 'micro-crm'
+                    })
+                });
+                
+                if (response.ok) {
+                    form.style.display = 'none';
+                    successEl.style.display = 'block';
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                button.disabled = false;
+                button.textContent = 'Try Again';
+                alert('Something went wrong. Please try again or email us at hello@studio0172.com');
+            }
+        }
+        
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleSubmit(e.target, document.getElementById('formSuccess'));
+        });
+        
+        document.getElementById('signupForm2').addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleSubmit(e.target, document.getElementById('formSuccess2'));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Demo | Studio 0172</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-bg: #eff6ff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --green-50: #f0fdf4;
+            --green-500: #22c55e;
+            --green-600: #16a34a;
+            --yellow-50: #fefce8;
+            --yellow-500: #eab308;
+            --yellow-600: #ca8a04;
+            --blue-50: #eff6ff;
+            --blue-500: #3b82f6;
+            --red-50: #fef2f2;
+            --red-500: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-100);
+            color: var(--gray-800);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .app {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: var(--gray-900);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .sidebar-logo {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .sidebar-logo span {
+            color: var(--primary-light);
+        }
+
+        .sidebar-nav {
+            padding: 16px 12px;
+            flex: 1;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-500);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: var(--gray-300);
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.15s;
+        }
+
+        .nav-item:hover {
+            background: var(--gray-800);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .nav-item .count {
+            margin-left: auto;
+            background: var(--gray-700);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .nav-item.active .count {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid var(--gray-700);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .user-details {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .user-role {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .topbar {
+            background: #fff;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .topbar h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .topbar-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-700);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            padding: 8px 12px;
+            width: 280px;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .content {
+            flex: 1;
+            overflow: auto;
+            padding: 24px;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--gray-200);
+            background: #fff;
+            color: var(--gray-600);
+            transition: all 0.15s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--gray-300);
+        }
+
+        .filter-btn.active {
+            background: var(--gray-900);
+            color: #fff;
+            border-color: var(--gray-900);
+        }
+
+        /* Table */
+        .table-container {
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--gray-50);
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        td {
+            padding: 14px 16px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: var(--gray-50);
+            cursor: pointer;
+        }
+
+        .lead-name {
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .lead-email {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-new {
+            background: var(--blue-50);
+            color: var(--blue-500);
+        }
+
+        .status-contacted {
+            background: var(--yellow-50);
+            color: var(--yellow-600);
+        }
+
+        .status-active {
+            background: var(--green-50);
+            color: var(--green-600);
+        }
+
+        .status-closed {
+            background: var(--gray-100);
+            color: var(--gray-500);
+        }
+
+        .owner-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .owner-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        .owner-avatar.mike { background: #dbeafe; color: #1d4ed8; }
+        .owner-avatar.sarah { background: #fce7f3; color: #be185d; }
+        .owner-avatar.alex { background: #dcfce7; color: #166534; }
+
+        .time-ago {
+            color: var(--gray-400);
+            font-size: 13px;
+        }
+
+        .priority {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .priority-high { background: var(--red-500); }
+        .priority-medium { background: var(--yellow-500); }
+        .priority-low { background: var(--green-500); }
+
+        /* Slide-over Panel */
+        .panel-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+            z-index: 100;
+        }
+
+        .panel-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .panel {
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 480px;
+            max-width: 100%;
+            background: #fff;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 101;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-overlay.open .panel {
+            transform: translateX(0);
+        }
+
+        .panel-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .panel-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: none;
+            background: var(--gray-100);
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--gray-500);
+        }
+
+        .panel-close:hover {
+            background: var(--gray-200);
+        }
+
+        .panel-body {
+            flex: 1;
+            overflow: auto;
+            padding: 24px;
+        }
+
+        .panel-section {
+            margin-bottom: 28px;
+        }
+
+        .panel-section-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--gray-500);
+            margin-bottom: 12px;
+        }
+
+        .detail-row {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .detail-label {
+            width: 100px;
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .detail-value {
+            flex: 1;
+            font-size: 14px;
+            color: var(--gray-800);
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .activity-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            font-size: 14px;
+            color: var(--gray-700);
+            margin-bottom: 4px;
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--gray-400);
+        }
+
+        .notes-box {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(90deg, var(--primary), #7c3aed);
+            color: #fff;
+            padding: 10px 24px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .demo-banner a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 60px;
+            }
+
+            .sidebar-header, .nav-section-title, .user-details, .nav-item span:not(.count) {
+                display: none;
+            }
+
+            .nav-item {
+                justify-content: center;
+                padding: 12px;
+            }
+
+            .nav-item .count {
+                display: none;
+            }
+
+            .user-info {
+                justify-content: center;
+            }
+
+            .search-box {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .topbar-actions .btn span {
+                display: none;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .panel {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        <span>🎯 This is a demo with sample data</span>
+        <a href="../">Get Early Access →</a>
+    </div>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">Studio <span>CRM</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Pipeline</div>
+                    <div class="nav-item active" data-filter="all">
+                        <span>📋</span>
+                        <span>All Leads</span>
+                        <span class="count">24</span>
+                    </div>
+                    <div class="nav-item" data-filter="new">
+                        <span>🆕</span>
+                        <span>New</span>
+                        <span class="count">6</span>
+                    </div>
+                    <div class="nav-item" data-filter="contacted">
+                        <span>📞</span>
+                        <span>Contacted</span>
+                        <span class="count">8</span>
+                    </div>
+                    <div class="nav-item" data-filter="active">
+                        <span>✅</span>
+                        <span>Active</span>
+                        <span class="count">5</span>
+                    </div>
+                    <div class="nav-item" data-filter="closed">
+                        <span>📁</span>
+                        <span>Closed</span>
+                        <span class="count">5</span>
+                    </div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Team</div>
+                    <div class="nav-item" data-owner="mike">
+                        <span>👤</span>
+                        <span>Mike's Leads</span>
+                    </div>
+                    <div class="nav-item" data-owner="sarah">
+                        <span>👤</span>
+                        <span>Sarah's Leads</span>
+                    </div>
+                    <div class="nav-item" data-owner="alex">
+                        <span>👤</span>
+                        <span>Alex's Leads</span>
+                    </div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">MR</div>
+                    <div class="user-details">
+                        <div class="user-name">Mike Rivera</div>
+                        <div class="user-role">Admin</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h1 id="pageTitle">All Leads</h1>
+                <div class="topbar-actions">
+                    <div class="search-box">
+                        <span>🔍</span>
+                        <input type="text" placeholder="Search leads..." id="searchInput">
+                    </div>
+                    <button class="btn btn-secondary"><span>📤</span> <span>Export</span></button>
+                    <button class="btn btn-primary"><span>➕</span> <span>Add Lead</span></button>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="high">🔴 High Priority</button>
+                    <button class="filter-btn" data-filter="today">Today</button>
+                    <button class="filter-btn" data-filter="week">This Week</button>
+                    <button class="filter-btn" data-filter="stale">Needs Follow-up</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;"></th>
+                                <th>Lead</th>
+                                <th>Company</th>
+                                <th>Status</th>
+                                <th>Owner</th>
+                                <th>Value</th>
+                                <th>Last Activity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTable">
+                            <!-- Dynamic content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Detail Panel -->
+    <div class="panel-overlay" id="panelOverlay">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title" id="panelTitle">Lead Details</div>
+                <button class="panel-close" id="panelClose">×</button>
+            </div>
+            <div class="panel-body" id="panelBody">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const leads = [
+            {
+                id: 1,
+                name: "Sarah Chen",
+                email: "sarah@greenleafdental.com",
+                company: "Greenleaf Dental",
+                status: "new",
+                owner: "mike",
+                ownerName: "Mike Rivera",
+                value: 4500,
+                priority: "high",
+                phone: "(415) 555-0123",
+                source: "Website",
+                created: "2 hours ago",
+                lastActivity: "Just now",
+                notes: "Interested in full practice management. Has 3 locations. Looking to consolidate systems by Q2.",
+                activities: [
+                    { type: "📧", text: "Inbound inquiry from website form", time: "Just now" },
+                    { type: "✨", text: "Lead created", time: "2 hours ago" }
+                ]
+            },
+            {
+                id: 2,
+                name: "James Wilson",
+                email: "james@wilsonpartners.com",
+                company: "Wilson & Partners Law",
+                status: "contacted",
+                owner: "sarah",
+                ownerName: "Sarah Kim",
+                value: 8500,
+                priority: "high",
+                phone: "(650) 555-0456",
+                source: "Referral",
+                created: "3 days ago",
+                lastActivity: "2 hours ago",
+                notes: "Referred by David Kim. 12-person firm. Current using Clio but unhappy with complexity. Decision maker.",
+                activities: [
+                    { type: "📞", text: "Call completed - demo scheduled for Friday", time: "2 hours ago" },
+                    { type: "📧", text: "Follow-up email sent", time: "Yesterday" },
+                    { type: "📧", text: "Initial outreach", time: "3 days ago" },
+                    { type: "✨", text: "Lead created from referral", time: "3 days ago" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Maria Garcia",
+                email: "maria@coastalrealty.com",
+                company: "Coastal Realty Group",
+                status: "active",
+                owner: "mike",
+                ownerName: "Mike Rivera",
+                value: 6000,
+                priority: "medium",
+                phone: "(408) 555-0789",
+                source: "LinkedIn",
+                created: "2 weeks ago",
+                lastActivity: "Yesterday",
+                notes: "8 agents. Needs simple lead tracking and follow-up reminders. Currently everything in spreadsheets. Trial started.",
+                activities: [
+                    { type: "✅", text: "Started trial - invited 3 team members", time: "Yesterday" },
+                    { type: "🎥", text: "Demo completed - very positive", time: "4 days ago" },
+                    { type: "📞", text: "Discovery call - qualified", time: "1 week ago" },
+                    { type: "💬", text: "LinkedIn connection accepted", time: "2 weeks ago" }
+                ]
+            },
+            {
+                id: 4,
+                name: "David Kim",
+                email: "dkim@kimlegalgroup.com",
+                company: "Kim Legal Group",
+                status: "contacted",
+                owner: "sarah",
+                ownerName: "Sarah Kim",
+                value: 5500,
+                priority: "medium",
+                phone: "(510) 555-0321",
+                source: "Website",
+                created: "5 days ago",
+                lastActivity: "2 days ago",
+                notes: "Small firm, 4 attorneys. Looking for simple client tracking. Referred James Wilson.",
+                activities: [
+                    { type: "📧", text: "Sent pricing info", time: "2 days ago" },
+                    { type: "📞", text: "Brief intro call", time: "4 days ago" },
+                    { type: "📧", text: "Inbound from website", time: "5 days ago" }
+                ]
+            },
+            {
+                id: 5,
+                name: "Emily Brown",
+                email: "emily@brightfutures.edu",
+                company: "Bright Futures Academy",
+                status: "closed",
+                owner: "mike",
+                ownerName: "Mike Rivera",
+                value: 3200,
+                priority: "low",
+                phone: "(925) 555-0654",
+                source: "Referral",
+                created: "3 weeks ago",
+                lastActivity: "Last week",
+                notes: "Won! Annual contract signed. Onboarding scheduled for next Monday.",
+                activities: [
+                    { type: "🎉", text: "Contract signed - $3,200/year", time: "Last week" },
+                    { type: "📄", text: "Proposal sent", time: "2 weeks ago" },
+                    { type: "🎥", text: "Demo completed", time: "2 weeks ago" }
+                ]
+            },
+            {
+                id: 6,
+                name: "Robert Taylor",
+                email: "rtaylor@tayloraccounting.com",
+                company: "Taylor & Associates",
+                status: "new",
+                owner: "alex",
+                ownerName: "Alex Johnson",
+                value: 4000,
+                priority: "medium",
+                phone: "(831) 555-0987",
+                source: "Google Ads",
+                created: "1 day ago",
+                lastActivity: "1 day ago",
+                notes: "CPA firm, 6 staff. Peak season coming up. Wants to improve client onboarding.",
+                activities: [
+                    { type: "📧", text: "Submitted contact form", time: "1 day ago" },
+                    { type: "✨", text: "Lead created", time: "1 day ago" }
+                ]
+            },
+            {
+                id: 7,
+                name: "Jennifer Martinez",
+                email: "jennifer@martinezrecruting.com",
+                company: "Martinez Recruiting",
+                status: "active",
+                owner: "sarah",
+                ownerName: "Sarah Kim",
+                value: 7200,
+                priority: "high",
+                phone: "(669) 555-0147",
+                source: "Referral",
+                created: "1 week ago",
+                lastActivity: "3 hours ago",
+                notes: "Recruiting agency, 15 recruiters. Needs candidate + client tracking. High volume. Trial ongoing.",
+                activities: [
+                    { type: "💬", text: "Slack message: 'Team loves it so far'", time: "3 hours ago" },
+                    { type: "✅", text: "Trial started", time: "3 days ago" },
+                    { type: "🎥", text: "Full team demo", time: "5 days ago" }
+                ]
+            },
+            {
+                id: 8,
+                name: "Michael Chang",
+                email: "mchang@changconstruction.com",
+                company: "Chang Construction",
+                status: "contacted",
+                owner: "mike",
+                ownerName: "Mike Rivera",
+                value: 5000,
+                priority: "medium",
+                phone: "(408) 555-0258",
+                source: "Website",
+                created: "4 days ago",
+                lastActivity: "Yesterday",
+                notes: "General contractor. Wants to track leads and project status. Mobile access important.",
+                activities: [
+                    { type: "📧", text: "Sent mobile app info", time: "Yesterday" },
+                    { type: "📞", text: "Discovery call completed", time: "2 days ago" },
+                    { type: "📧", text: "Initial inquiry", time: "4 days ago" }
+                ]
+            },
+            {
+                id: 9,
+                name: "Lisa Wong",
+                email: "lisa@wongfamilydental.com",
+                company: "Wong Family Dental",
+                status: "new",
+                owner: "alex",
+                ownerName: "Alex Johnson",
+                value: 3800,
+                priority: "low",
+                phone: "(925) 555-0369",
+                source: "Website",
+                created: "6 hours ago",
+                lastActivity: "6 hours ago",
+                notes: "Single location dental practice. Looking for simple patient follow-up system.",
+                activities: [
+                    { type: "📧", text: "Contact form submitted", time: "6 hours ago" },
+                    { type: "✨", text: "Lead created", time: "6 hours ago" }
+                ]
+            },
+            {
+                id: 10,
+                name: "Thomas Anderson",
+                email: "thomas@andersonwealth.com",
+                company: "Anderson Wealth Management",
+                status: "active",
+                owner: "mike",
+                ownerName: "Mike Rivera",
+                value: 9500,
+                priority: "high",
+                phone: "(415) 555-0741",
+                source: "LinkedIn",
+                created: "2 weeks ago",
+                lastActivity: "4 hours ago",
+                notes: "Wealth management firm, 8 advisors. High-touch client relationships. Compliance requirements. Very engaged.",
+                activities: [
+                    { type: "📧", text: "Sent compliance documentation", time: "4 hours ago" },
+                    { type: "📞", text: "Call with compliance officer", time: "2 days ago" },
+                    { type: "✅", text: "Trial started", time: "1 week ago" },
+                    { type: "🎥", text: "Demo completed", time: "2 weeks ago" }
+                ]
+            },
+            {
+                id: 11,
+                name: "Amanda Foster",
+                email: "amanda@fosterphysio.com",
+                company: "Foster Physiotherapy",
+                status: "closed",
+                owner: "sarah",
+                ownerName: "Sarah Kim",
+                value: 2800,
+                priority: "low",
+                phone: "(650) 555-0852",
+                source: "Google Ads",
+                created: "1 month ago",
+                lastActivity: "2 weeks ago",
+                notes: "Lost to competitor. Price was main concern. Keep warm for future.",
+                activities: [
+                    { type: "❌", text: "Lost - went with cheaper option", time: "2 weeks ago" },
+                    { type: "📄", text: "Proposal sent", time: "3 weeks ago" },
+                    { type: "🎥", text: "Demo completed", time: "3 weeks ago" }
+                ]
+            },
+            {
+                id: 12,
+                name: "Christopher Lee",
+                email: "chris@leemediagroup.com",
+                company: "Lee Media Group",
+                status: "contacted",
+                owner: "alex",
+                ownerName: "Alex Johnson",
+                value: 6500,
+                priority: "medium",
+                phone: "(510) 555-0963",
+                source: "Referral",
+                created: "6 days ago",
+                lastActivity: "1 day ago",
+                notes: "Marketing agency. 20 clients to manage. Wants simple project + client tracking.",
+                activities: [
+                    { type: "📧", text: "Follow-up email sent", time: "1 day ago" },
+                    { type: "📞", text: "Intro call - interested", time: "4 days ago" },
+                    { type: "✨", text: "Referral from Jennifer Martinez", time: "6 days ago" }
+                ]
+            }
+        ];
+
+        const tableBody = document.getElementById('leadsTable');
+        const panelOverlay = document.getElementById('panelOverlay');
+        const panelTitle = document.getElementById('panelTitle');
+        const panelBody = document.getElementById('panelBody');
+        const panelClose = document.getElementById('panelClose');
+        const pageTitle = document.getElementById('pageTitle');
+        const searchInput = document.getElementById('searchInput');
+
+        function renderLeads(filteredLeads) {
+            tableBody.innerHTML = filteredLeads.map(lead => `
+                <tr data-id="${lead.id}">
+                    <td><div class="priority priority-${lead.priority}"></div></td>
+                    <td>
+                        <div class="lead-name">${lead.name}</div>
+                        <div class="lead-email">${lead.email}</div>
+                    </td>
+                    <td>${lead.company}</td>
+                    <td><span class="status-badge status-${lead.status}">${capitalize(lead.status)}</span></td>
+                    <td>
+                        <div class="owner-badge">
+                            <div class="owner-avatar ${lead.owner}">${getInitials(lead.ownerName)}</div>
+                            <span>${lead.ownerName.split(' ')[0]}</span>
+                        </div>
+                    </td>
+                    <td>$${lead.value.toLocaleString()}</td>
+                    <td><span class="time-ago">${lead.lastActivity}</span></td>
+                </tr>
+            `).join('');
+
+            // Add click handlers
+            tableBody.querySelectorAll('tr').forEach(row => {
+                row.addEventListener('click', () => {
+                    const lead = leads.find(l => l.id === parseInt(row.dataset.id));
+                    openPanel(lead);
+                });
+            });
+        }
+
+        function openPanel(lead) {
+            panelTitle.textContent = lead.name;
+            panelBody.innerHTML = `
+                <div class="panel-section">
+                    <div class="panel-section-title">Details</div>
+                    <div class="detail-row">
+                        <div class="detail-label">Email</div>
+                        <div class="detail-value">${lead.email}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Phone</div>
+                        <div class="detail-value">${lead.phone}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Company</div>
+                        <div class="detail-value">${lead.company}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Value</div>
+                        <div class="detail-value">$${lead.value.toLocaleString()}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Source</div>
+                        <div class="detail-value">${lead.source}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Owner</div>
+                        <div class="detail-value">${lead.ownerName}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value"><span class="status-badge status-${lead.status}">${capitalize(lead.status)}</span></div>
+                    </div>
+                </div>
+                <div class="panel-section">
+                    <div class="panel-section-title">Notes</div>
+                    <div class="notes-box">${lead.notes}</div>
+                </div>
+                <div class="panel-section">
+                    <div class="panel-section-title">Activity</div>
+                    ${lead.activities.map(a => `
+                        <div class="activity-item">
+                            <div class="activity-icon">${a.type}</div>
+                            <div class="activity-content">
+                                <div class="activity-text">${a.text}</div>
+                                <div class="activity-time">${a.time}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            panelOverlay.classList.add('open');
+        }
+
+        function closePanel() {
+            panelOverlay.classList.remove('open');
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function getInitials(name) {
+            return name.split(' ').map(n => n[0]).join('');
+        }
+
+        // Event listeners
+        panelClose.addEventListener('click', closePanel);
+        panelOverlay.addEventListener('click', (e) => {
+            if (e.target === panelOverlay) closePanel();
+        });
+
+        // Nav filtering
+        document.querySelectorAll('.nav-item[data-filter]').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                const filter = item.dataset.filter;
+                pageTitle.textContent = filter === 'all' ? 'All Leads' : capitalize(filter) + ' Leads';
+                const filtered = filter === 'all' ? leads : leads.filter(l => l.status === filter);
+                renderLeads(filtered);
+            });
+        });
+
+        document.querySelectorAll('.nav-item[data-owner]').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                const owner = item.dataset.owner;
+                const ownerName = leads.find(l => l.owner === owner)?.ownerName.split(' ')[0] || owner;
+                pageTitle.textContent = ownerName + "'s Leads";
+                renderLeads(leads.filter(l => l.owner === owner));
+            });
+        });
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                let filtered = leads;
+                if (filter === 'high') filtered = leads.filter(l => l.priority === 'high');
+                if (filter === 'today') filtered = leads.filter(l => l.lastActivity.includes('hour') || l.lastActivity === 'Just now');
+                if (filter === 'week') filtered = leads.filter(l => !l.lastActivity.includes('week') && !l.lastActivity.includes('month'));
+                if (filter === 'stale') filtered = leads.filter(l => l.lastActivity.includes('day') && l.status !== 'closed');
+                renderLeads(filtered);
+            });
+        });
+
+        // Search
+        searchInput.addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            const filtered = leads.filter(l => 
+                l.name.toLowerCase().includes(q) || 
+                l.company.toLowerCase().includes(q) ||
+                l.email.toLowerCase().includes(q)
+            );
+            renderLeads(filtered);
+        });
+
+        // Initial render
+        renderLeads(leads);
+    </script>
+</body>
+</html>
