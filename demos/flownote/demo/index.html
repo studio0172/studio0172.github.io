@@ -474,6 +474,14 @@
             border-bottom-color: var(--accent);
         }
         
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
         .notes-list {
             display: flex;
             flex-direction: column;
@@ -1123,12 +1131,13 @@
                     </div>
                     
                     <div class="patient-tabs">
-                        <div class="patient-tab active">Notes</div>
-                        <div class="patient-tab">Exercises</div>
-                        <div class="patient-tab">Documents</div>
-                        <div class="patient-tab">Billing</div>
+                        <div class="patient-tab active" data-tab="notes">Notes</div>
+                        <div class="patient-tab" data-tab="patient-exercises">Exercises</div>
+                        <div class="patient-tab" data-tab="documents">Documents</div>
+                        <div class="patient-tab" data-tab="billing">Billing</div>
                     </div>
                     
+                    <div class="tab-content active" id="notes">
                     <div class="notes-list">
                         <div class="note-card">
                             <div class="note-header">
@@ -1161,6 +1170,105 @@
                             <div class="note-section">
                                 <div class="note-label">Subjective</div>
                                 <div class="note-content">Patient reports pain at 6/10 with overhead activities. Difficulty sleeping on affected side. Completed HEP 5/7 days.</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="tab-content" id="patient-exercises">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                <h4 style="font-size: 16px;">Current Home Exercise Program</h4>
+                                <span style="font-size: 12px; color: var(--text-muted);">Assigned Feb 3, 2026</span>
+                            </div>
+                            <div class="hep-exercise" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 48px; height: 48px; background: var(--bg-primary); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 14px;">Pendulum Exercises</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">10 reps × 3 sets • Daily</div>
+                                </div>
+                            </div>
+                            <div class="hep-exercise" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 48px; height: 48px; background: var(--bg-primary); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 14px;">Theraband External Rotation</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">15 reps × 3 sets • Daily</div>
+                                </div>
+                            </div>
+                            <div class="hep-exercise" style="background: var(--bg-tertiary); border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 48px; height: 48px; background: var(--bg-primary); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 14px;">Sleeper Stretch</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">30 sec hold × 3 reps • Daily</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary" style="margin-top: 16px; width: 100%;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                Update Exercise Program
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="documents">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 8px; cursor: pointer;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 14px;">Initial Evaluation</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">January 20, 2026</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 8px; cursor: pointer;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 14px;">Insurance Authorization</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">January 18, 2026</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-tertiary); border-radius: 8px; cursor: pointer;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 14px;">Physician Referral</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">January 15, 2026</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="billing">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+                                <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 24px; font-weight: 700; color: var(--success);">$720</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">Total Billed</div>
+                                </div>
+                                <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 24px; font-weight: 700;">$540</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">Insurance Paid</div>
+                                </div>
+                                <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 24px; font-weight: 700; color: var(--warning);">$60</div>
+                                    <div style="font-size: 12px; color: var(--text-muted);">Patient Owes</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Recent Charges</div>
+                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
+                                <span>Feb 6 – Session (97110, 97140)</span>
+                                <span>$120</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
+                                <span>Feb 3 – Session (97110, 97140)</span>
+                                <span>$120</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 10px 0; font-size: 13px;">
+                                <span>Jan 31 – Session (97110, 97530)</span>
+                                <span>$120</span>
                             </div>
                         </div>
                     </div>
@@ -1418,6 +1526,19 @@
             document.getElementById('patients').classList.add('active');
             document.getElementById('page-title').textContent = 'Patient Chart';
         }
+        
+        // Patient tabs
+        document.querySelectorAll('.patient-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.dataset.tab;
+                
+                document.querySelectorAll('.patient-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
         
         // Voice Recording Simulation
         let isRecording = false;
