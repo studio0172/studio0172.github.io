@@ -1097,6 +1097,347 @@
             .sidebar { display: none; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
         }
+        
+        /* Speech-to-Text Modal */
+        .stt-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .stt-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .stt-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.3s;
+        }
+        
+        .stt-modal-overlay.active .stt-modal {
+            transform: scale(1);
+        }
+        
+        .stt-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .stt-modal-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stt-modal-header h3 svg {
+            color: var(--accent);
+        }
+        
+        .stt-close-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+        
+        .stt-close-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        
+        .stt-modal-body {
+            padding: 24px;
+            max-height: calc(90vh - 140px);
+            overflow-y: auto;
+        }
+        
+        .stt-audio-player {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stt-audio-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .stt-play-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .stt-play-btn:hover {
+            background: var(--accent-light);
+            transform: scale(1.05);
+        }
+        
+        .stt-play-btn.playing {
+            background: var(--danger);
+        }
+        
+        .stt-play-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .stt-audio-info {
+            flex: 1;
+        }
+        
+        .stt-audio-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .stt-audio-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .stt-waveform {
+            height: 48px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            padding: 0 16px;
+            overflow: hidden;
+        }
+        
+        .stt-wave-bar {
+            width: 3px;
+            background: var(--border-light);
+            border-radius: 2px;
+            transition: all 0.15s;
+        }
+        
+        .stt-waveform.playing .stt-wave-bar {
+            background: var(--accent);
+            animation: sttWave 0.5s ease-in-out infinite;
+        }
+        
+        .stt-wave-bar:nth-child(odd) { height: 60%; }
+        .stt-wave-bar:nth-child(even) { height: 100%; }
+        .stt-wave-bar:nth-child(3n) { height: 80%; }
+        .stt-wave-bar:nth-child(4n) { height: 40%; }
+        .stt-wave-bar:nth-child(5n) { height: 90%; }
+        
+        @keyframes sttWave {
+            0%, 100% { transform: scaleY(0.6); }
+            50% { transform: scaleY(1); }
+        }
+        
+        .stt-wave-bar:nth-child(1) { animation-delay: 0s; }
+        .stt-wave-bar:nth-child(2) { animation-delay: 0.05s; }
+        .stt-wave-bar:nth-child(3) { animation-delay: 0.1s; }
+        .stt-wave-bar:nth-child(4) { animation-delay: 0.15s; }
+        .stt-wave-bar:nth-child(5) { animation-delay: 0.2s; }
+        .stt-wave-bar:nth-child(6) { animation-delay: 0.25s; }
+        .stt-wave-bar:nth-child(7) { animation-delay: 0.3s; }
+        .stt-wave-bar:nth-child(8) { animation-delay: 0.35s; }
+        .stt-wave-bar:nth-child(9) { animation-delay: 0.4s; }
+        .stt-wave-bar:nth-child(10) { animation-delay: 0.45s; }
+        
+        .stt-progress {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .stt-progress-bar {
+            flex: 1;
+            height: 4px;
+            background: var(--bg-primary);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .stt-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.1s linear;
+        }
+        
+        .stt-transcript-area {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .stt-transcript-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .stt-transcript-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .stt-live-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--success);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .stt-live-badge.active {
+            opacity: 1;
+        }
+        
+        .stt-live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: livePulse 1s infinite;
+        }
+        
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        .stt-transcript-text {
+            min-height: 120px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        
+        .stt-transcript-text .stt-word {
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+        
+        .stt-transcript-text .stt-word.visible {
+            opacity: 1;
+        }
+        
+        .stt-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: var(--accent);
+            margin-left: 2px;
+            animation: cursorBlink 0.8s infinite;
+            vertical-align: text-bottom;
+        }
+        
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .stt-modal-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-tertiary);
+        }
+        
+        .notes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .notes-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        .add-note-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--accent);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .add-note-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+        
+        .add-note-btn svg {
+            width: 18px;
+            height: 18px;
+        }
     </style>
 </head>
 <body>
@@ -1398,6 +1739,18 @@
                     </div>
                     
                     <div class="tab-content active" id="notes">
+                    <div class="notes-header">
+                        <h3>Session Notes</h3>
+                        <button class="add-note-btn" onclick="openSpeechToText()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                            Add Note
+                        </button>
+                    </div>
                     <div class="notes-list">
                         <div class="note-card">
                             <div class="note-header">
@@ -1850,6 +2203,105 @@
         </div>
     </div>
     
+    <!-- Speech-to-Text Modal -->
+    <div class="stt-modal-overlay" id="stt-modal">
+        <div class="stt-modal">
+            <div class="stt-modal-header">
+                <h3>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                    Voice-to-Note Transcription
+                </h3>
+                <button class="stt-close-btn" onclick="closeSpeechToText()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="stt-modal-body">
+                <div class="stt-audio-player">
+                    <div class="stt-audio-header">
+                        <button class="stt-play-btn" id="stt-play-btn" onclick="toggleTranscription()">
+                            <svg id="stt-play-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            <svg id="stt-pause-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="display: none;">
+                                <rect x="6" y="4" width="4" height="16"/>
+                                <rect x="14" y="4" width="4" height="16"/>
+                            </svg>
+                        </button>
+                        <div class="stt-audio-info">
+                            <div class="stt-audio-title">Session Recording</div>
+                            <div class="stt-audio-meta">Michael Rodriguez • Feb 7, 2026 • 0:47</div>
+                        </div>
+                    </div>
+                    <div class="stt-waveform" id="stt-waveform">
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                        <div class="stt-wave-bar"></div>
+                    </div>
+                    <div class="stt-progress">
+                        <span id="stt-current-time">0:00</span>
+                        <div class="stt-progress-bar">
+                            <div class="stt-progress-fill" id="stt-progress-fill"></div>
+                        </div>
+                        <span>0:47</span>
+                    </div>
+                </div>
+                
+                <div class="stt-transcript-area">
+                    <div class="stt-transcript-header">
+                        <span class="stt-transcript-label">Live Transcription</span>
+                        <span class="stt-live-badge" id="stt-live-badge">
+                            <span class="stt-live-dot"></span>
+                            Transcribing
+                        </span>
+                    </div>
+                    <div class="stt-transcript-text" id="stt-transcript-text">
+                        <!-- Words will be inserted here -->
+                        <span class="stt-cursor" id="stt-cursor" style="display: none;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="stt-modal-footer">
+                <button class="btn btn-secondary" onclick="closeSpeechToText()">Cancel</button>
+                <button class="btn btn-success" id="stt-generate-btn" disabled onclick="generateNoteFromTranscript()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    Generate SOAP Note
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <div class="demo-notice">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -2090,6 +2542,167 @@
                 createBtn.style.display = 'none';
             }
         }
+        
+        // Speech-to-Text Transcription
+        const sttTranscriptText = "So Michael came in today, he's feeling a lot better. Pain is down to about a 4 out of 10, which is a big improvement from the 6 he reported last time. He mentioned he's sleeping better now and can reach the overhead cabinet without that sharp pain. We tested his range of motion and got 120 degrees of flexion today, which is up about 15 degrees from last visit. Abduction is at 95 degrees, external rotation at 35. Strength is looking good, 4 out of 5 on flexion and 3 plus on external rotation. Did some manual therapy on the posterior capsule and progressed him to red theraband exercises. He tolerated everything really well. I think we're ready to bump him up to yellow band next session. Updated his home exercise program and we'll see him again in 3 days.";
+        
+        let sttWords = [];
+        let sttCurrentWordIndex = 0;
+        let sttIsPlaying = false;
+        let sttInterval = null;
+        let sttTotalDuration = 47000; // 47 seconds in ms
+        let sttStartTime = null;
+        let sttElapsedTime = 0;
+        
+        function openSpeechToText() {
+            const modal = document.getElementById('stt-modal');
+            modal.classList.add('active');
+            
+            // Reset state
+            resetTranscription();
+        }
+        
+        function closeSpeechToText() {
+            const modal = document.getElementById('stt-modal');
+            modal.classList.remove('active');
+            
+            // Stop if playing
+            if (sttIsPlaying) {
+                stopTranscription();
+            }
+        }
+        
+        function resetTranscription() {
+            sttCurrentWordIndex = 0;
+            sttElapsedTime = 0;
+            sttIsPlaying = false;
+            
+            // Prepare words
+            const transcriptContainer = document.getElementById('stt-transcript-text');
+            sttWords = sttTranscriptText.split(' ');
+            transcriptContainer.innerHTML = sttWords.map((word, i) => 
+                `<span class="stt-word" data-index="${i}">${word}</span> `
+            ).join('') + '<span class="stt-cursor" id="stt-cursor" style="display: none;"></span>';
+            
+            // Reset UI
+            document.getElementById('stt-play-icon').style.display = 'block';
+            document.getElementById('stt-pause-icon').style.display = 'none';
+            document.getElementById('stt-play-btn').classList.remove('playing');
+            document.getElementById('stt-waveform').classList.remove('playing');
+            document.getElementById('stt-live-badge').classList.remove('active');
+            document.getElementById('stt-cursor').style.display = 'none';
+            document.getElementById('stt-progress-fill').style.width = '0%';
+            document.getElementById('stt-current-time').textContent = '0:00';
+            document.getElementById('stt-generate-btn').disabled = true;
+        }
+        
+        function toggleTranscription() {
+            if (sttIsPlaying) {
+                pauseTranscription();
+            } else {
+                startTranscription();
+            }
+        }
+        
+        function startTranscription() {
+            sttIsPlaying = true;
+            sttStartTime = Date.now() - sttElapsedTime;
+            
+            // Update UI
+            document.getElementById('stt-play-icon').style.display = 'none';
+            document.getElementById('stt-pause-icon').style.display = 'block';
+            document.getElementById('stt-play-btn').classList.add('playing');
+            document.getElementById('stt-waveform').classList.add('playing');
+            document.getElementById('stt-live-badge').classList.add('active');
+            document.getElementById('stt-cursor').style.display = 'inline-block';
+            
+            // Calculate time per word
+            const timePerWord = sttTotalDuration / sttWords.length;
+            
+            // Start word animation
+            sttInterval = setInterval(() => {
+                if (sttCurrentWordIndex < sttWords.length) {
+                    const wordSpan = document.querySelector(`.stt-word[data-index="${sttCurrentWordIndex}"]`);
+                    if (wordSpan) {
+                        wordSpan.classList.add('visible');
+                    }
+                    sttCurrentWordIndex++;
+                    
+                    // Update progress
+                    sttElapsedTime = Date.now() - sttStartTime;
+                    const progress = Math.min((sttElapsedTime / sttTotalDuration) * 100, 100);
+                    document.getElementById('stt-progress-fill').style.width = progress + '%';
+                    
+                    // Update time display
+                    const seconds = Math.floor(sttElapsedTime / 1000);
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    document.getElementById('stt-current-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+                } else {
+                    // Finished
+                    completeTranscription();
+                }
+            }, timePerWord);
+        }
+        
+        function pauseTranscription() {
+            sttIsPlaying = false;
+            clearInterval(sttInterval);
+            
+            // Update UI
+            document.getElementById('stt-play-icon').style.display = 'block';
+            document.getElementById('stt-pause-icon').style.display = 'none';
+            document.getElementById('stt-play-btn').classList.remove('playing');
+            document.getElementById('stt-waveform').classList.remove('playing');
+        }
+        
+        function stopTranscription() {
+            sttIsPlaying = false;
+            clearInterval(sttInterval);
+            
+            document.getElementById('stt-play-icon').style.display = 'block';
+            document.getElementById('stt-pause-icon').style.display = 'none';
+            document.getElementById('stt-play-btn').classList.remove('playing');
+            document.getElementById('stt-waveform').classList.remove('playing');
+            document.getElementById('stt-live-badge').classList.remove('active');
+            document.getElementById('stt-cursor').style.display = 'none';
+        }
+        
+        function completeTranscription() {
+            stopTranscription();
+            
+            // Set progress to 100%
+            document.getElementById('stt-progress-fill').style.width = '100%';
+            document.getElementById('stt-current-time').textContent = '0:47';
+            
+            // Enable generate button
+            document.getElementById('stt-generate-btn').disabled = false;
+            
+            // Show all words visible
+            document.querySelectorAll('.stt-word').forEach(w => w.classList.add('visible'));
+        }
+        
+        function generateNoteFromTranscript() {
+            // Close modal
+            closeSpeechToText();
+            
+            // Could add a generated note to the list here
+            alert('SOAP note generated! (In the full version, this would add the AI-generated note to the patient record.)');
+        }
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSpeechToText();
+            }
+        });
+        
+        // Close modal on overlay click
+        document.getElementById('stt-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'stt-modal') {
+                closeSpeechToText();
+            }
+        });
     </script>
 </body>
 </html>
