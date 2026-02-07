@@ -974,6 +974,16 @@
     
     <section class="cta" id="cta">
         <div class="container">
+            <div style="display: inline-flex; align-items: center; gap: 10px; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 10px 20px; margin-bottom: 24px;">
+                <div style="width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span style="font-weight: 600;">FlowNote Waitlist</span>
+            </div>
             <h2>Ready to stop charting after hours?</h2>
             <p>Join the waitlist for early access. Be first to experience documentation that doesn't steal your evenings.</p>
             
@@ -1015,7 +1025,7 @@
             const data = await response.json();
             
             if (data.success) {
-                msg.textContent = "You're on the list! We'll be in touch soon.";
+                msg.textContent = "✓ You're on the FlowNote waitlist! We'll be in touch soon.";
                 msg.style.color = '#22c55e';
                 this.querySelector('input').value = '';
             } else {
