@@ -348,6 +348,7 @@
         
         .appointment {
             display: flex;
+            align-items: center;
             gap: 16px;
             padding: 16px;
             background: var(--bg-secondary);
@@ -411,6 +412,200 @@
         .appointment-status.pending {
             background: rgba(245, 158, 11, 0.1);
             color: var(--warning);
+        }
+        
+        .appointment-status.completed {
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+        }
+        
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 200;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 100px;
+        }
+        
+        .search-modal.active {
+            display: flex;
+        }
+        
+        .search-container {
+            width: 100%;
+            max-width: 560px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .search-input-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .search-input-wrap svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-muted);
+        }
+        
+        .search-input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .search-results {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .search-result {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .search-result:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .search-result-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .search-result-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .search-result-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .search-hint {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        /* Patient List */
+        .patient-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .patient-list-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .patient-list-item:hover {
+            border-color: var(--border-light);
+        }
+        
+        .patient-list-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .patient-list-info {
+            flex: 1;
+        }
+        
+        .patient-list-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .patient-list-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .patient-list-status {
+            text-align: right;
+        }
+        
+        .patient-list-status .next-visit {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .patient-list-status .visit-count {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* Back button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            margin-bottom: 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .back-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        
+        .back-btn svg {
+            width: 16px;
+            height: 16px;
         }
         
         /* Patient Chart */
@@ -1032,7 +1227,7 @@
                     
                     <h3 style="margin-bottom: 16px; font-size: 16px;">Upcoming Appointments</h3>
                     <div class="appointment-list">
-                        <div class="appointment" onclick="showPatient()">
+                        <div class="appointment" onclick="showPatientDetail('michael')">
                             <div class="appointment-time">
                                 <div class="appointment-time-start">2:30 PM</div>
                                 <div class="appointment-time-duration">45 min</div>
@@ -1043,7 +1238,7 @@
                             </div>
                             <div class="appointment-status in-progress">In Progress</div>
                         </div>
-                        <div class="appointment">
+                        <div class="appointment" onclick="showPatientDetail('jennifer')">
                             <div class="appointment-time">
                                 <div class="appointment-time-start">3:30 PM</div>
                                 <div class="appointment-time-duration">60 min</div>
@@ -1054,7 +1249,7 @@
                             </div>
                             <div class="appointment-status confirmed">Confirmed</div>
                         </div>
-                        <div class="appointment">
+                        <div class="appointment" onclick="showPatientDetail('david')">
                             <div class="appointment-time">
                                 <div class="appointment-time-start">4:45 PM</div>
                                 <div class="appointment-time-duration">45 min</div>
@@ -1078,7 +1273,7 @@
                         </div>
                     </div>
                     <div class="appointment-list">
-                        <div class="appointment">
+                        <div class="appointment" style="opacity: 0.6;">
                             <div class="appointment-time">
                                 <div class="appointment-time-start">8:00 AM</div>
                                 <div class="appointment-time-duration">60 min</div>
@@ -1087,9 +1282,9 @@
                                 <div class="appointment-patient">Robert Thompson</div>
                                 <div class="appointment-type">Initial Eval • Neck Pain</div>
                             </div>
-                            <div class="appointment-status confirmed">Completed</div>
+                            <div class="appointment-status completed">Completed</div>
                         </div>
-                        <div class="appointment">
+                        <div class="appointment" style="opacity: 0.6;">
                             <div class="appointment-time">
                                 <div class="appointment-time-start">9:15 AM</div>
                                 <div class="appointment-time-duration">45 min</div>
@@ -1098,9 +1293,9 @@
                                 <div class="appointment-patient">Lisa Martinez</div>
                                 <div class="appointment-type">Follow-up • Hip Replacement</div>
                             </div>
-                            <div class="appointment-status confirmed">Completed</div>
+                            <div class="appointment-status completed">Completed</div>
                         </div>
-                        <div class="appointment" onclick="showPatient()">
+                        <div class="appointment" onclick="showPatientDetail('michael')">
                             <div class="appointment-time">
                                 <div class="appointment-time-start">2:30 PM</div>
                                 <div class="appointment-time-duration">45 min</div>
@@ -1111,13 +1306,78 @@
                             </div>
                             <div class="appointment-status in-progress">In Progress</div>
                         </div>
+                        <div class="appointment" onclick="showPatientDetail('jennifer')">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">3:30 PM</div>
+                                <div class="appointment-time-duration">60 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">Jennifer Walsh</div>
+                                <div class="appointment-type">Initial Eval • Low Back Pain</div>
+                            </div>
+                            <div class="appointment-status confirmed">Confirmed</div>
+                        </div>
+                        <div class="appointment" onclick="showPatientDetail('david')">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">4:45 PM</div>
+                                <div class="appointment-time-duration">45 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">David Kim</div>
+                                <div class="appointment-type">Follow-up • Post-op Knee</div>
+                            </div>
+                            <div class="appointment-status pending">Pending</div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Patients / Patient Detail -->
+                <!-- Patients List -->
                 <div class="page" id="patients">
+                    <div class="patient-list">
+                        <div class="patient-list-item" onclick="showPatientDetail('michael')">
+                            <div class="patient-list-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">MR</div>
+                            <div class="patient-list-info">
+                                <div class="patient-list-name">Michael Rodriguez</div>
+                                <div class="patient-list-meta">Rotator Cuff Tendinitis • Visit 6 of 12</div>
+                            </div>
+                            <div class="patient-list-status">
+                                <div class="next-visit">Today, 2:30 PM</div>
+                                <div class="visit-count">In Progress</div>
+                            </div>
+                        </div>
+                        <div class="patient-list-item" onclick="showPatientDetail('jennifer')">
+                            <div class="patient-list-avatar" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">JW</div>
+                            <div class="patient-list-info">
+                                <div class="patient-list-name">Jennifer Walsh</div>
+                                <div class="patient-list-meta">Low Back Pain • Initial Eval</div>
+                            </div>
+                            <div class="patient-list-status">
+                                <div class="next-visit">Today, 3:30 PM</div>
+                                <div class="visit-count">New Patient</div>
+                            </div>
+                        </div>
+                        <div class="patient-list-item" onclick="showPatientDetail('david')">
+                            <div class="patient-list-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">DK</div>
+                            <div class="patient-list-info">
+                                <div class="patient-list-name">David Kim</div>
+                                <div class="patient-list-meta">Post-op ACL Reconstruction • Visit 8 of 16</div>
+                            </div>
+                            <div class="patient-list-status">
+                                <div class="next-visit">Today, 4:45 PM</div>
+                                <div class="visit-count">Week 6 Post-op</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patient Detail: Michael -->
+                <div class="page" id="patient-michael">
+                    <button class="back-btn" onclick="showPatientList()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                        Back to Patients
+                    </button>
                     <div class="patient-header">
-                        <div class="patient-avatar">MR</div>
+                        <div class="patient-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">MR</div>
                         <div class="patient-info">
                             <h2>Michael Rodriguez</h2>
                             <div class="patient-meta">
@@ -1269,6 +1529,83 @@
                             <div style="display: flex; justify-content: space-between; padding: 10px 0; font-size: 13px;">
                                 <span>Jan 31 – Session (97110, 97530)</span>
                                 <span>$120</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patient Detail: Jennifer -->
+                <div class="page" id="patient-jennifer">
+                    <button class="back-btn" onclick="showPatientList()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                        Back to Patients
+                    </button>
+                    <div class="patient-header">
+                        <div class="patient-avatar" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">JW</div>
+                        <div class="patient-info">
+                            <h2>Jennifer Walsh</h2>
+                            <div class="patient-meta">
+                                <span>DOB: 07/22/1978 (47 yo)</span>
+                                <span>•</span>
+                                <span>Dx: Lumbar Radiculopathy</span>
+                                <span>•</span>
+                                <span>Initial Evaluation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-top: 20px;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            <span style="color: var(--warning); font-weight: 600;">New Patient – Initial Eval Today at 3:30 PM</span>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">Referral from Dr. Sarah Miller for low back pain radiating to left leg. Reports symptoms for 6 weeks following lifting injury at work. MRI shows L4-L5 disc herniation.</p>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button class="btn btn-primary">Start Initial Eval</button>
+                            <button class="btn btn-secondary">View Referral Documents</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patient Detail: David -->
+                <div class="page" id="patient-david">
+                    <button class="back-btn" onclick="showPatientList()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                        Back to Patients
+                    </button>
+                    <div class="patient-header">
+                        <div class="patient-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">DK</div>
+                        <div class="patient-info">
+                            <h2>David Kim</h2>
+                            <div class="patient-meta">
+                                <span>DOB: 11/03/1995 (30 yo)</span>
+                                <span>•</span>
+                                <span>Dx: Post-op ACL Reconstruction</span>
+                                <span>•</span>
+                                <span>Visit 8 of 16</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notes-list" style="margin-top: 20px;">
+                        <div class="note-card">
+                            <div class="note-header">
+                                <div class="note-date">February 4, 2026 – Session Note</div>
+                                <div class="note-badge">Signed</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Subjective</div>
+                                <div class="note-content">Patient reports knee feeling "more stable." Minimal swelling after exercises. Walking without crutches at home. Some stiffness in the morning that improves with movement.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Objective</div>
+                                <div class="note-content">ROM: Flexion 125° (WNL), Extension 0°. Girth: 1cm difference from uninvolved. Strength: Quad 4/5, Hamstring 4+/5. Gait: Independent, normal pattern. Single leg balance 30 sec.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Assessment</div>
+                                <div class="note-content">6 weeks post-op ACL reconstruction (BTB autograft). Progressing well through protocol. Ready to begin light jogging program.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Plan</div>
+                                <div class="note-content">Begin walk-jog intervals on AlterG. Progress closed chain strengthening. Continue HEP. Follow up in 3 days.</div>
                             </div>
                         </div>
                     </div>
@@ -1477,6 +1814,42 @@
         </main>
     </div>
     
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" class="search-input" id="search-input" placeholder="Search patients..." autofocus>
+            </div>
+            <div class="search-results" id="search-results">
+                <div class="search-result" onclick="searchSelectPatient('michael')">
+                    <div class="search-result-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">MR</div>
+                    <div class="search-result-info">
+                        <h4>Michael Rodriguez</h4>
+                        <p>Rotator Cuff Tendinitis • Visit 6 of 12</p>
+                    </div>
+                </div>
+                <div class="search-result" onclick="searchSelectPatient('jennifer')">
+                    <div class="search-result-avatar" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">JW</div>
+                    <div class="search-result-info">
+                        <h4>Jennifer Walsh</h4>
+                        <p>Low Back Pain • Initial Eval</p>
+                    </div>
+                </div>
+                <div class="search-result" onclick="searchSelectPatient('david')">
+                    <div class="search-result-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">DK</div>
+                    <div class="search-result-info">
+                        <h4>David Kim</h4>
+                        <p>Post-op ACL Reconstruction • Visit 8 of 16</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="demo-notice">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -1501,7 +1874,7 @@
                 const titles = {
                     dashboard: 'Dashboard',
                     schedule: 'Schedule',
-                    patients: 'Patient Chart',
+                    patients: 'Patients',
                     documentation: 'AI Documentation',
                     exercises: 'Exercise Library'
                 };
@@ -1518,13 +1891,106 @@
             document.getElementById('page-title').textContent = 'AI Documentation';
         });
         
-        // Show patient from dashboard
+        // Show patient from dashboard (default to Michael)
         function showPatient() {
+            showPatientDetail('michael');
+        }
+        
+        // Show patient list
+        function showPatientList() {
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             document.querySelector('[data-page="patients"]').classList.add('active');
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById('patients').classList.add('active');
-            document.getElementById('page-title').textContent = 'Patient Chart';
+            document.getElementById('page-title').textContent = 'Patients';
+        }
+        
+        // Show specific patient detail
+        function showPatientDetail(patientId) {
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            document.querySelector('[data-page="patients"]').classList.add('active');
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('patient-' + patientId).classList.add('active');
+            
+            const names = {
+                michael: 'Michael Rodriguez',
+                jennifer: 'Jennifer Walsh',
+                david: 'David Kim'
+            };
+            document.getElementById('page-title').textContent = names[patientId] || 'Patient Chart';
+        }
+        
+        // Search functionality
+        const searchModal = document.getElementById('search-modal');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        
+        document.querySelector('.btn-secondary').addEventListener('click', (e) => {
+            if (e.target.textContent.includes('Search')) {
+                openSearch();
+            }
+        });
+        
+        function openSearch() {
+            searchModal.classList.add('active');
+            searchInput.focus();
+            searchInput.value = '';
+            filterSearchResults('');
+        }
+        
+        function closeSearch() {
+            searchModal.classList.remove('active');
+        }
+        
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) {
+                closeSearch();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSearch();
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                openSearch();
+            }
+        });
+        
+        const patients = [
+            { id: 'michael', name: 'Michael Rodriguez', meta: 'Rotator Cuff Tendinitis • Visit 6 of 12', color: 'linear-gradient(135deg, #06b6d4, #0891b2)', initials: 'MR' },
+            { id: 'jennifer', name: 'Jennifer Walsh', meta: 'Low Back Pain • Initial Eval', color: 'linear-gradient(135deg, #8b5cf6, #7c3aed)', initials: 'JW' },
+            { id: 'david', name: 'David Kim', meta: 'Post-op ACL Reconstruction • Visit 8 of 16', color: 'linear-gradient(135deg, #f59e0b, #d97706)', initials: 'DK' }
+        ];
+        
+        searchInput.addEventListener('input', (e) => {
+            filterSearchResults(e.target.value);
+        });
+        
+        function filterSearchResults(query) {
+            const q = query.toLowerCase();
+            const filtered = patients.filter(p => 
+                p.name.toLowerCase().includes(q) || 
+                p.meta.toLowerCase().includes(q)
+            );
+            
+            if (filtered.length === 0) {
+                searchResults.innerHTML = '<div class="search-hint">No patients found</div>';
+            } else {
+                searchResults.innerHTML = filtered.map(p => `
+                    <div class="search-result" onclick="searchSelectPatient('${p.id}')">
+                        <div class="search-result-avatar" style="background: ${p.color};">${p.initials}</div>
+                        <div class="search-result-info">
+                            <h4>${p.name}</h4>
+                            <p>${p.meta}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        function searchSelectPatient(patientId) {
+            closeSearch();
+            showPatientDetail(patientId);
         }
         
         // Patient tabs
