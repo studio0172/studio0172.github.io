@@ -1439,6 +1439,158 @@
             width: 18px;
             height: 18px;
         }
+        
+        /* Waitlist Modal */
+        .waitlist-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .waitlist-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .waitlist-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            width: 90%;
+            max-width: 480px;
+            padding: 40px;
+            text-align: center;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s;
+        }
+        
+        .waitlist-modal-overlay.active .waitlist-modal {
+            transform: scale(1) translateY(0);
+        }
+        
+        .waitlist-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        
+        .waitlist-icon svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+        }
+        
+        .waitlist-modal h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .waitlist-modal p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+        
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .waitlist-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .waitlist-input:focus {
+            border-color: var(--accent);
+        }
+        
+        .waitlist-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .waitlist-submit {
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--accent);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .waitlist-submit:hover {
+            background: var(--accent-light);
+        }
+        
+        .waitlist-skip {
+            margin-top: 16px;
+            color: var(--text-muted);
+            font-size: 13px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .waitlist-skip:hover {
+            color: var(--text-secondary);
+        }
+        
+        .waitlist-success {
+            display: none;
+        }
+        
+        .waitlist-success.active {
+            display: block;
+        }
+        
+        .waitlist-success-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--success-bg);
+            border: 2px solid var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        
+        .waitlist-success-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--success);
+        }
     </style>
 </head>
 <body>
@@ -2303,6 +2455,37 @@
         </div>
     </div>
     
+    <!-- Waitlist Modal -->
+    <div class="waitlist-modal-overlay" id="waitlist-modal">
+        <div class="waitlist-modal">
+            <div id="waitlist-form-view">
+                <div class="waitlist-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                </div>
+                <h2>You're Almost There!</h2>
+                <p>In the full version, FlowNote generates a complete, compliant SOAP note in seconds—ready to review and sign. Join the waitlist for early access.</p>
+                <form class="waitlist-form" onsubmit="submitWaitlist(event)">
+                    <input type="email" class="waitlist-input" id="waitlist-email" placeholder="Enter your email" required>
+                    <input type="text" class="waitlist-input" id="waitlist-role" placeholder="Your role (PT, OT, PTA, COTA, etc.)">
+                    <button type="submit" class="waitlist-submit">Join Waitlist</button>
+                </form>
+                <button class="waitlist-skip" onclick="closeWaitlist()">Maybe later</button>
+            </div>
+            <div id="waitlist-success-view" class="waitlist-success">
+                <div class="waitlist-success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <h2>You're on the list!</h2>
+                <p>Thanks for your interest in FlowNote. We'll reach out when early access is ready. In the meantime, feel free to keep exploring the demo.</p>
+                <button class="waitlist-submit" onclick="closeWaitlist()" style="margin-top: 8px;">Continue Exploring</button>
+            </div>
+        </div>
+    </div>
+    
     <div class="demo-notice">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -2684,17 +2867,52 @@
         }
         
         function generateNoteFromTranscript() {
-            // Close modal
+            // Close transcription modal
             closeSpeechToText();
             
-            // Could add a generated note to the list here
-            alert('SOAP note generated! (In the full version, this would add the AI-generated note to the patient record.)');
+            // Open waitlist modal
+            openWaitlist();
+        }
+        
+        // Waitlist Modal Functions
+        function openWaitlist() {
+            const modal = document.getElementById('waitlist-modal');
+            modal.classList.add('active');
+            
+            // Reset to form view
+            document.getElementById('waitlist-form-view').style.display = 'block';
+            document.getElementById('waitlist-success-view').classList.remove('active');
+            
+            // Focus email input
+            setTimeout(() => {
+                document.getElementById('waitlist-email').focus();
+            }, 300);
+        }
+        
+        function closeWaitlist() {
+            const modal = document.getElementById('waitlist-modal');
+            modal.classList.remove('active');
+        }
+        
+        function submitWaitlist(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('waitlist-email').value;
+            const role = document.getElementById('waitlist-role').value;
+            
+            // In production, this would send to your backend
+            console.log('Waitlist signup:', { email, role });
+            
+            // Show success view
+            document.getElementById('waitlist-form-view').style.display = 'none';
+            document.getElementById('waitlist-success-view').classList.add('active');
         }
         
         // Close modal on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeSpeechToText();
+                closeWaitlist();
             }
         });
         
@@ -2702,6 +2920,12 @@
         document.getElementById('stt-modal').addEventListener('click', (e) => {
             if (e.target.id === 'stt-modal') {
                 closeSpeechToText();
+            }
+        });
+        
+        document.getElementById('waitlist-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'waitlist-modal') {
+                closeWaitlist();
             }
         });
     </script>
