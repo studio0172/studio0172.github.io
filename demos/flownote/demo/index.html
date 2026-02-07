@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowNote Demo – AI-Powered PT/OT Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #0f0f11;
+            --bg-tertiary: #18181b;
+            --bg-card: #1c1c1f;
+            --bg-hover: #27272a;
+            --border: #27272a;
+            --border-light: #3f3f46;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.1);
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .app {
+            display: flex;
+            height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-nav {
+            padding: 12px;
+            flex: 1;
+        }
+        
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        
+        .nav-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 12px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            margin-bottom: 2px;
+        }
+        
+        .nav-item:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .nav-item.active {
+            background: var(--accent-glow);
+            color: var(--accent-light);
+        }
+        
+        .nav-item svg {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+        }
+        
+        .nav-item.active svg {
+            opacity: 1;
+        }
+        
+        .nav-badge {
+            margin-left: auto;
+            background: var(--accent);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .user-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .user-card:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .user-role {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* Main Content */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .topbar {
+            height: 60px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            background: var(--bg-secondary);
+        }
+        
+        .topbar-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .topbar-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-light);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-hover);
+        }
+        
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+        
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Dashboard */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .stat-change {
+            font-size: 12px;
+            color: var(--success);
+            margin-top: 4px;
+        }
+        
+        /* Schedule */
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .schedule-date {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .schedule-nav {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .schedule-nav button {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .schedule-nav button:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .appointment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .appointment {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .appointment:hover {
+            border-color: var(--border-light);
+        }
+        
+        .appointment-time {
+            width: 80px;
+            flex-shrink: 0;
+        }
+        
+        .appointment-time-start {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        .appointment-time-duration {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .appointment-content {
+            flex: 1;
+        }
+        
+        .appointment-patient {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .appointment-type {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .appointment-status {
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .appointment-status.confirmed {
+            background: var(--success-bg);
+            color: var(--success);
+        }
+        
+        .appointment-status.in-progress {
+            background: var(--accent-glow);
+            color: var(--accent-light);
+        }
+        
+        .appointment-status.pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+        
+        /* Patient Chart */
+        .patient-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .patient-avatar {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .patient-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .patient-meta {
+            display: flex;
+            gap: 16px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .patient-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .patient-tab {
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: all 0.15s;
+        }
+        
+        .patient-tab:hover {
+            color: var(--text-secondary);
+        }
+        
+        .patient-tab.active {
+            color: var(--accent-light);
+            border-bottom-color: var(--accent);
+        }
+        
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .note-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .note-date {
+            font-weight: 600;
+        }
+        
+        .note-badge {
+            padding: 4px 10px;
+            background: var(--success-bg);
+            color: var(--success);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .note-section {
+            margin-bottom: 16px;
+        }
+        
+        .note-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .note-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        
+        .note-content {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Documentation */
+        .doc-container {
+            max-width: 800px;
+        }
+        
+        .doc-patient-select {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .doc-patient-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .doc-patient-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .doc-patient-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .voice-recorder {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .recorder-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-glow);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .recorder-icon:hover {
+            transform: scale(1.05);
+            background: var(--accent);
+        }
+        
+        .recorder-icon.recording {
+            background: var(--danger);
+            border-color: var(--danger);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .recorder-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--accent);
+        }
+        
+        .recorder-icon:hover svg,
+        .recorder-icon.recording svg {
+            stroke: white;
+        }
+        
+        .recorder-status {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .recorder-hint {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .voice-wave {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            height: 50px;
+            margin: 20px 0;
+        }
+        
+        .voice-wave.active {
+            display: flex;
+        }
+        
+        .voice-bar {
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: voiceWave 0.6s ease-in-out infinite;
+        }
+        
+        .voice-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+        .voice-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+        .voice-bar:nth-child(3) { height: 50px; animation-delay: 0.15s; }
+        .voice-bar:nth-child(4) { height: 35px; animation-delay: 0.2s; }
+        .voice-bar:nth-child(5) { height: 45px; animation-delay: 0.25s; }
+        .voice-bar:nth-child(6) { height: 25px; animation-delay: 0.3s; }
+        .voice-bar:nth-child(7) { height: 40px; animation-delay: 0.35s; }
+        
+        @keyframes voiceWave {
+            0%, 100% { transform: scaleY(0.4); }
+            50% { transform: scaleY(1); }
+        }
+        
+        .transcript {
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 16px;
+            display: none;
+        }
+        
+        .transcript.active {
+            display: block;
+        }
+        
+        .generated-note {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: none;
+        }
+        
+        .generated-note.active {
+            display: block;
+        }
+        
+        .generated-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .generated-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+        
+        .note-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Exercises */
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        
+        .exercise-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        
+        .exercise-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+        
+        .exercise-card.selected {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+        
+        .exercise-thumbnail {
+            height: 140px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .exercise-thumbnail svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--text-muted);
+        }
+        
+        .exercise-info {
+            padding: 16px;
+        }
+        
+        .exercise-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .exercise-target {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .exercise-check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .exercise-card.selected .exercise-check {
+            display: flex;
+        }
+        
+        /* HEP Builder */
+        .hep-builder {
+            display: none;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+        
+        .hep-builder.active {
+            display: block;
+        }
+        
+        .hep-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .hep-title {
+            font-weight: 600;
+        }
+        
+        .hep-count {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .hep-exercise {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .hep-exercise-name {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .hep-input {
+            width: 60px;
+            padding: 6px 10px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 13px;
+            text-align: center;
+        }
+        
+        .hep-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            width: 40px;
+        }
+        
+        .hep-send {
+            margin-top: 16px;
+        }
+        
+        /* Demo Notice */
+        .demo-notice {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            z-index: 100;
+        }
+        
+        .demo-notice a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .demo-notice a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../" class="logo">
+                    <div class="logo-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    FlowNote
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-item active" data-page="dashboard">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Dashboard
+                    </div>
+                    <div class="nav-item" data-page="schedule">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Schedule
+                        <span class="nav-badge">8</span>
+                    </div>
+                    <div class="nav-item" data-page="patients">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Patients
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Clinical</div>
+                    <div class="nav-item" data-page="documentation">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                        AI Documentation
+                    </div>
+                    <div class="nav-item" data-page="exercises">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                        Exercises
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-avatar">DR</div>
+                    <div class="user-info">
+                        <div class="user-name">Dr. Sarah Chen</div>
+                        <div class="user-role">PT, DPT</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-title" id="page-title">Dashboard</div>
+                <div class="topbar-actions">
+                    <button class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                        Search
+                    </button>
+                    <button class="btn btn-primary" id="new-note-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        New Note
+                    </button>
+                </div>
+            </header>
+            
+            <div class="content">
+                <!-- Dashboard -->
+                <div class="page active" id="dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Today's Patients</div>
+                            <div class="stat-value">8</div>
+                            <div class="stat-change">2 remaining</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Notes Completed</div>
+                            <div class="stat-value">6</div>
+                            <div class="stat-change">↑ All on time</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Avg Note Time</div>
+                            <div class="stat-value">1:42</div>
+                            <div class="stat-change">↓ 4 min from last week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">HEPs Sent</div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-change">This week</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 16px; font-size: 16px;">Upcoming Appointments</h3>
+                    <div class="appointment-list">
+                        <div class="appointment" onclick="showPatient()">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">2:30 PM</div>
+                                <div class="appointment-time-duration">45 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">Michael Rodriguez</div>
+                                <div class="appointment-type">Follow-up • Shoulder Rehab</div>
+                            </div>
+                            <div class="appointment-status in-progress">In Progress</div>
+                        </div>
+                        <div class="appointment">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">3:30 PM</div>
+                                <div class="appointment-time-duration">60 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">Jennifer Walsh</div>
+                                <div class="appointment-type">Initial Eval • Low Back Pain</div>
+                            </div>
+                            <div class="appointment-status confirmed">Confirmed</div>
+                        </div>
+                        <div class="appointment">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">4:45 PM</div>
+                                <div class="appointment-time-duration">45 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">David Kim</div>
+                                <div class="appointment-type">Follow-up • Post-op Knee</div>
+                            </div>
+                            <div class="appointment-status pending">Pending</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Schedule -->
+                <div class="page" id="schedule">
+                    <div class="schedule-header">
+                        <div class="schedule-date">Thursday, February 6, 2026</div>
+                        <div class="schedule-nav">
+                            <button><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                            <button><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="appointment-list">
+                        <div class="appointment">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">8:00 AM</div>
+                                <div class="appointment-time-duration">60 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">Robert Thompson</div>
+                                <div class="appointment-type">Initial Eval • Neck Pain</div>
+                            </div>
+                            <div class="appointment-status confirmed">Completed</div>
+                        </div>
+                        <div class="appointment">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">9:15 AM</div>
+                                <div class="appointment-time-duration">45 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">Lisa Martinez</div>
+                                <div class="appointment-type">Follow-up • Hip Replacement</div>
+                            </div>
+                            <div class="appointment-status confirmed">Completed</div>
+                        </div>
+                        <div class="appointment" onclick="showPatient()">
+                            <div class="appointment-time">
+                                <div class="appointment-time-start">2:30 PM</div>
+                                <div class="appointment-time-duration">45 min</div>
+                            </div>
+                            <div class="appointment-content">
+                                <div class="appointment-patient">Michael Rodriguez</div>
+                                <div class="appointment-type">Follow-up • Shoulder Rehab</div>
+                            </div>
+                            <div class="appointment-status in-progress">In Progress</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patients / Patient Detail -->
+                <div class="page" id="patients">
+                    <div class="patient-header">
+                        <div class="patient-avatar">MR</div>
+                        <div class="patient-info">
+                            <h2>Michael Rodriguez</h2>
+                            <div class="patient-meta">
+                                <span>DOB: 03/15/1985 (40 yo)</span>
+                                <span>•</span>
+                                <span>Dx: Rotator Cuff Tendinitis</span>
+                                <span>•</span>
+                                <span>Visit 6 of 12</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="patient-tabs">
+                        <div class="patient-tab active">Notes</div>
+                        <div class="patient-tab">Exercises</div>
+                        <div class="patient-tab">Documents</div>
+                        <div class="patient-tab">Billing</div>
+                    </div>
+                    
+                    <div class="notes-list">
+                        <div class="note-card">
+                            <div class="note-header">
+                                <div class="note-date">February 6, 2026 – Session Note</div>
+                                <div class="note-badge">Signed</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Subjective</div>
+                                <div class="note-content">Patient reports decreased pain at 4/10, improved from 6/10 last session. States he's sleeping better and able to reach the overhead cabinet without sharp pain. Denies numbness or tingling.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Objective</div>
+                                <div class="note-content">ROM: Shoulder flexion 120° (↑15° from last visit), Abduction 95° (↑10°), ER 35° (↑5°). Strength: 4/5 flexion, 3+/5 ER/IR. Mild tenderness over anterior deltoid insertion. Negative impingement signs today.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Assessment</div>
+                                <div class="note-content">Patient making good progress toward goals. ROM and strength improving as expected. Tolerated increased resistance well today.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Plan</div>
+                                <div class="note-content">Continue current POC. Progress strengthening to yellow band next session. Update HEP with new exercises. Follow up in 3 days.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="note-card">
+                            <div class="note-header">
+                                <div class="note-date">February 3, 2026 – Session Note</div>
+                                <div class="note-badge">Signed</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Subjective</div>
+                                <div class="note-content">Patient reports pain at 6/10 with overhead activities. Difficulty sleeping on affected side. Completed HEP 5/7 days.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Documentation -->
+                <div class="page" id="documentation">
+                    <div class="doc-container">
+                        <div class="doc-patient-select">
+                            <div class="doc-patient-avatar">MR</div>
+                            <div class="doc-patient-info">
+                                <h3>Michael Rodriguez</h3>
+                                <p>Shoulder Rehab • Visit 6 of 12</p>
+                            </div>
+                            <button class="btn btn-secondary" style="margin-left: auto;">Change Patient</button>
+                        </div>
+                        
+                        <div class="voice-recorder" id="voice-recorder">
+                            <div class="recorder-icon" id="record-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                    <line x1="12" y1="19" x2="12" y2="23"/>
+                                    <line x1="8" y1="23" x2="16" y2="23"/>
+                                </svg>
+                            </div>
+                            <div class="voice-wave" id="voice-wave">
+                                <div class="voice-bar"></div>
+                                <div class="voice-bar"></div>
+                                <div class="voice-bar"></div>
+                                <div class="voice-bar"></div>
+                                <div class="voice-bar"></div>
+                                <div class="voice-bar"></div>
+                                <div class="voice-bar"></div>
+                            </div>
+                            <div class="recorder-status" id="recorder-status">Tap to start recording</div>
+                            <div class="recorder-hint" id="recorder-hint">Speak naturally about the session</div>
+                            <div class="transcript" id="transcript">"Patient reports pain is down to a 4 out of 10, better than last time. ROM improved, got 120 degrees of flexion today. Did manual therapy and theraband exercises. Tolerating well, going to progress to yellow band next time."</div>
+                        </div>
+                        
+                        <div class="generated-note" id="generated-note">
+                            <div class="generated-header">
+                                <div class="generated-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                    Generated SOAP Note
+                                </div>
+                                <div class="ai-badge">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                    </svg>
+                                    AI Generated
+                                </div>
+                            </div>
+                            
+                            <div class="note-section">
+                                <div class="note-label">Subjective</div>
+                                <div class="note-content">Patient reports decreased pain at 4/10, improved from 6/10 last session. States he's sleeping better and able to reach the overhead cabinet without sharp pain.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Objective</div>
+                                <div class="note-content">ROM: Shoulder flexion 120° (↑15° from baseline), Abduction 95°, ER 35°. Strength: 4/5 flexion, 3+/5 ER. Treatment: Manual therapy to posterior capsule, theraband strengthening (red). Patient tolerated all interventions well.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Assessment</div>
+                                <div class="note-content">Patient making good progress toward goals. ROM and strength improving as expected. Ready to progress resistance level.</div>
+                            </div>
+                            <div class="note-section">
+                                <div class="note-label">Plan</div>
+                                <div class="note-content">Continue current POC. Progress to yellow theraband next session. Update HEP. Follow up in 3 days.</div>
+                            </div>
+                            
+                            <div class="note-actions">
+                                <button class="btn btn-secondary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                                    </svg>
+                                    Edit Note
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                    </svg>
+                                    Re-record
+                                </button>
+                                <button class="btn btn-success" style="margin-left: auto;">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    Sign & Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Exercises -->
+                <div class="page" id="exercises">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                        <div>
+                            <h3 style="font-size: 18px; margin-bottom: 4px;">Exercise Library</h3>
+                            <p style="color: var(--text-muted); font-size: 14px;">Select exercises to build a home program</p>
+                        </div>
+                        <button class="btn btn-primary" id="create-hep-btn" style="display: none;">
+                            Create HEP (3 selected)
+                        </button>
+                    </div>
+                    
+                    <div class="exercise-grid">
+                        <div class="exercise-card" onclick="toggleExercise(this)">
+                            <div class="exercise-thumbnail">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="exercise-info">
+                                <div class="exercise-name">Pendulum Exercises</div>
+                                <div class="exercise-target">Shoulder • ROM</div>
+                            </div>
+                        </div>
+                        <div class="exercise-card" onclick="toggleExercise(this)">
+                            <div class="exercise-thumbnail">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="exercise-info">
+                                <div class="exercise-name">Theraband External Rotation</div>
+                                <div class="exercise-target">Shoulder • Strengthening</div>
+                            </div>
+                        </div>
+                        <div class="exercise-card" onclick="toggleExercise(this)">
+                            <div class="exercise-thumbnail">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="exercise-info">
+                                <div class="exercise-name">Wall Slides</div>
+                                <div class="exercise-target">Shoulder • ROM / Strength</div>
+                            </div>
+                        </div>
+                        <div class="exercise-card" onclick="toggleExercise(this)">
+                            <div class="exercise-thumbnail">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="exercise-info">
+                                <div class="exercise-name">Sleeper Stretch</div>
+                                <div class="exercise-target">Shoulder • Flexibility</div>
+                            </div>
+                        </div>
+                        <div class="exercise-card" onclick="toggleExercise(this)">
+                            <div class="exercise-thumbnail">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="exercise-info">
+                                <div class="exercise-name">Prone Y's</div>
+                                <div class="exercise-target">Shoulder • Strengthening</div>
+                            </div>
+                        </div>
+                        <div class="exercise-card" onclick="toggleExercise(this)">
+                            <div class="exercise-thumbnail">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="exercise-info">
+                                <div class="exercise-name">Doorway Pec Stretch</div>
+                                <div class="exercise-target">Chest • Flexibility</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hep-builder" id="hep-builder">
+                        <div class="hep-header">
+                            <div class="hep-title">Home Exercise Program</div>
+                            <div class="hep-count" id="hep-count">0 exercises</div>
+                        </div>
+                        <div id="hep-exercises"></div>
+                        <div class="hep-send">
+                            <button class="btn btn-primary" style="width: 100%;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                    <line x1="22" y1="2" x2="11" y2="13"/>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                </svg>
+                                Send to Patient via Text
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="demo-notice">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        This is an interactive demo. <a href="../#cta">Join the waitlist</a> for early access.
+    </div>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const page = item.dataset.page;
+                
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById(page).classList.add('active');
+                
+                const titles = {
+                    dashboard: 'Dashboard',
+                    schedule: 'Schedule',
+                    patients: 'Patient Chart',
+                    documentation: 'AI Documentation',
+                    exercises: 'Exercise Library'
+                };
+                document.getElementById('page-title').textContent = titles[page] || 'Dashboard';
+            });
+        });
+        
+        // New Note button
+        document.getElementById('new-note-btn').addEventListener('click', () => {
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            document.querySelector('[data-page="documentation"]').classList.add('active');
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('documentation').classList.add('active');
+            document.getElementById('page-title').textContent = 'AI Documentation';
+        });
+        
+        // Show patient from dashboard
+        function showPatient() {
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            document.querySelector('[data-page="patients"]').classList.add('active');
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('patients').classList.add('active');
+            document.getElementById('page-title').textContent = 'Patient Chart';
+        }
+        
+        // Voice Recording Simulation
+        let isRecording = false;
+        const recordBtn = document.getElementById('record-btn');
+        const recorderStatus = document.getElementById('recorder-status');
+        const recorderHint = document.getElementById('recorder-hint');
+        const voiceWave = document.getElementById('voice-wave');
+        const transcript = document.getElementById('transcript');
+        const generatedNote = document.getElementById('generated-note');
+        
+        recordBtn.addEventListener('click', () => {
+            if (!isRecording) {
+                // Start recording
+                isRecording = true;
+                recordBtn.classList.add('recording');
+                recorderStatus.textContent = 'Recording...';
+                recorderHint.textContent = 'Tap again to stop';
+                voiceWave.classList.add('active');
+                transcript.classList.remove('active');
+                generatedNote.classList.remove('active');
+            } else {
+                // Stop recording
+                isRecording = false;
+                recordBtn.classList.remove('recording');
+                recorderStatus.textContent = 'Processing...';
+                recorderHint.textContent = 'AI is generating your note';
+                voiceWave.classList.remove('active');
+                
+                // Show transcript
+                setTimeout(() => {
+                    transcript.classList.add('active');
+                    recorderStatus.textContent = 'Generating SOAP note...';
+                }, 500);
+                
+                // Show generated note
+                setTimeout(() => {
+                    recorderStatus.textContent = 'Note generated!';
+                    recorderHint.textContent = 'Review and sign below';
+                    generatedNote.classList.add('active');
+                }, 1500);
+            }
+        });
+        
+        // Exercise Selection
+        let selectedExercises = [];
+        
+        function toggleExercise(card) {
+            card.classList.toggle('selected');
+            const name = card.querySelector('.exercise-name').textContent;
+            
+            if (card.classList.contains('selected')) {
+                selectedExercises.push(name);
+            } else {
+                selectedExercises = selectedExercises.filter(e => e !== name);
+            }
+            
+            updateHEPBuilder();
+        }
+        
+        function updateHEPBuilder() {
+            const builder = document.getElementById('hep-builder');
+            const count = document.getElementById('hep-count');
+            const exercises = document.getElementById('hep-exercises');
+            const createBtn = document.getElementById('create-hep-btn');
+            
+            if (selectedExercises.length > 0) {
+                builder.classList.add('active');
+                createBtn.style.display = 'flex';
+                createBtn.textContent = `Create HEP (${selectedExercises.length} selected)`;
+                count.textContent = `${selectedExercises.length} exercises`;
+                
+                exercises.innerHTML = selectedExercises.map(name => `
+                    <div class="hep-exercise">
+                        <div class="hep-exercise-name">${name}</div>
+                        <input type="text" class="hep-input" value="10" />
+                        <span class="hep-label">reps</span>
+                        <input type="text" class="hep-input" value="3" />
+                        <span class="hep-label">sets</span>
+                    </div>
+                `).join('');
+            } else {
+                builder.classList.remove('active');
+                createBtn.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
