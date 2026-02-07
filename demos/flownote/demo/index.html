@@ -1440,6 +1440,96 @@
             height: 18px;
         }
         
+        /* Demo CTA Card */
+        .demo-cta-card {
+            background: linear-gradient(135deg, var(--accent-glow), rgba(99, 102, 241, 0.05));
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            animation: ctaPulse 2s ease-in-out infinite;
+        }
+        
+        .demo-cta-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+            animation: none;
+        }
+        
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+        }
+        
+        .demo-cta-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .demo-cta-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+        
+        .demo-cta-content {
+            flex: 1;
+        }
+        
+        .demo-cta-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        
+        .demo-cta-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .demo-cta-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .demo-cta-arrow {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .demo-cta-arrow svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: transform 0.2s;
+        }
+        
+        .demo-cta-card:hover .demo-cta-arrow svg {
+            transform: translateX(4px);
+            color: var(--accent-light);
+        }
+        
         /* Waitlist Modal */
         .waitlist-modal-overlay {
             position: fixed;
@@ -1696,6 +1786,28 @@
             <div class="content">
                 <!-- Dashboard -->
                 <div class="page active" id="dashboard">
+                    <!-- Demo CTA -->
+                    <div class="demo-cta-card" onclick="openSpeechToText()">
+                        <div class="demo-cta-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </div>
+                        <div class="demo-cta-content">
+                            <div class="demo-cta-label">✨ Try the Demo</div>
+                            <div class="demo-cta-title">Voice-to-SOAP Note in 60 Seconds</div>
+                            <div class="demo-cta-description">See how FlowNote turns a voice recording into a complete, compliant note</div>
+                        </div>
+                        <div class="demo-cta-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-label">Today's Patients</div>
