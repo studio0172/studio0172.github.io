@@ -374,10 +374,19 @@
         }
 
         .hero h1 .gradient-text {
+            color: #6366f1;
             background: var(--gradient-text);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: transparent;
+        }
+        
+        @supports not (-webkit-background-clip: text) {
+            .hero h1 .gradient-text {
+                color: #6366f1;
+                background: none;
+            }
         }
 
         .hero-description {

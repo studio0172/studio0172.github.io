@@ -193,10 +193,19 @@
         }
         
         h1 .gradient {
+            color: var(--accent-light);
             background: linear-gradient(135deg, var(--accent-light), #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: transparent;
+        }
+        
+        @supports not (-webkit-background-clip: text) {
+            h1 .gradient {
+                color: var(--accent-light);
+                background: none;
+            }
         }
         
         .hero p {
