@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNF Documentation Survival Guide for PT & OT | FlowNote</title>
+    <meta name="description" content="Surviving SNF documentation: productivity pressures, PDPM requirements, and MDS deadlines. Practical strategies for therapists drowning in paperwork at skilled nursing facilities.">
+    <meta name="keywords" content="SNF documentation, skilled nursing PT, SNF OT documentation, PDPM therapy, MDS therapy, SNF productivity">
+    <link rel="canonical" href="https://studio0172.com/demos/flownote/blog/snf-documentation/">
+    
+    <meta property="og:title" content="SNF Documentation Survival Guide for PT & OT">
+    <meta property="og:description" content="Practical strategies for therapists drowning in paperwork at skilled nursing facilities.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://studio0172.com/demos/flownote/blog/snf-documentation/">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "SNF Documentation Survival Guide for PT & OT",
+        "description": "Practical strategies for surviving documentation demands in skilled nursing facilities",
+        "author": {
+            "@type": "Organization",
+            "name": "FlowNote"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FlowNote"
+        },
+        "datePublished": "2026-02-07",
+        "dateModified": "2026-02-07"
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0a0a0b;
+            --bg-secondary: #111113;
+            --bg-tertiary: #18181b;
+            --border: #27272a;
+            --border-light: #3f3f46;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--text-primary); }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover { background: var(--accent-light); }
+        
+        /* Article */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .article-header {
+            padding: 120px 0 40px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--text-primary); }
+        
+        .article-meta {
+            display: flex;
+            gap: 16px;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        
+        .article-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        /* Content */
+        .article-content {
+            padding-bottom: 80px;
+        }
+        
+        .article-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 48px 0 16px;
+            letter-spacing: -0.01em;
+        }
+        
+        .article-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+            color: var(--accent-light);
+        }
+        
+        .article-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        
+        .article-content ul, .article-content ol {
+            color: var(--text-secondary);
+            margin: 0 0 24px 24px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        
+        .article-content li {
+            margin-bottom: 8px;
+        }
+        
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .article-content em {
+            font-style: italic;
+        }
+        
+        .highlight-box {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        
+        .highlight-box.warning {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .highlight-box.tip {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+        
+        .highlight-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: var(--accent-light);
+        }
+        
+        .highlight-box.warning h4 {
+            color: #f59e0b;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+        
+        blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 32px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent-glow), transparent);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        
+        .cta-section h2 {
+            margin: 0 0 12px;
+            font-size: 28px;
+        }
+        
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .cta-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        
+        footer a:hover { color: var(--text-primary); }
+        
+        /* Mobile */
+        @media (max-width: 640px) {
+            h1 { font-size: 32px; }
+            .article-subtitle { font-size: 18px; }
+            .article-header { padding: 100px 0 32px; }
+            .nav-links a:not(.btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="../../" class="logo">
+                <div class="logo-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </div>
+                FlowNote
+            </a>
+            <div class="nav-links">
+                <a href="../">Blog</a>
+                <a href="../../#features">Features</a>
+                <a href="../../#pricing">Pricing</a>
+                <a href="../../demo/" class="btn">Try Demo</a>
+            </div>
+        </div>
+    </nav>
+    
+    <article>
+        <header class="article-header">
+            <div class="container">
+                <a href="../" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Back to Blog
+                </a>
+                <div class="article-meta">
+                    <span>February 7, 2026</span>
+                    <span>•</span>
+                    <span>10 min read</span>
+                </div>
+                <h1>SNF Documentation Survival Guide for PT & OT</h1>
+                <p class="article-subtitle">You became a therapist to help patients walk again—not to spend your evenings fighting EMR systems. Here's how to reclaim your time without sacrificing quality.</p>
+            </div>
+        </header>
+        
+        <div class="article-content">
+            <div class="container">
+                
+                <p>It's 6:30 PM. You treated 12 patients today. You haven't eaten since the granola bar you inhaled between Mrs. Patterson's gait training and Mr. Chen's ADL session. And you still have seven daily notes to write.</p>
+                
+                <p>Sound familiar?</p>
+                
+                <p>If you work in a skilled nursing facility, documentation isn't just paperwork—it's a second job. The productivity demands are relentless, the compliance requirements are complex, and the EMR systems seem designed by people who've never treated an actual patient.</p>
+                
+                <p>This guide won't pretend there's an easy fix. SNF documentation is genuinely hard. But after talking to dozens of therapists who've found their rhythm, we've collected the strategies that actually work.</p>
+                
+                <h2>Why SNF Documentation Is Uniquely Brutal</h2>
+                
+                <p>Every therapy setting has documentation challenges, but SNFs combine several factors that make it especially demanding:</p>
+                
+                <h3>The Productivity Squeeze</h3>
+                
+                <p>Most SNFs expect 85-90% productivity. That means for an 8-hour day, you're expected to bill 6.8-7.2 hours of direct patient care. Do the math: that leaves 48-72 minutes for documentation, bathroom breaks, walking between rooms, coordinating with nursing, and literally everything else.</p>
+                
+                <p>It doesn't work. Everyone knows it doesn't work. But the pressure remains.</p>
+                
+                <h3>PDPM Complexity</h3>
+                
+                <p>The Patient-Driven Payment Model changed everything in 2019. Your documentation now directly affects facility reimbursement through Section GG scoring and functional classification. This isn't just about covering your license anymore—it's about demonstrating medical necessity, skilled intervention, and functional outcomes in ways that satisfy both clinical and financial stakeholders.</p>
+                
+                <p>Translation: more boxes to check, more justification to write, more ways to get it wrong.</p>
+                
+                <h3>The MDS Dance</h3>
+                
+                <p>The Minimum Data Set assessment drives everything. Your therapy notes need to align with MDS timeframes—5-day, 14-day, 30-day, 60-day, 90-day assessments. Miss a deadline or contradict nursing's documentation, and you'll hear about it.</p>
+                
+                <p>ARD (Assessment Reference Date) periods mean certain days are critical for capturing function. Document the wrong thing on the wrong day, and you've affected the facility's payment for the entire stay.</p>
+                
+                <h3>Concurrent Caseloads</h3>
+                
+                <p>Unlike outpatient where patients come to you at scheduled times, SNF patients are scattered across the building, dealing with meals, medications, doctor visits, and the unpredictable realities of life in a nursing home. Your schedule is a suggestion, not a contract.</p>
+                
+                <div class="highlight-box warning">
+                    <h4>The Real Risk</h4>
+                    <p>Documentation completed hours after treatment isn't just less accurate—it's a compliance risk. Medicare audits specifically look at documentation timeliness, and late notes are easier to challenge. If your note says the patient tolerated 15 minutes of standing but you wrote it 4 hours later from memory, that's vulnerable in an audit.</p>
+                </div>
+                
+                <h2>The "Document at Point of Care" Myth</h2>
+                
+                <p>Every consultant and every training says the same thing: document at point of care. Complete your notes during or immediately after the session.</p>
+                
+                <p>In a perfect world, yes. In reality?</p>
+                
+                <ul>
+                    <li>Your laptop takes 90 seconds to wake up</li>
+                    <li>The EMR times out if you look away for 30 seconds</li>
+                    <li>You're in the middle of a transfer when the patient starts talking about their daughter's wedding</li>
+                    <li>The resident next door needs help and there's no aide available</li>
+                    <li>Your next patient is waiting and you're already behind</li>
+                </ul>
+                
+                <p>Point-of-care documentation is the goal. But pretending it's always possible doesn't help anyone. What helps is having strategies for both the ideal and the reality.</p>
+                
+                <h2>Strategies That Actually Work</h2>
+                
+                <h3>1. The 30-Second Capture</h3>
+                
+                <p>You can't always write the full note in the moment. But you can always capture the essentials. Before you leave the room, take 30 seconds to jot down:</p>
+                
+                <ul>
+                    <li><strong>Assist levels:</strong> "Mod A x1 sit→stand, CGA ambulation 50ft"</li>
+                    <li><strong>Key observations:</strong> "Inc fatigue after 3 min, needed rest break"</li>
+                    <li><strong>Patient statements:</strong> "Pt stated 'my hip is killing me today'"</li>
+                    <li><strong>Any anomalies:</strong> "Refused standing activities, c/o dizziness"</li>
+                </ul>
+                
+                <p>This takes 30 seconds. It gives you everything you need to write an accurate note later. The difference between a note from memory and a note from captured data is enormous—for accuracy and for audit protection.</p>
+                
+                <div class="highlight-box tip">
+                    <h4>Pro Tip</h4>
+                    <p>Use your phone's voice memo. Saying "Mrs. Johnson, mod assist times one for transfers, contact guard ambulation 80 feet with rolling walker, one rest break, tolerated well" takes 10 seconds and captures everything you need.</p>
+                </div>
+                
+                <h3>2. Template Smart, Not Template Stupid</h3>
+                
+                <p>Templates are double-edged swords. They save time but they also create cookie-cutter notes that scream "I didn't actually think about this patient."</p>
+                
+                <p>The trick is using templates for structure, not content. Your template should give you:</p>
+                
+                <ul>
+                    <li>A consistent format that satisfies compliance requirements</li>
+                    <li>Prompts for required elements (precautions, assist levels, skilled interventions)</li>
+                    <li>Blank spaces that force patient-specific content</li>
+                </ul>
+                
+                <p>What templates should NOT do:</p>
+                
+                <ul>
+                    <li>Pre-populate clinical content</li>
+                    <li>Include vague phrases like "patient tolerated treatment well"</li>
+                    <li>Make every patient sound identical</li>
+                </ul>
+                
+                <p>Auditors can spot template-heavy notes instantly. They're looking for them.</p>
+                
+                <h3>3. Batch Documentation Windows</h3>
+                
+                <p>If you can't document in real-time, designate specific windows for catch-up. Block these in your mental schedule:</p>
+                
+                <ul>
+                    <li><strong>Mid-morning (10:30):</strong> Document your first 3-4 patients</li>
+                    <li><strong>After lunch (1:00):</strong> Clear the morning backlog completely</li>
+                    <li><strong>End of day (4:30):</strong> Document afternoon patients before you leave</li>
+                </ul>
+                
+                <p>The key: treat these windows as non-negotiable. They're not "if I have time" blocks. They're scheduled documentation time. Your productivity metrics should account for this—if they don't, that's a conversation to have with your DOR.</p>
+                
+                <h3>4. The Note Writing Hierarchy</h3>
+                
+                <p>Not all notes are created equal. Prioritize by risk:</p>
+                
+                <ol>
+                    <li><strong>New evaluations:</strong> These set the baseline for everything. Never let these go home undone.</li>
+                    <li><strong>Discharge summaries:</strong> These are your final word. They need to be complete and defensible.</li>
+                    <li><strong>MDS window notes:</strong> Notes during ARD periods directly affect reimbursement. Get these right.</li>
+                    <li><strong>Regular daily notes:</strong> Still important, but less catastrophic if delayed by a few hours.</li>
+                </ol>
+                
+                <p>When you're drowning, knowing what to prioritize keeps you above water.</p>
+                
+                <h3>5. Communicate with the MDS Coordinator</h3>
+                
+                <p>Your MDS coordinator is not the enemy. They're trying to capture accurate information for the assessment, and they need your documentation to do it.</p>
+                
+                <p>Build a relationship:</p>
+                
+                <ul>
+                    <li>Ask when ARD periods are for your patients</li>
+                    <li>Flag significant changes before they ask</li>
+                    <li>Understand what Section GG scores mean and document to support accurate scoring</li>
+                    <li>When something changes, tell them before they find out from the note</li>
+                </ul>
+                
+                <p>A good MDS coordinator will fight for you when audits happen. A burned one won't.</p>
+                
+                <h3>6. Defend Your Documentation Time</h3>
+                
+                <p>Here's an uncomfortable truth: if you never push back, the productivity demands will consume every non-treatment minute you have.</p>
+                
+                <p>Documentation is not optional. It's a regulatory requirement, a legal protection, and a clinical necessity. You cannot bill for treatments you haven't documented. And you cannot be expected to document on your own time, unpaid.</p>
+                
+                <p>This means having honest conversations with your director of rehab:</p>
+                
+                <ul>
+                    <li>"I can treat 12 patients today OR I can complete all documentation by 5 PM. Which is the priority?"</li>
+                    <li>"My productivity is 85%, but that's with 90 minutes of undocumented overtime. Can we talk about realistic expectations?"</li>
+                    <li>"I need 20 minutes blocked for documentation after my evaluations. Can we build that into the schedule?"</li>
+                </ul>
+                
+                <p>Not every DOR will respond well. But the good ones understand that burned-out therapists leave, and retraining is expensive.</p>
+                
+                <h2>The Section GG Reality</h2>
+                
+                <p>Under PDPM, Section GG (Self-Care and Mobility) scoring directly affects the facility's PT and OT case-mix index. Your documentation needs to clearly support these scores.</p>
+                
+                <p>What this means practically:</p>
+                
+                <ul>
+                    <li><strong>Be specific about assist levels.</strong> "Minimal assistance" isn't enough. Document what you're assisting with: cueing, physical guidance, weight-bearing support.</li>
+                    <li><strong>Capture what the patient DOES, not just what you do.</strong> "Patient performed sit-to-stand with mod A x1 for balance, requiring physical guidance for trunk control" is better than "Performed transfer training."</li>
+                    <li><strong>Note changes.</strong> If function improved or declined since yesterday, say so explicitly.</li>
+                    <li><strong>Document the barriers.</strong> Cognition, pain, fatigue, endurance—these justify skilled intervention and explain function levels.</li>
+                </ul>
+                
+                <blockquote>
+                    "The best SNF therapists I know write notes that tell a story. You can read their documentation and understand who the patient is, what they're working on, and why today's session mattered."
+                    <br><br>— DOR at a 120-bed facility
+                </blockquote>
+                
+                <h2>Technology Can Help (If It's the Right Technology)</h2>
+                
+                <p>Most SNF therapists have developed a love-hate relationship with their EMR. Often more hate than love.</p>
+                
+                <p>The problem isn't technology itself—it's technology designed without understanding how therapy actually works. Systems built for physician office visits don't translate to 12-patient SNF caseloads.</p>
+                
+                <p>What would actually help:</p>
+                
+                <ul>
+                    <li><strong>Quick capture:</strong> A way to grab key data in the room, not at a computer</li>
+                    <li><strong>Intelligent suggestions:</strong> Based on what you documented before, not generic templates</li>
+                    <li><strong>Natural language:</strong> Type or speak like a clinician, not like you're filling out a form</li>
+                    <li><strong>Built-in compliance:</strong> The system knows what's required and prompts when something's missing</li>
+                    <li><strong>Speed:</strong> Notes that take 3 minutes, not 15</li>
+                </ul>
+                
+                <p>This is exactly why we built FlowNote. We talked to SNF therapists who were spending 2+ hours every night on documentation, and we built what they actually needed—not another EMR add-on, but a fundamentally different approach to capturing and generating clinical documentation.</p>
+                
+                <h2>The Bigger Picture</h2>
+                
+                <p>Documentation burden is the #1 reason therapists cite for leaving SNF settings. It's not the patients—most SNF therapists love the patient population. It's not the clinical complexity. It's the relentless paperwork that follows them home.</p>
+                
+                <p>This isn't sustainable. And pretending it is doesn't help anyone.</p>
+                
+                <p>Until systems change, the strategies in this guide can help you survive. But surviving isn't thriving. You deserve to go home at a reasonable hour. You deserve to think about something other than notes on your commute. You deserve a career that doesn't require sacrificing your evenings.</p>
+                
+                <p>We're working on better solutions. Until then, protect your time, document smart, and remember why you became a therapist in the first place.</p>
+                
+                <section class="cta-section">
+                    <h2>Ready for Documentation That Works With You?</h2>
+                    <p>FlowNote is built by people who understand SNF documentation firsthand. AI-assisted notes that take minutes, not hours—designed specifically for PT and OT.</p>
+                    <a href="../../#waitlist" class="cta-btn">Join the Waitlist</a>
+                </section>
+                
+            </div>
+        </div>
+    </article>
+    
+    <footer>
+        <div class="container">
+            <p>
+                <a href="../../">FlowNote</a> · 
+                <a href="../../privacy.html">Privacy</a> · 
+                <a href="../../terms.html">Terms</a>
+            </p>
+            <p style="margin-top: 12px;">&copy; 2026 FlowNote. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
