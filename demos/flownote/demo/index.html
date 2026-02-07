@@ -2390,7 +2390,7 @@
                         </button>
                         <div class="stt-audio-info">
                             <div class="stt-audio-title">Session Recording</div>
-                            <div class="stt-audio-meta">Michael Rodriguez • Feb 7, 2026 • 0:47</div>
+                            <div class="stt-audio-meta">Michael Rodriguez • Feb 7, 2026 • 0:54</div>
                         </div>
                     </div>
                     <div class="stt-waveform" id="stt-waveform">
@@ -2425,8 +2425,9 @@
                         <div class="stt-progress-bar">
                             <div class="stt-progress-fill" id="stt-progress-fill"></div>
                         </div>
-                        <span>0:47</span>
+                        <span id="stt-total-time">0:54</span>
                     </div>
+                    <audio id="stt-audio" src="assets/session-recording.mp3" preload="auto"></audio>
                 </div>
                 
                 <div class="stt-transcript-area">
@@ -2731,16 +2732,15 @@
         const sttTranscriptText = "So Michael came in today, he's feeling a lot better. Pain is down to about a 4 out of 10, which is a big improvement from the 6 he reported last time. He mentioned he's sleeping better now and can reach the overhead cabinet without that sharp pain. We tested his range of motion and got 120 degrees of flexion today, which is up about 15 degrees from last visit. Abduction is at 95 degrees, external rotation at 35. Strength is looking good, 4 out of 5 on flexion and 3 plus on external rotation. Did some manual therapy on the posterior capsule and progressed him to red theraband exercises. He tolerated everything really well. I think we're ready to bump him up to yellow band next session. Updated his home exercise program and we'll see him again in 3 days.";
         
         let sttWords = [];
-        let sttCurrentWordIndex = 0;
         let sttIsPlaying = false;
-        let sttInterval = null;
-        let sttTotalDuration = 47000; // 47 seconds in ms
-        let sttStartTime = null;
-        let sttElapsedTime = 0;
+        let sttAudio = null;
         
         function openSpeechToText() {
             const modal = document.getElementById('stt-modal');
             modal.classList.add('active');
+            
+            // Get audio element
+            sttAudio = document.getElementById('stt-audio');
             
             // Reset state
             resetTranscription();
@@ -2757,9 +2757,13 @@
         }
         
         function resetTranscription() {
-            sttCurrentWordIndex = 0;
-            sttElapsedTime = 0;
             sttIsPlaying = false;
+            
+            // Reset audio
+            if (sttAudio) {
+                sttAudio.pause();
+                sttAudio.currentTime = 0;
+            }
             
             // Prepare words
             const transcriptContainer = document.getElementById('stt-transcript-text');
@@ -2790,7 +2794,9 @@
         
         function startTranscription() {
             sttIsPlaying = true;
-            sttStartTime = Date.now() - sttElapsedTime;
+            
+            // Play audio
+            sttAudio.play();
             
             // Update UI
             document.getElementById('stt-play-icon').style.display = 'none';
@@ -2799,39 +2805,13 @@
             document.getElementById('stt-waveform').classList.add('playing');
             document.getElementById('stt-live-badge').classList.add('active');
             document.getElementById('stt-cursor').style.display = 'inline-block';
-            
-            // Calculate time per word
-            const timePerWord = sttTotalDuration / sttWords.length;
-            
-            // Start word animation
-            sttInterval = setInterval(() => {
-                if (sttCurrentWordIndex < sttWords.length) {
-                    const wordSpan = document.querySelector(`.stt-word[data-index="${sttCurrentWordIndex}"]`);
-                    if (wordSpan) {
-                        wordSpan.classList.add('visible');
-                    }
-                    sttCurrentWordIndex++;
-                    
-                    // Update progress
-                    sttElapsedTime = Date.now() - sttStartTime;
-                    const progress = Math.min((sttElapsedTime / sttTotalDuration) * 100, 100);
-                    document.getElementById('stt-progress-fill').style.width = progress + '%';
-                    
-                    // Update time display
-                    const seconds = Math.floor(sttElapsedTime / 1000);
-                    const mins = Math.floor(seconds / 60);
-                    const secs = seconds % 60;
-                    document.getElementById('stt-current-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
-                } else {
-                    // Finished
-                    completeTranscription();
-                }
-            }, timePerWord);
         }
         
         function pauseTranscription() {
             sttIsPlaying = false;
-            clearInterval(sttInterval);
+            
+            // Pause audio
+            sttAudio.pause();
             
             // Update UI
             document.getElementById('stt-play-icon').style.display = 'block';
@@ -2842,7 +2822,11 @@
         
         function stopTranscription() {
             sttIsPlaying = false;
-            clearInterval(sttInterval);
+            
+            // Stop audio
+            if (sttAudio) {
+                sttAudio.pause();
+            }
             
             document.getElementById('stt-play-icon').style.display = 'block';
             document.getElementById('stt-pause-icon').style.display = 'none';
@@ -2857,7 +2841,7 @@
             
             // Set progress to 100%
             document.getElementById('stt-progress-fill').style.width = '100%';
-            document.getElementById('stt-current-time').textContent = '0:47';
+            document.getElementById('stt-current-time').textContent = '0:54';
             
             // Enable generate button
             document.getElementById('stt-generate-btn').disabled = false;
@@ -2865,6 +2849,45 @@
             // Show all words visible
             document.querySelectorAll('.stt-word').forEach(w => w.classList.add('visible'));
         }
+        
+        // Audio event listeners - set up once DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('stt-audio');
+            if (!audio) return;
+            
+            // Sync words with audio time
+            audio.addEventListener('timeupdate', () => {
+                if (!sttWords.length) return;
+                
+                const duration = audio.duration || 54;
+                const currentTime = audio.currentTime;
+                const progress = (currentTime / duration) * 100;
+                
+                // Update progress bar
+                document.getElementById('stt-progress-fill').style.width = progress + '%';
+                
+                // Update time display
+                const mins = Math.floor(currentTime / 60);
+                const secs = Math.floor(currentTime % 60);
+                document.getElementById('stt-current-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+                
+                // Calculate which word should be visible
+                const wordIndex = Math.floor((currentTime / duration) * sttWords.length);
+                
+                // Show all words up to current index
+                for (let i = 0; i <= wordIndex && i < sttWords.length; i++) {
+                    const wordSpan = document.querySelector(`.stt-word[data-index="${i}"]`);
+                    if (wordSpan) {
+                        wordSpan.classList.add('visible');
+                    }
+                }
+            });
+            
+            // Handle audio end
+            audio.addEventListener('ended', () => {
+                completeTranscription();
+            });
+        });
         
         function generateNoteFromTranscript() {
             // Close transcription modal
