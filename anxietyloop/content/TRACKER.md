@@ -23,11 +23,12 @@
 | 2026-02-21 | best-anxiety-apps-2026 | best anxiety apps 2026 | ✅ live |
 | 2026-02-24 | vs-youper | youper app review | ✅ live |
 | 2026-02-26 | vs-balance | balance meditation app | ✅ live |
+| 2026-02-28 | social-anxiety-tracking | social anxiety tracker | ✅ live |
 
 ## This Week (Feb 23-28, 2026)
 - [x] vs-youper — "youper app review" ✅ Published Feb 24
 - [x] vs-balance — "balance meditation app" ✅ Published Feb 26
-- [ ] social-anxiety-tracking — "social anxiety tracker"
+- [x] social-anxiety-tracking — "social anxiety tracker" ✅ Published Feb 28
 
 ## Last Week (Feb 16-22, 2026)
 - [x] vs-wysa — "wysa anxiety app" ✅ Published Feb 17
