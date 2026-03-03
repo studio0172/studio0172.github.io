@@ -24,6 +24,7 @@
 | 2026-02-24 | vs-youper | youper app review | ✅ live |
 | 2026-02-26 | vs-balance | balance meditation app | ✅ live |
 | 2026-02-28 | social-anxiety-tracking | social anxiety tracker | ✅ live |
+| 2026-03-03 | vs-mindshift | mindshift cbt app | ✅ live |
 
 ## This Week (Feb 23-28, 2026)
 - [x] vs-youper — "youper app review" ✅ Published Feb 24
@@ -48,10 +49,9 @@
 
 ## Backlog (Prioritized)
 ### Competitor Comparisons (high intent)
-1. vs-mindshift — "mindshift cbt app" (free CBT app, clinical backing)
-2. vs-moodfit — "moodfit anxiety app" (mood tracking competitor)
-3. vs-emoods — "emoods app review" (bipolar/anxiety mood tracker)
-4. vs-stoic — "stoic journaling app" (rising journaling competitor)
+1. vs-moodfit — "moodfit anxiety app" (mood tracking competitor)
+2. vs-emoods — "emoods app review" (bipolar/anxiety mood tracker)
+3. vs-stoic — "stoic journaling app" (rising journaling competitor)
 
 ### Situation-Based (high search volume)
 1. anticipatory-anxiety — "anxiety before events"
