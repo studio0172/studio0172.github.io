@@ -26,9 +26,11 @@
 | 2026-02-28 | social-anxiety-tracking | social anxiety tracker | ✅ live |
 | 2026-03-03 | vs-mindshift | mindshift cbt app | ✅ live |
 | 2026-03-05 | vs-moodfit | moodfit anxiety app | ✅ live |
+| 2026-03-07 | vs-emoods | emoods app review | ✅ live |
 
 ## This Week (March 3-7, 2026)
 - [x] vs-moodfit — "moodfit anxiety app" ✅ Published Mar 5
+- [x] vs-emoods — "emoods app review" ✅ Published Mar 7
 
 ## Last Week (Feb 23-28, 2026)
 - [x] vs-youper — "youper app review" ✅ Published Feb 24
@@ -53,8 +55,7 @@
 
 ## Backlog (Prioritized)
 ### Competitor Comparisons (high intent)
-1. vs-emoods — "emoods app review" (bipolar/anxiety mood tracker)
-2. vs-stoic — "stoic journaling app" (rising journaling competitor)
+1. vs-stoic — "stoic journaling app" (rising journaling competitor)
 
 ### Situation-Based (high search volume)
 1. anticipatory-anxiety — "anxiety before events"
