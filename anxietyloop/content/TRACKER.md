@@ -27,8 +27,12 @@
 | 2026-03-03 | vs-mindshift | mindshift cbt app | ✅ live |
 | 2026-03-05 | vs-moodfit | moodfit anxiety app | ✅ live |
 | 2026-03-07 | vs-emoods | emoods app review | ✅ live |
+| 2026-03-10 | vs-stoic | stoic journaling app | ✅ live |
 
-## This Week (March 3-7, 2026)
+## This Week (March 10-14, 2026)
+- [x] vs-stoic — "stoic journaling app" ✅ Published Mar 10
+
+## Last Week (March 3-7, 2026)
 - [x] vs-moodfit — "moodfit anxiety app" ✅ Published Mar 5
 - [x] vs-emoods — "emoods app review" ✅ Published Mar 7
 
@@ -54,9 +58,6 @@
 - [x] vs-calm — "anxiety loop vs calm" ✅ Published Feb 7
 
 ## Backlog (Prioritized)
-### Competitor Comparisons (high intent)
-1. vs-stoic — "stoic journaling app" (rising journaling competitor)
-
 ### Situation-Based (high search volume)
 1. anticipatory-anxiety — "anxiety before events"
 2. anxiety-before-bed — "nighttime anxiety"
