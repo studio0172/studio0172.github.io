@@ -28,9 +28,11 @@
 | 2026-03-05 | vs-moodfit | moodfit anxiety app | ✅ live |
 | 2026-03-07 | vs-emoods | emoods app review | ✅ live |
 | 2026-03-10 | vs-stoic | stoic journaling app | ✅ live |
+| 2026-03-12 | anticipatory-anxiety | anxiety before events | ✅ live |
 
 ## This Week (March 10-14, 2026)
 - [x] vs-stoic — "stoic journaling app" ✅ Published Mar 10
+- [x] anticipatory-anxiety — "anxiety before events" ✅ Published Mar 12
 
 ## Last Week (March 3-7, 2026)
 - [x] vs-moodfit — "moodfit anxiety app" ✅ Published Mar 5
@@ -59,25 +61,24 @@
 
 ## Backlog (Prioritized)
 ### Situation-Based (high search volume)
-1. anticipatory-anxiety — "anxiety before events"
-2. anxiety-before-bed — "nighttime anxiety"
-3. anxiety-before-meetings — "meeting anxiety"
-4. health-anxiety — "health anxiety symptoms"
-5. relationship-anxiety — "relationship anxiety"
-6. phone-anxiety — "phone call anxiety"
-7. teen-anxiety-tracking — "anxiety app for teens" (1 in 3 teens report persistent anxiety)
+1. anxiety-before-bed — "nighttime anxiety"
+2. anxiety-before-meetings — "meeting anxiety"
+3. health-anxiety — "health anxiety symptoms"
+4. relationship-anxiety — "relationship anxiety"
+5. phone-anxiety — "phone call anxiety"
+6. teen-anxiety-tracking — "anxiety app for teens" (1 in 3 teens report persistent anxiety)
 
 ### Actionable Guides
-11. panic-attack-help — "what to do during panic attack"
-12. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
-13. anxiety-journal-prompts — "anxiety journal prompts"
-14. breathing-exercises — "breathing exercises for anxiety"
-15. anxiety-triggers — "identifying anxiety triggers"
+7. panic-attack-help — "what to do during panic attack"
+8. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
+9. anxiety-journal-prompts — "anxiety journal prompts"
+10. breathing-exercises — "breathing exercises for anxiety"
+11. anxiety-triggers — "identifying anxiety triggers"
 
 ### Seasonal (schedule ahead)
-16. holiday-anxiety — "holiday stress and anxiety" (Nov)
-17. new-year-anxiety — "new year anxiety" (Dec/Jan)
-18. back-to-school-anxiety — "school anxiety" (Aug)
+12. holiday-anxiety — "holiday stress and anxiety" (Nov)
+13. new-year-anxiety — "new year anxiety" (Dec/Jan)
+14. back-to-school-anxiety — "school anxiety" (Aug)
 
 ---
 

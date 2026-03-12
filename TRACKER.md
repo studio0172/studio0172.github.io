@@ -1,13 +1,18 @@
 # AnxietyLoop Content Tracker
 
-*Last updated: March 2, 2026*
+*Last updated: March 9, 2026*
 
-## This Week (March 2-8, 2026) 🎯
+## This Week (March 9-15, 2026) 🎯
 
 ### Selected Topics
-- **Sunday Scaries & Work Anxiety Tracking** - High priority, strong search volume, competitor gap
-- **Social Media Anxiety Patterns** - Growing trend, underserved content area
-- **Weather & Seasonal Anxiety Tracking** - Winter/spring transition timing, good SEO opportunity
+- **Quiet Quitting Anxiety Tracking** - 50%+ workforce trend, workplace burnout connection, timely
+- **AI vs Human Therapy Anxiety** - Chatbot therapy concerns rising, technology angle
+- **vs-Replika Comparison** - AI companion therapy privacy concerns, trending competitor
+
+### Last Week Completed (March 2-8, 2026) ✅
+- **Sunday Scaries & Work Anxiety Tracking** - Published
+- **Social Media Anxiety Patterns** - Published  
+- **Weather & Seasonal Anxiety Tracking** - Published
 
 ## Content Backlog 📝
 
@@ -19,16 +24,38 @@
 - `/anxietyloop/terms.html` - Terms of service
 
 ### High Priority 🔥
+**NEW - March 2026 Research Findings:**
+- **Quiet Quitting Anxiety** - 50%+ worker trend, workplace burnout tracking angle
+- **AI vs Human Therapy Anxiety** - Growing concern about chatbot therapy effectiveness
+- **Digital Detox Anxiety Patterns** - FOMO from social media breaks, modern phenomenon
+
+**Established priorities:**
 - **Sunday Scaries Tracking** - Peak anxiety time, 3:58 PM Sunday average onset
 - **Social Media Anxiety Patterns** - FOMO, comparison anxiety, sleep disruption
 - **Weather & Mood Tracking** - Seasonal patterns, rainy day anxiety, light exposure
 
 ### Medium Priority 📊
+**New competitor opportunities (March 2026):**
+- **vs-replika** - AI companion therapy concerns, privacy angle
+- **vs-character-ai** - Therapy chatbot vs dedicated anxiety tracker
+- **vs-taction** - RPM/continuous monitoring competitor
+
+**Established medium priority:**
 - **Time-of-Day Anxiety Patterns** - Morning anxiety vs evening worry
 - **Work Stress Tracking** - Meeting anxiety, deadline pressure, email stress
 - **Transition Anxiety** - Life changes, job switches, moving stress
 
 ### Future/Programmatic SEO Ideas 💡
+**New Opportunities (March 2026 research):**
+- quiet quitting anxiety - 50%+ of workers affected, trending workplace term
+- AI therapy anxiety - concerns about therapy chatbots, human vs AI 
+- digital detox anxiety - FOMO from social media breaks
+- screen time anxiety patterns - correlation between usage and mood
+- continuous anxiety monitoring - RPM tech trend in mental health
+- proactive anxiety tracking - prevention vs reactive approaches
+- remote work anxiety patterns - isolation, meeting fatigue, boundaries
+
+**Existing pipeline:**
 - anxiety on Mondays
 - anxiety before work  
 - anxiety without trigger
@@ -73,3 +100,25 @@
 - Link back to main app features (one-tap check-ins, on-device storage)
 - Target long-tail keywords with clear search intent
 - Time content releases with seasonal patterns where relevant
+
+## Weekly Research Log (March 9, 2026) 🔍
+
+**Key Trends Identified:**
+- **Quiet quitting anxiety** affects 50%+ of US workforce (Spring Health data)
+- **AI therapy concerns** rising - users questioning chatbot effectiveness vs human therapists
+- **Workplace mental health shift** from reactive to proactive tracking (25% currently proactive)
+- **Digital wellness anxiety** - FOMO from social media detox, screen time correlation
+- **Continuous monitoring tech** - RPM integration becoming standard in mental health apps
+
+**Competitor Activity:**
+- Replika gaining therapy use despite not being positioned as therapy app
+- Character AI mentioned as alternative for emotional support 
+- Taction Software pushing RPM/continuous monitoring angle
+- MindShift getting CNET coverage for mindset targeting
+
+**Content Gaps Found:**
+- No dedicated "quiet quitting anxiety" content in competitor analysis
+- Limited coverage of AI therapy vs human therapy anxiety
+- Emerging trend: anxiety about using AI for mental health support
+
+**This Week's Strategy:** Target workplace anxiety trends (quiet quitting) + technology concerns (AI therapy) + establish authority in emerging AI companion comparison space.
