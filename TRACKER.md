@@ -2,12 +2,17 @@
 
 *Last updated: March 9, 2026*
 
-## This Week (March 9-15, 2026) 🎯
+## This Week (March 16-22, 2026) 🎯
 
 ### Selected Topics
-- **Quiet Quitting Anxiety Tracking** - 50%+ workforce trend, workplace burnout connection, timely
-- **AI vs Human Therapy Anxiety** - Chatbot therapy concerns rising, technology angle
-- **vs-Replika Comparison** - AI companion therapy privacy concerns, trending competitor
+- **AI Therapy Anxiety & Safety Concerns** - APA cautions against AI therapy, "chatbot psychosis" trending, Stanford dangers research
+- **Workplace "Quiet Cracking" Anxiety** - Beyond quiet quitting: tech workers gradual burnout, feeling unappreciated
+- **vs-Character.AI Safety Comparison** - APA specifically warns against Character.AI/Replika for therapy, perfect positioning opportunity
+
+### Last Week Completed (March 9-15, 2026) ✅
+- **Quiet Quitting Anxiety Tracking** - Published
+- **AI vs Human Therapy Anxiety** - Published  
+- **vs-Replika Comparison** - Published
 
 ### Last Week Completed (March 2-8, 2026) ✅
 - **Sunday Scaries & Work Anxiety Tracking** - Published
@@ -24,9 +29,11 @@
 - `/anxietyloop/terms.html` - Terms of service
 
 ### High Priority 🔥
-**NEW - March 2026 Research Findings:**
-- **Quiet Quitting Anxiety** - 50%+ worker trend, workplace burnout tracking angle
-- **AI vs Human Therapy Anxiety** - Growing concern about chatbot therapy effectiveness
+**NEW - March 16, 2026 Research Findings:**
+- **AI Therapy Safety Anxiety** - APA warns against AI therapy (March 2026), "chatbot psychosis" Wikipedia term (March 11), Stanford dangers research
+- **Quiet Cracking vs Quiet Quitting** - Tech workers gradual burnout, feeling unappreciated and closed off from advancement
+- **Replika/Character.AI Therapy Concerns** - APA specifically lists these as "unregulated companions" being misused for therapy
+- **AI Chatbot Mental Health Regulation** - FTC investigation called for deceptive practices, urgent oversight needed
 - **Digital Detox Anxiety Patterns** - FOMO from social media breaks, modern phenomenon
 
 **Established priorities:**
@@ -46,9 +53,17 @@
 - **Transition Anxiety** - Life changes, job switches, moving stress
 
 ### Future/Programmatic SEO Ideas 💡
-**New Opportunities (March 2026 research):**
+**NEW OPPORTUNITIES (March 16, 2026 research):**
+- "chatbot psychosis anxiety" - Wikipedia term trending, AI mental health fears
+- "AI therapy vs human therapy anxiety" - APA warnings, deceptive practices concern
+- "quiet cracking anxiety" - tech career burnout beyond quiet quitting
+- "Character.AI therapy concerns" - unregulated companion misuse for mental health
+- "Replika therapy safety" - APA warning, misuse of companion AI
+- "FTC AI therapy investigation" - regulatory concerns, deceptive practices
+- "Stanford AI therapy dangers" - biases and failures research angle
+
+**Established opportunities (March 2026 research):**
 - quiet quitting anxiety - 50%+ of workers affected, trending workplace term
-- AI therapy anxiety - concerns about therapy chatbots, human vs AI 
 - digital detox anxiety - FOMO from social media breaks
 - screen time anxiety patterns - correlation between usage and mood
 - continuous anxiety monitoring - RPM tech trend in mental health
@@ -101,24 +116,31 @@
 - Target long-tail keywords with clear search intent
 - Time content releases with seasonal patterns where relevant
 
-## Weekly Research Log (March 9, 2026) 🔍
+## Weekly Research Log (March 16, 2026) 🔍
 
-**Key Trends Identified:**
-- **Quiet quitting anxiety** affects 50%+ of US workforce (Spring Health data)
-- **AI therapy concerns** rising - users questioning chatbot effectiveness vs human therapists
-- **Workplace mental health shift** from reactive to proactive tracking (25% currently proactive)
-- **Digital wellness anxiety** - FOMO from social media detox, screen time correlation
-- **Continuous monitoring tech** - RPM integration becoming standard in mental health apps
+**MAJOR BREAKING TRENDS:**
+- **APA vs AI Therapy** - American Psychological Association actively warns against AI therapy (March 2026 CNBC)
+- **"Chatbot Psychosis"** - Now a Wikipedia term (March 11, 2026), mainstream recognition of AI therapy dangers
+- **FTC Investigation Called** - APA requests FTC investigate AI chatbots for "deceptive practices" claiming to be mental health providers
+- **Stanford Dangers Research** - Fresh study on biases and dangerous consequences of AI therapy chatbots
+- **"Quiet Cracking"** - New workplace term beyond quiet quitting: gradual tech worker burnout and career stagnation
 
-**Competitor Activity:**
-- Replika gaining therapy use despite not being positioned as therapy app
-- Character AI mentioned as alternative for emotional support 
-- Taction Software pushing RPM/continuous monitoring angle
-- MindShift getting CNET coverage for mindset targeting
+**Regulatory & Safety Focus:**
+- APA specifically warns against Replika and Character.AI as "unregulated companions" being misused for therapy
+- Columbia University experts caution AI chatbots are "poor substitutes for mental healthcare professionals"
+- JMIR research shows chatbots rarely provide crisis contact info unless prompted
+- Urgent need for oversight and transparency in digital mental health (PMC study)
 
-**Content Gaps Found:**
-- No dedicated "quiet quitting anxiety" content in competitor analysis
-- Limited coverage of AI therapy vs human therapy anxiety
-- Emerging trend: anxiety about using AI for mental health support
+**Perfect Timing Opportunities:**
+- AI therapy anxiety content has NEVER been more relevant
+- AnxietyLoop positioned as transparent, safe tracking vs dangerous AI "therapy"
+- Regulatory scrutiny creates demand for trustworthy, non-AI alternatives
+- "Quiet cracking" captures evolving workplace anxiety beyond basic quiet quitting
 
-**This Week's Strategy:** Target workplace anxiety trends (quiet quitting) + technology concerns (AI therapy) + establish authority in emerging AI companion comparison space.
+**Content Gaps - MASSIVE:**
+- Zero competitor coverage of APA warnings (March 2026)
+- No anxiety tracking app positioning against AI therapy dangers  
+- "Quiet cracking anxiety" completely unaddressed market
+- Character.AI/Replika safety comparison content doesn't exist
+
+**This Week's Strategy:** Strike while AI therapy controversy is peak hot + capture "quiet cracking" workplace trend + establish authority as the safe, transparent alternative to dangerous AI companions.

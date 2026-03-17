@@ -30,8 +30,12 @@
 | 2026-03-10 | vs-stoic | stoic journaling app | ✅ live |
 | 2026-03-12 | anticipatory-anxiety | anxiety before events | ✅ live |
 | 2026-03-14 | anxiety-before-bed | nighttime anxiety | ✅ live |
+| 2026-03-17 | anxiety-before-meetings | meeting anxiety | ✅ live |
 
-## This Week (March 10-14, 2026)
+## This Week (March 17-21, 2026)
+- [x] anxiety-before-meetings — "meeting anxiety" ✅ Published Mar 17
+
+## Last Week (March 10-14, 2026)
 - [x] vs-stoic — "stoic journaling app" ✅ Published Mar 10
 - [x] anticipatory-anxiety — "anxiety before events" ✅ Published Mar 12
 - [x] anxiety-before-bed — "nighttime anxiety" ✅ Published Mar 14
@@ -63,11 +67,10 @@
 
 ## Backlog (Prioritized)
 ### Situation-Based (high search volume)
-1. anxiety-before-meetings — "meeting anxiety"
-2. health-anxiety — "health anxiety symptoms"
-3. relationship-anxiety — "relationship anxiety"
-4. phone-anxiety — "phone call anxiety"
-5. teen-anxiety-tracking — "anxiety app for teens" (1 in 3 teens report persistent anxiety)
+1. health-anxiety — "health anxiety symptoms"
+2. relationship-anxiety — "relationship anxiety"
+3. phone-anxiety — "phone call anxiety"
+4. teen-anxiety-tracking — "anxiety app for teens" (1 in 3 teens report persistent anxiety)
 
 ### Actionable Guides
 6. panic-attack-help — "what to do during panic attack"
