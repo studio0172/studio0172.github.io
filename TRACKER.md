@@ -2,12 +2,17 @@
 
 *Last updated: March 9, 2026*
 
-## This Week (March 16-22, 2026) 🎯
+## This Week (March 23-29, 2026) 🎯
 
 ### Selected Topics
-- **AI Therapy Anxiety & Safety Concerns** - APA cautions against AI therapy, "chatbot psychosis" trending, Stanford dangers research
-- **Workplace "Quiet Cracking" Anxiety** - Beyond quiet quitting: tech workers gradual burnout, feeling unappreciated
-- **vs-Character.AI Safety Comparison** - APA specifically warns against Character.AI/Replika for therapy, perfect positioning opportunity
+- **Kaiser Mental Health Strike & AI Replacement Fears** - 2,400 therapists striking over AI concerns, perfect positioning vs AI therapy
+- **NAMI Workplace Mental Health Crisis** - 25% considering quitting due to mental health impact, 60% caregiver burnout  
+- **Sleep Tracking Apps Causing Anxiety** - Euronews study shows tracking apps heighten insomnia anxiety, great contrast angle
+
+### Last Week Completed (March 16-22, 2026) ✅
+- **AI Therapy Anxiety & Safety Concerns** - Published
+- **Workplace "Quiet Cracking" Anxiety** - Published  
+- **vs-Character.AI Safety Comparison** - Published
 
 ### Last Week Completed (March 9-15, 2026) ✅
 - **Quiet Quitting Anxiety Tracking** - Published
@@ -29,7 +34,14 @@
 - `/anxietyloop/terms.html` - Terms of service
 
 ### High Priority 🔥
-**NEW - March 16, 2026 Research Findings:**
+**NEW - March 23, 2026 Research Findings:**
+- **Kaiser Strike & AI Replacement Anxiety** - 2,400 mental health workers striking over fears AI will replace therapists, perfect contrast opportunity
+- **WHO AI Mental Health Governance** - WHO calls for stronger governance of AI in mental health, especially youth risks  
+- **Tracking Apps Causing Anxiety** - Sleep tracking apps heighten anxiety in insomniacs, younger adults most affected
+- **NAMI 2026 Workplace Crisis** - 25% workers considering quitting due to mental health impact, widespread burnout epidemic
+- **AI Advice Relationship Damage** - Research shows AI verification damages trust with human professionals
+
+**ESTABLISHED HIGH PRIORITY (March 16, 2026):**
 - **AI Therapy Safety Anxiety** - APA warns against AI therapy (March 2026), "chatbot psychosis" Wikipedia term (March 11), Stanford dangers research
 - **Quiet Cracking vs Quiet Quitting** - Tech workers gradual burnout, feeling unappreciated and closed off from advancement
 - **Replika/Character.AI Therapy Concerns** - APA specifically lists these as "unregulated companions" being misused for therapy
@@ -116,7 +128,33 @@
 - Target long-tail keywords with clear search intent
 - Time content releases with seasonal patterns where relevant
 
-## Weekly Research Log (March 16, 2026) 🔍
+## Weekly Research Log (March 23, 2026) 🔍
+
+**MAJOR BREAKING TRENDS:**
+- **Kaiser Therapist Strike** - 2,400 mental health professionals striking in Northern California over fears Kaiser will replace therapists with AI (AP News, March 18, 2026)
+- **WHO Mental Health AI Governance** - World Health Organization calls for stronger governance of AI in mental health, warning of risks especially for young people (WHO Philippines, March 20, 2026)
+- **Tracking Apps Causing Anxiety** - Study shows sleep tracking apps actually heighten anxiety in people with insomnia, younger adults most affected (Euronews, March 20, 2026)
+- **NAMI Workplace Mental Health Crisis** - Fresh poll shows 25% of workers considering quitting due to mental health impact, 60% of caregivers reporting burnout (March 2026)
+- **AI Professional Relationship Damage** - Research shows consulting AI for advice damages trust with human professionals (PsyPost, March 17, 2026)
+
+**Content Strategy Goldmines:**
+- Kaiser strike creates perfect "AI replacing human therapists" anxiety angle - AnxietyLoop as the human-centered alternative
+- WHO governance warnings legitimize concerns about unregulated AI mental health tools
+- Sleep tracking anxiety study provides excellent contrast - "tracking without triggering" positioning
+- NAMI data shows workplace anxiety epidemic, massive content opportunity
+- Professional relationship damage research supports "complement, don't replace" messaging
+
+**Content Gaps - MASSIVE:**
+- Zero anxiety app coverage of Kaiser AI replacement fears
+- No positioning against "tracking apps that cause anxiety" 
+- Workplace anxiety epidemic completely under-addressed by competitors
+- AI relationship damage angle untouched by mental health apps
+
+**This Week's Strategy:** Capitalize on Kaiser AI fears + WHO governance concerns + tracking anxiety backlash to position AnxietyLoop as the safe, human-centered, non-triggering alternative to both AI therapy AND anxiety-inducing tracking apps.
+
+---
+
+## Previous Weekly Research Log (March 16, 2026) 🔍
 
 **MAJOR BREAKING TRENDS:**
 - **APA vs AI Therapy** - American Psychological Association actively warns against AI therapy (March 2026 CNBC)
