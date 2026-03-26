@@ -34,9 +34,11 @@
 | 2026-03-19 | health-anxiety | health anxiety symptoms | ✅ live |
 | 2026-03-21 | relationship-anxiety | relationship anxiety | ✅ live |
 | 2026-03-24 | phone-anxiety | phone call anxiety | ✅ live |
+| 2026-03-26 | teen-anxiety-tracking | anxiety app for teens | ✅ live |
 
 ## This Week (March 24-28, 2026)
 - [x] phone-anxiety — "phone call anxiety" ✅ Published Mar 24
+- [x] teen-anxiety-tracking — "anxiety app for teens" ✅ Published Mar 26
 
 ## Last Week (March 17-21, 2026)
 - [x] anxiety-before-meetings — "meeting anxiety" ✅ Published Mar 17
@@ -74,20 +76,17 @@
 - [x] vs-calm — "anxiety loop vs calm" ✅ Published Feb 7
 
 ## Backlog (Prioritized)
-### Situation-Based (high search volume)
-1. teen-anxiety-tracking — "anxiety app for teens" (1 in 3 teens report persistent anxiety)
-
 ### Actionable Guides
-6. panic-attack-help — "what to do during panic attack"
-7. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
-8. anxiety-journal-prompts — "anxiety journal prompts"
-9. breathing-exercises — "breathing exercises for anxiety"
-10. anxiety-triggers — "identifying anxiety triggers"
+1. panic-attack-help — "what to do during panic attack"
+2. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
+3. anxiety-journal-prompts — "anxiety journal prompts"
+4. breathing-exercises — "breathing exercises for anxiety"
+5. anxiety-triggers — "identifying anxiety triggers"
 
 ### Seasonal (schedule ahead)
-11. holiday-anxiety — "holiday stress and anxiety" (Nov)
-12. new-year-anxiety — "new year anxiety" (Dec/Jan)
-13. back-to-school-anxiety — "school anxiety" (Aug)
+6. holiday-anxiety — "holiday stress and anxiety" (Nov)
+7. new-year-anxiety — "new year anxiety" (Dec/Jan)
+8. back-to-school-anxiety — "school anxiety" (Aug)
 
 ---
 
