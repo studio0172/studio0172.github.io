@@ -35,10 +35,12 @@
 | 2026-03-21 | relationship-anxiety | relationship anxiety | ✅ live |
 | 2026-03-24 | phone-anxiety | phone call anxiety | ✅ live |
 | 2026-03-26 | teen-anxiety-tracking | anxiety app for teens | ✅ live |
+| 2026-03-28 | panic-attack-help | what to do during panic attack | ✅ live |
 
 ## This Week (March 24-28, 2026)
 - [x] phone-anxiety — "phone call anxiety" ✅ Published Mar 24
 - [x] teen-anxiety-tracking — "anxiety app for teens" ✅ Published Mar 26
+- [x] panic-attack-help — "what to do during panic attack" ✅ Published Mar 28
 
 ## Last Week (March 17-21, 2026)
 - [x] anxiety-before-meetings — "meeting anxiety" ✅ Published Mar 17
@@ -77,11 +79,10 @@
 
 ## Backlog (Prioritized)
 ### Actionable Guides
-1. panic-attack-help — "what to do during panic attack"
-2. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
-3. anxiety-journal-prompts — "anxiety journal prompts"
-4. breathing-exercises — "breathing exercises for anxiety"
-5. anxiety-triggers — "identifying anxiety triggers"
+1. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
+2. anxiety-journal-prompts — "anxiety journal prompts"
+3. breathing-exercises — "breathing exercises for anxiety"
+4. anxiety-triggers — "identifying anxiety triggers"
 
 ### Seasonal (schedule ahead)
 6. holiday-anxiety — "holiday stress and anxiety" (Nov)
