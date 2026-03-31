@@ -36,8 +36,9 @@
 | 2026-03-24 | phone-anxiety | phone call anxiety | ✅ live |
 | 2026-03-26 | teen-anxiety-tracking | anxiety app for teens | ✅ live |
 | 2026-03-28 | panic-attack-help | what to do during panic attack | ✅ live |
+| 2026-03-31 | explain-anxiety-to-therapist | how to describe anxiety to therapist | ✅ live |
 
-## This Week (March 24-28, 2026)
+## This Week (March 31, 2026)
 - [x] phone-anxiety — "phone call anxiety" ✅ Published Mar 24
 - [x] teen-anxiety-tracking — "anxiety app for teens" ✅ Published Mar 26
 - [x] panic-attack-help — "what to do during panic attack" ✅ Published Mar 28
@@ -79,8 +80,7 @@
 
 ## Backlog (Prioritized)
 ### Actionable Guides
-1. explain-anxiety-to-therapist — "how to describe anxiety to therapist"
-2. anxiety-journal-prompts — "anxiety journal prompts"
+1. anxiety-journal-prompts — "anxiety journal prompts"
 3. breathing-exercises — "breathing exercises for anxiety"
 4. anxiety-triggers — "identifying anxiety triggers"
 
