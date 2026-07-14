@@ -1,8 +1,6 @@
 (function () {
-    // Paste the Formspree endpoint here, e.g. 'https://formspree.io/f/abcdwxyz'.
-    // While this is empty the form falls back to composing a mailto, so the page
-    // still works — but SMS consent is only recorded server-side once it is set.
-    var FORMSPREE_ENDPOINT = '';
+    // Recipient is set in the Formspree dashboard, not here.
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mykrzerg';
 
     var form = document.getElementById('contact-form');
     if (!form) return;
