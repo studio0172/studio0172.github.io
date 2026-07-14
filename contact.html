@@ -50,21 +50,33 @@
             <div class="wrap">
                 <span class="eyebrow">Contact</span>
                 <h1>Get in touch</h1>
-                <p>Questions about driver opportunities or our freight operations? We'd like to hear from you.</p>
+                <p>Questions about driver opportunities or our freight operations? Send us an email and we'll get back to you.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Email us</span>
+                    <h2>Send us an email</h2>
+                    <p>Whether you're applying to drive or just have a question, email is the fastest way to reach us. A member of our team will get back to you promptly.</p>
+                </div>
+                <div class="email-block">
+                    <a href="mailto:jobs@studio0172.com" class="email-address">jobs@studio0172.com</a>
+                    <button class="copy-btn" data-copy="jobs@studio0172.com" aria-label="Copy email address">
+                        <svg class="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        <svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span class="copy-label">Copy</span>
+                    </button>
+                </div>
+                <p style="color: var(--text-muted); font-size: 15px; margin-top: 20px; max-width: 62ch;">Applying to drive? Include your CDL class and state, your years of Class A experience, and a phone number we can reach you on.</p>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="wrap">
                 <div class="contact-grid">
                     <div>
-                        <div class="contact-item">
-                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
-                            <div>
-                                <h3>Email Us</h3>
-                                <a href="mailto:privacy@studio0172.com">privacy@studio0172.com</a>
-                            </div>
-                        </div>
                         <div class="contact-item">
                             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             <div>
@@ -83,35 +95,9 @@
                             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                             <div>
                                 <h3>Looking to drive?</h3>
-                                <p>Head to our <a href="careers.html" style="color: var(--amber-dark);">Careers</a> page to apply.</p>
+                                <p>See our <a href="careers.html" style="color: var(--amber-dark);">Careers</a> page for what we offer and what you'll need.</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-card">
-                        <h2 style="font-size: 22px; margin-bottom: 8px;">Send us a message</h2>
-                        <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 24px;">Ready to learn more about Studio 0172 or our driver opportunities? Fill out the form and a member of our team will get back to you promptly.</p>
-
-                        <form id="contact-form">
-                            <div class="field">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" autocomplete="name" required>
-                            </div>
-                            <div class="field">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" autocomplete="email" required>
-                            </div>
-                            <div class="field">
-                                <label for="phone">Phone <span style="font-weight: 400; color: var(--text-muted);">(optional)</span></label>
-                                <input type="tel" id="phone" name="phone" autocomplete="tel">
-                            </div>
-                            <div class="field">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
-                            <p class="form-note">This opens a pre-filled email in your mail app addressed to privacy@studio0172.com. Nothing is sent until you hit send there.</p>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -132,14 +118,13 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="careers.html">Careers</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="tech/index.html">Studio 0172 Tech</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Visit Us</h4>
                     <ul>
                         <li>44946 Osgood Road<br>Fremont, CA 94539</li>
-                        <li><a href="mailto:privacy@studio0172.com">privacy@studio0172.com</a></li>
+                        <li><a href="mailto:jobs@studio0172.com">jobs@studio0172.com</a></li>
                     </ul>
                 </div>
                 <div>
@@ -160,22 +145,5 @@
     </footer>
 
     <script src="assets/nav.js"></script>
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            var f = e.target;
-            var body = [
-                'Name: ' + f.name.value,
-                'Email: ' + f.email.value,
-                'Phone: ' + (f.phone.value || '—'),
-                '',
-                f.message.value
-            ].join('\n');
-
-            window.location.href = 'mailto:privacy@studio0172.com'
-                + '?subject=' + encodeURIComponent('Website enquiry from ' + f.name.value)
-                + '&body=' + encodeURIComponent(body);
-        });
-    </script>
 </body>
 </html>

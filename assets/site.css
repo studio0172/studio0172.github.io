@@ -545,6 +545,78 @@ a {
     margin-bottom: 32px;
 }
 
+/* ---------- Email block ---------- */
+.email-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    max-width: 520px;
+}
+
+.email-block .email-address {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+    word-break: break-all;
+}
+
+.email-block .email-address:hover {
+    color: var(--amber-dark);
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-left: auto;
+    padding: 9px 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    border-color: var(--navy);
+    color: var(--text);
+}
+
+.copy-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.copy-btn.copied {
+    border-color: #2f855a;
+    color: #2f855a;
+}
+
+.copy-btn .check-icon {
+    display: none;
+}
+
+.copy-btn.copied .check-icon {
+    display: block;
+}
+
+.copy-btn.copied .copy-icon {
+    display: none;
+}
+
 /* ---------- Contact ---------- */
 .contact-grid {
     display: grid;
@@ -554,7 +626,7 @@ a {
 
 @media (min-width: 860px) {
     .contact-grid {
-        grid-template-columns: 1fr 1.1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 72px;
     }
 }
@@ -590,54 +662,6 @@ a {
 
 .contact-item a:hover {
     color: var(--amber-dark);
-}
-
-.form-card {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-}
-
-.field {
-    margin-bottom: 18px;
-}
-
-.field label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-.field input,
-.field textarea {
-    width: 100%;
-    padding: 11px 13px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font: inherit;
-    font-size: 15px;
-    background: #fff;
-    color: var(--text);
-}
-
-.field input:focus,
-.field textarea:focus {
-    outline: 2px solid var(--amber);
-    outline-offset: -1px;
-    border-color: var(--amber);
-}
-
-.field textarea {
-    resize: vertical;
-    min-height: 130px;
-}
-
-.form-note {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 14px;
 }
 
 /* ---------- Mobile ---------- */
@@ -720,8 +744,16 @@ a {
         padding: 44px 0 64px;
     }
 
-    .form-card {
-        padding: 24px;
+    .email-block {
+        padding: 18px 20px;
+    }
+
+    .email-block .email-address {
+        font-size: 18px;
+    }
+
+    .copy-btn {
+        margin-left: 0;
     }
 
     .hero-actions .btn,
