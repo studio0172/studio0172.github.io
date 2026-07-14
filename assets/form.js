@@ -1,6 +1,6 @@
 (function () {
     // Recipient is set in the Formspree dashboard, not here.
-    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mykrzerg';
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbdnlyol';
 
     var form = document.getElementById('contact-form');
     if (!form) return;
