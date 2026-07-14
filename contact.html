@@ -56,27 +56,21 @@
 
         <section class="section">
             <div class="wrap">
-                <div class="section-head">
-                    <span class="eyebrow">Email us</span>
-                    <h2>Send us an email</h2>
-                    <p>Whether you're applying to drive or just have a question, email is the fastest way to reach us. A member of our team will get back to you promptly.</p>
-                </div>
-                <div class="email-block">
-                    <a href="mailto:jobs@studio0172.com" class="email-address">jobs@studio0172.com</a>
-                    <button class="copy-btn" data-copy="jobs@studio0172.com" aria-label="Copy email address">
-                        <svg class="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        <svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span class="copy-label">Copy</span>
-                    </button>
-                </div>
-                <p style="color: var(--text-muted); font-size: 15px; margin-top: 20px; max-width: 62ch;">Applying to drive? Include your CDL class and state, your years of Class A experience, and a phone number we can reach you on.</p>
-            </div>
-        </section>
-
-        <section class="section section-alt">
-            <div class="wrap">
                 <div class="contact-grid">
                     <div>
+                        <div class="section-head" style="margin-bottom: 32px;">
+                            <span class="eyebrow">Email us</span>
+                            <h2 style="font-size: 28px;">Prefer email?</h2>
+                            <p>Whether you're applying to drive or just have a question, you can email us directly and a member of our team will get back to you.</p>
+                        </div>
+                        <div class="email-block" style="margin-bottom: 40px;">
+                            <a href="mailto:jobs@studio0172.com" class="email-address">jobs@studio0172.com</a>
+                            <button class="copy-btn" data-copy="jobs@studio0172.com" aria-label="Copy email address">
+                                <svg class="copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                                <svg class="check-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span class="copy-label">Copy</span>
+                            </button>
+                        </div>
                         <div class="contact-item">
                             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             <div>
@@ -98,6 +92,37 @@
                                 <p>See our <a href="careers.html" style="color: var(--amber-dark);">Careers</a> page for what we offer and what you'll need.</p>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="form-card">
+                        <h2 style="font-size: 22px; margin-bottom: 8px;">Send us a message</h2>
+                        <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 24px;">Ready to learn more about Studio 0172 or our driver opportunities? Fill out the form and a member of our team will get back to you promptly.</p>
+
+                        <form id="contact-form">
+                            <div class="field">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Phone <span style="font-weight: 400; color: var(--text-muted);">(optional)</span></label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel">
+                            </div>
+                            <div class="field">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <div class="consent">
+                                <input type="checkbox" id="sms-consent" name="sms-consent">
+                                <label for="sms-consent">By checking this box, I consent to receive conversational and service related SMS messages from Studio 0172 LLC at the phone number provided. Consent is not a condition of employment or of any purchase. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="privacy.html" style="color: var(--amber-dark);">Privacy Policy</a> and <a href="terms.html" style="color: var(--amber-dark);">Terms &amp; Conditions</a>.</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
+                            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                            <p class="form-note">Prefer email? Write to <a href="mailto:jobs@studio0172.com" style="color: var(--amber-dark);">jobs@studio0172.com</a> directly.</p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -145,5 +170,6 @@
     </footer>
 
     <script src="assets/nav.js"></script>
+    <script src="assets/form.js"></script>
 </body>
 </html>
