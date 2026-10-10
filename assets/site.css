@@ -741,6 +741,27 @@ a {
 
 .consent-choice .consent {
     margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s, box-shadow 0.15s;
+}
+
+.consent-choice .consent:last-child {
+    margin-bottom: 0;
+}
+
+.consent-choice .consent:hover {
+    border-color: var(--amber);
+}
+
+.consent-choice .consent:has(input:checked) {
+    border-color: var(--amber-dark);
+    background: #fffaf0;
+    box-shadow: 0 0 0 1px var(--amber-dark);
+}
+
+.consent-choice .consent:has(input:focus-visible) {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
 }
 
 .consent {
