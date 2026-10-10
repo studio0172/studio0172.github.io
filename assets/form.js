@@ -15,11 +15,11 @@
         return el ? el.value.trim() : '';
     }
 
-    // Every named field except the consent checkbox, in page order.
+    // Every named field except the SMS consent choice, in page order.
     function fields() {
         var out = [];
         Array.prototype.forEach.call(form.elements, function (el) {
-            if (!el.name || el.type === 'checkbox' || el.type === 'submit') return;
+            if (!el.name || el.type === 'checkbox' || el.type === 'radio' || el.type === 'submit') return;
             out.push({ name: el.name, label: labelFor(el), value: el.value.trim() });
         });
         return out;
@@ -31,8 +31,8 @@
     }
 
     function consentWording() {
-        var label = form.querySelector('label[for="sms-consent"]');
-        return label ? label.textContent.replace(/\s+/g, ' ').trim() : '';
+        var text = form.querySelector('#sms-consent-text');
+        return text ? text.textContent.replace(/\s+/g, ' ').trim() : '';
     }
 
     function setStatus(msg, kind) {
@@ -46,7 +46,7 @@
             return f.label + ': ' + (f.value || '—');
         }).concat([
             '----------------------------------------',
-            'SMS consent: ' + (consented ? 'YES — box checked' : 'NO — box not checked'),
+            'SMS consent: ' + (consented ? 'YES — selected Yes' : 'NO — selected No'),
             consented ? 'Agreed to: "' + consentWording() + '"' : '',
             'Submitted: ' + new Date().toString()
         ]).filter(function (l) { return l !== ''; }).join('\n');
@@ -59,6 +59,13 @@
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         var consented = form.querySelector('#sms-consent').checked;
+
+        // Phone is optional on the contact form, but consenting to texts needs a number.
+        if (consented && !val('phone')) {
+            setStatus('Please add a phone number so we can text you, or choose No.', 'err');
+            form.querySelector('#phone').focus();
+            return;
+        }
 
         if (!FORMSPREE_ENDPOINT) {
             mailtoFallback(consented);

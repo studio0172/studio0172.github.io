@@ -723,7 +723,26 @@ a {
     }
 }
 
-/* SMS consent: unchecked by default and never required to submit. */
+/* SMS consent: applicants must answer Yes or No, but either answer submits —
+   consent itself is never a condition of submitting. Nothing is pre-selected. */
+.consent-choice {
+    border: 0;
+    padding: 0;
+    margin: 0 0 18px;
+    min-width: 0;
+}
+
+.consent-choice legend {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+.consent-choice .consent {
+    margin-bottom: 8px;
+}
+
 .consent {
     display: flex;
     gap: 11px;
@@ -735,7 +754,8 @@ a {
     margin-bottom: 18px;
 }
 
-.consent input[type="checkbox"] {
+.consent input[type="checkbox"],
+.consent input[type="radio"] {
     width: 17px;
     height: 17px;
     margin-top: 2px;
