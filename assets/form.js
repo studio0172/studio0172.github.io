@@ -2,8 +2,10 @@
     // Recipient is set in the Formspree dashboard, not here.
     var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbdnlyol';
 
-    var form = document.getElementById('contact-form');
+    var form = document.getElementById('contact-form') || document.getElementById('apply-form');
     if (!form) return;
+
+    var SUBJECT_PREFIX = form.getAttribute('data-subject') || 'Website enquiry from';
 
     var status = document.getElementById('form-status');
     var submit = form.querySelector('button[type="submit"]');
@@ -11,6 +13,21 @@
     function val(id) {
         var el = form.querySelector('#' + id);
         return el ? el.value.trim() : '';
+    }
+
+    // Every named field except the consent checkbox, in page order.
+    function fields() {
+        var out = [];
+        Array.prototype.forEach.call(form.elements, function (el) {
+            if (!el.name || el.type === 'checkbox' || el.type === 'submit') return;
+            out.push({ name: el.name, label: labelFor(el), value: el.value.trim() });
+        });
+        return out;
+    }
+
+    function labelFor(el) {
+        var label = form.querySelector('label[for="' + el.id + '"]');
+        return label ? label.firstChild.textContent.trim() : el.name;
     }
 
     function consentWording() {
@@ -25,21 +42,17 @@
     }
 
     function mailtoFallback(consented) {
-        var body = [
-            'Name: ' + val('name'),
-            'Email: ' + val('email'),
-            'Phone: ' + (val('phone') || '—'),
-            '',
-            val('message'),
-            '',
+        var body = fields().map(function (f) {
+            return f.label + ': ' + (f.value || '—');
+        }).concat([
             '----------------------------------------',
             'SMS consent: ' + (consented ? 'YES — box checked' : 'NO — box not checked'),
             consented ? 'Agreed to: "' + consentWording() + '"' : '',
             'Submitted: ' + new Date().toString()
-        ].filter(function (l) { return l !== ''; }).join('\n');
+        ]).filter(function (l) { return l !== ''; }).join('\n');
 
         window.location.href = 'mailto:jobs@studio0172.com'
-            + '?subject=' + encodeURIComponent('Website enquiry from ' + val('name'))
+            + '?subject=' + encodeURIComponent(SUBJECT_PREFIX + ' ' + val('name'))
             + '&body=' + encodeURIComponent(body);
     }
 
@@ -55,24 +68,24 @@
         submit.disabled = true;
         setStatus('Sending…');
 
+        var payload = {};
+        fields().forEach(function (f) { payload[f.name] = f.value; });
+        // Record consent explicitly either way, plus the exact wording shown,
+        // so the stored submission is self-contained proof of what was agreed.
+        payload.sms_consent = consented ? 'YES' : 'NO';
+        payload.sms_consent_text = consented ? consentWording() : '';
+        payload._subject = SUBJECT_PREFIX + ' ' + val('name');
+
         fetch(FORMSPREE_ENDPOINT, {
             method: 'POST',
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: val('name'),
-                email: val('email'),
-                phone: val('phone'),
-                message: val('message'),
-                // Record consent explicitly either way, plus the exact wording shown,
-                // so the stored submission is self-contained proof of what was agreed.
-                sms_consent: consented ? 'YES' : 'NO',
-                sms_consent_text: consented ? consentWording() : '',
-                _subject: 'Website enquiry from ' + val('name')
-            })
+            body: JSON.stringify(payload)
         }).then(function (res) {
             if (!res.ok) throw new Error('HTTP ' + res.status);
             form.reset();
-            setStatus('Thanks — your message has been sent. We\'ll get back to you shortly.', 'ok');
+            setStatus(form.id === 'apply-form'
+                ? 'Thanks — your application has been received. Our team will be in touch soon.'
+                : 'Thanks — your message has been sent. We\'ll get back to you shortly.', 'ok');
         }).catch(function () {
             setStatus('Something went wrong. Please email jobs@studio0172.com instead.', 'err');
         }).then(function () {

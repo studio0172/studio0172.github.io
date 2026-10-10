@@ -686,6 +686,7 @@ a {
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="tel"],
+.field select,
 .field textarea {
     width: 100%;
     padding: 11px 13px;
@@ -698,6 +699,7 @@ a {
 }
 
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
     outline: 2px solid var(--amber);
     outline-offset: -1px;
@@ -707,6 +709,18 @@ a {
 .field textarea {
     resize: vertical;
     min-height: 130px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+@media (max-width: 480px) {
+    .field-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* SMS consent: unchecked by default and never required to submit. */
